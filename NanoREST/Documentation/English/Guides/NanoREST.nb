@@ -1,0 +1,539 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18625,        530]
+NotebookOptionsPosition[     13490,        429]
+NotebookOutlinePosition[     15052,        468]
+CellTagsIndexPosition[     15009,        465]
+WindowTitle->NanoREST Package
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["NANO R E S T GUIDE", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Functions",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Functions", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"AutotuneConfig\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/AutotuneConfig"], "\<\"CloseNano\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/CloseNano"], "\<\"Clustering\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/tutorial/Clustering"], "\<\"ComputePercentVariation\"\
+\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/ComputePercentVariation"], \
+"\<\"ConfigureNano\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/ConfigureNano"], \
+"\<\"GenerateRandomPatternFloat\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternFloat"], \
+"\<\"GenerateRandomPatternInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternInt"], \
+"\<\"GenerateRandomPatternNative\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternNative"], \
+"\<\"GenerateRandomVariantFloat\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantFloat"], \
+"\<\"GenerateRandomVariantInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantInt"], \
+"\<\"GenerateRandomVariantNative\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantNative"], \
+"\<\"GetBufferStatus\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetBufferStatus"], "\<\"GetConfig\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetConfig"], "\<\"GetNanoResults\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetNanoResults"], "\<\"GetNanoStatus\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetNanoStatus"], "\<\"GetVersion\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetVersion"], "\<\"LoadData\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/LoadData"], "\<\"NanoList\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/NanoList"], "\<\"OpenNano\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/OpenNano"], "\<\"RunNano\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/RunNano"], "\<\"SaveNano\"\>":>
+       Documentation`HelpLookup["paclet:NanoREST/ref/SaveNano"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"GuideFunction"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST/guide/NanoREST\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["NanoREST/guide/NanoREST"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/NanoREST/guide/\
+NanoREST.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7018], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "NanoREST/guide/NanoREST", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["NanoREST Package", "GuideTitle",
+ CellID->942062912],
+
+Cell["\<\
+This package contains the API calls to run the Boon Nano in the Mathematica \
+interface.\
+\>", "GuideAbstract",
+ CellID->2001916300]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Reference"
+}], "GuideReferenceSection",
+ WholeCellGroupOpener->True],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[CellGroupData[{
+
+Cell["Data Creation Functions", "GuideFunctionsSubsection",
+ CellID->523325678],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ComputePercentVariation"]],
+    "paclet:NanoREST/ref/ComputePercentVariation"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " given two patterns and a min and max, this returns the percent variation \
+between the vectors"
+}], "GuideText",
+ CellID->1414221260],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomPatternNative"]],
+    "paclet:NanoREST/ref/GenerateRandomPatternNative"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomPatternFloat"]],
+    "paclet:NanoREST/ref/GenerateRandomPatternFloat"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomPatternInt"]],
+    "paclet:NanoREST/ref/GenerateRandomPatternInt"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->1667427285],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantNative"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantNative"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantFloat"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantFloat"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantInt"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantInt"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->1224339192]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->2023965335],
+
+Cell[CellGroupData[{
+
+Cell["Configuration Calls", "GuideFunctionsSubsection",
+ CellID->777687398],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["OpenNano"]],"paclet:NanoREST/ref/OpenNano"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " starts a nano and returns the authentication information"
+}], "GuideText",
+ CellID->922774458],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["NanoList"]],"paclet:NanoREST/ref/NanoList"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " list of labels of nanos running"
+}], "GuideText",
+ CellID->815859405],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureNano"]],"paclet:NanoREST/ref/ConfigureNano"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " defines the paramters to read and cluster the data"
+}], "GuideText",
+ CellID->25898523],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["AutotuneConfig"]],"paclet:NanoREST/ref/AutotuneConfig"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " using the data, generates the ideal min, max, and percent variation to use \
+for clustering"
+}], "GuideText",
+ CellID->486124713],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SaveNano"]],"paclet:NanoREST/ref/SaveNano"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetConfig"]],"paclet:NanoREST/ref/GetConfig"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[FilledVerySmallSquare]", "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CloseNano"]],"paclet:NanoREST/ref/CloseNano"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"]
+}], "InlineGuideFunctionListing",
+ CellID->32233408]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->115763632],
+
+Cell[CellGroupData[{
+
+Cell["Clustering Analytics", "GuideFunctionsSubsection",
+ CellID->1044910606],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["LoadData"]],"paclet:NanoREST/ref/LoadData"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " uploads the dataset to the nano instance"
+}], "GuideText",
+ CellID->1976655373],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["RunNano"]],"paclet:NanoREST/ref/RunNano"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " clusters the uploaded data"
+}], "GuideText",
+ CellID->1353149832],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoResults"]],"paclet:NanoREST/ref/GetNanoResults"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " returns clustering results related to each pattern clustered"
+}], "GuideText",
+ CellID->640564943],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoStatus"]],"paclet:NanoREST/ref/GetNanoStatus"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " returns clustering statistics based on each cluster"
+}], "GuideText",
+ CellID->925907653],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetBufferStatus"]],"paclet:NanoREST/ref/GetBufferStatus"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives an overview on the bytes clustered/processed"
+}], "GuideText",
+ CellID->398230642],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["GetVersion"]],"paclet:NanoREST/ref/GetVersion"},
+  "RefLink",
+  BaseStyle->
+   "InlineFunctionSans"]], "InlineFunctionSans"]], \
+"InlineGuideFunctionListing",
+ CellID->58033752]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Tutorials"
+}], "GuideTutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->415694126],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["Clustering"]],"paclet:NanoREST/tutorial/Clustering"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " demonstration of using the Mathematica API for the Boon Nano"
+}], "GuideText",
+ CellID->1606979511]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"NanoREST Package",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "GuideColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2020, 2, 5, 16, 41, 58.535153}", 
+    "history" -> {"", "", "", ""}, "context" -> "NanoREST`", "keywords" -> {},
+     "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> 
+    True, "label" -> "Nano R E S T Guide", "language" -> "en", "paclet" -> 
+    "NanoREST", "status" -> "None", "summary" -> 
+    "This package contains the API calls to run the Boon Nano in the \
+Mathematica interface.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$6926, "title" -> 
+    "NanoREST Package", "titlemodifier" -> "", "windowtitle" -> 
+    "NanoREST Package", "type" -> "Guide", "uri" -> 
+    "NanoREST/guide/NanoREST"}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[588, 21, 5158, 114, 70, "AnchorBarGrid",ExpressionUUID->"2bfc8ca2-644c-417a-be6d-7376b596a056",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[5771, 139, 58, 1, 70, "GuideTitle",ExpressionUUID->"9068e96f-239c-44ec-8cb6-0c930ad71431",
+ CellID->942062912],
+Cell[5832, 142, 142, 4, 70, "GuideAbstract",ExpressionUUID->"414242cf-a0c0-4651-b2e8-f64fc8bc0fd6",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6011, 151, 137, 6, 70, "GuideReferenceSection",ExpressionUUID->"cefd2f72-eb1f-4345-a51c-5bec374ad06a"],
+Cell[6151, 159, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"22e88654-d685-491a-87a2-81b5649ad775"],
+Cell[CellGroupData[{
+Cell[6207, 163, 79, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"17e758ee-7384-4951-b930-f016188d8e2f",
+ CellID->523325678],
+Cell[6289, 166, 405, 12, 70, "GuideText",ExpressionUUID->"91876261-c6c7-4e2c-bc21-b28b6d218ea8",
+ CellID->1414221260],
+Cell[6697, 180, 879, 26, 70, "InlineGuideFunctionListing",ExpressionUUID->"74c3bc78-a41b-451d-84f5-2594102b6d7d",
+ CellID->1667427285],
+Cell[7579, 208, 879, 26, 70, "InlineGuideFunctionListing",ExpressionUUID->"52658506-8094-4a0a-bede-01e05c5ccc98",
+ CellID->1224339192]
+}, Open  ]],
+Cell[8473, 237, 59, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"33ead1ad-e9df-4a56-ba58-3c6eff47134c",
+ CellID->2023965335],
+Cell[CellGroupData[{
+Cell[8557, 242, 75, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"ad6db510-bf19-4d2b-9263-7f8f0afcdf2f",
+ CellID->777687398],
+Cell[8635, 245, 331, 10, 70, "GuideText",ExpressionUUID->"e7cff760-640f-43fe-9b2d-cbc954972574",
+ CellID->922774458],
+Cell[8969, 257, 306, 10, 70, "GuideText",ExpressionUUID->"d71d2cea-c5e9-4295-af0f-1e808a8caf0d",
+ CellID->815859405],
+Cell[9278, 269, 334, 10, 70, "GuideText",ExpressionUUID->"abe2b6b1-30df-4861-919d-a2fd769f28cb",
+ CellID->25898523],
+Cell[9615, 281, 378, 11, 70, "GuideText",ExpressionUUID->"492f990e-3fb9-4a86-9af1-0da0e0a93779",
+ CellID->486124713],
+Cell[9996, 294, 760, 23, 70, "InlineGuideFunctionListing",ExpressionUUID->"7ad754d7-5a9f-4a07-9c61-728114363443",
+ CellID->32233408]
+}, Open  ]],
+Cell[10771, 320, 58, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"6551e0d1-761e-434f-b4ce-183f0e4ae473",
+ CellID->115763632],
+Cell[CellGroupData[{
+Cell[10854, 325, 77, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"66516950-c363-4b49-b55f-80dfe1a1c425",
+ CellID->1044910606],
+Cell[10934, 328, 316, 10, 70, "GuideText",ExpressionUUID->"07f496d6-4a6b-42c3-8171-d8ac67a178f9",
+ CellID->1976655373],
+Cell[11253, 340, 300, 10, 70, "GuideText",ExpressionUUID->"9bd99120-cd9a-4916-a0ba-2ecf33c61288",
+ CellID->1353149832],
+Cell[11556, 352, 347, 10, 70, "GuideText",ExpressionUUID->"7a63f297-30f8-43e0-9297-e8f5bf7f07f4",
+ CellID->640564943],
+Cell[11906, 364, 336, 10, 70, "GuideText",ExpressionUUID->"8372a901-e2fa-463f-8a43-dfb8a7206f4e",
+ CellID->925907653],
+Cell[12245, 376, 339, 10, 70, "GuideText",ExpressionUUID->"f2195401-30e8-42cb-983f-4548774f5db0",
+ CellID->398230642],
+Cell[12587, 388, 239, 7, 70, "InlineGuideFunctionListing",ExpressionUUID->"fe154280-794f-4968-98a1-a87ac4aa949e",
+ CellID->58033752]
+}, Open  ]],
+Cell[12841, 398, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"69e88ce5-07bc-4621-b05d-c4003ed66232"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12909, 403, 157, 7, 70, "GuideTutorialsSection",ExpressionUUID->"3c57a0a9-5b22-4d88-bb87-b1b1fb79d0b5",
+ CellID->415694126],
+Cell[13069, 412, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"5f7ed124-309a-4b9a-bd55-b680922409f3"],
+Cell[13103, 414, 345, 10, 70, "GuideText",ExpressionUUID->"8190c579-5488-4a2f-8925-fdc3d1bd582c",
+ CellID->1606979511]
+}, Open  ]],
+Cell[13463, 427, 23, 0, 70, "FooterCell",ExpressionUUID->"6e9d3144-3931-40a5-9c52-7a2020672db1"]
+}
+]
+*)
+
+(* End of internal cache information *)

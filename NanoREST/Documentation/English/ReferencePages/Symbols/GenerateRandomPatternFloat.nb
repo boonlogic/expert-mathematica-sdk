@@ -1,0 +1,514 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17286,        505]
+NotebookOptionsPosition[     12203,        394]
+NotebookOutlinePosition[     14720,        455]
+CellTagsIndexPosition[     14635,        450]
+WindowTitle->GenerateRandomPatternFloat
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["NANO R E S T SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Tutorials",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Tutorials", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Clustering\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/tutorial/Clustering"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"Tutorials"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"GenerateRandomPatternNative\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternNative"], \
+"\<\"GenerateRandomPatternInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternInt"], \
+"\<\"GenerateRandomVariantNative\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantNative"], \
+"\<\"GenerateRandomVariantInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantInt"], \
+"\<\"GenerateRandomVariantFloat\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantFloat"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST Package\"\>":>
+       Documentation`HelpLookup["paclet:NanoREST/guide/NanoREST"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"MoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->
+         False], {"\<\"NanoREST/ref/GenerateRandomPatternFloat\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["NanoREST/ref/GenerateRandomPatternFloat"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/NanoREST/ref/\
+GenerateRandomPatternFloat.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$20118], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "NanoREST/ref/GenerateRandomPatternFloat", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell["GenerateRandomPatternFloat", "ObjectName"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{Cell[
+          TextData["GenerateRandomPatternFloat"]],
+         "paclet:NanoREST/ref/GenerateRandomPatternFloat"},
+        "RefLink",
+        BaseStyle->{"InlineFormula"}], "[", 
+       StyleBox[
+        RowBox[{"PatternLength", ",", " ", "MinVal", ",", " ", "MaxVal"}],
+        FontSlant->"Italic"], "]"}]], "InlineFormula"],
+     " \[LineSeparator]generates a random pattern of floats with values from ",
+     StyleBox["MinVal",
+      FontSlant->"Italic"],
+     " to ",
+     StyleBox["MaxVal",
+      FontSlant->"Italic"],
+     " with length ",
+     StyleBox["PatternLength\n",
+      FontSlant->"Italic"],
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{Cell[
+          TextData["GenerateRandomPatternFloat"]],
+         "paclet:NanoREST/ref/GenerateRandomPatternFloat"},
+        "RefLink",
+        BaseStyle->{"InlineFormula"}], "[", 
+       StyleBox[
+        RowBox[{"MinVals", ",", " ", "MaxVals"}],
+        FontSlant->"Italic"], "]"}]], "InlineFormula"],
+     StyleBox[" \[LineSeparator]",
+      FontSlant->"Italic"],
+     "generates a random pattern of floats with the same length as the list \
+of ",
+     StyleBox["MinVals",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["MaxVals",
+      FontSlant->"Italic"],
+     " with each column containing values from the respective ",
+     StyleBox["MinVal",
+      FontSlant->"Italic"],
+     " to ",
+     StyleBox["MaxVal",
+      FontSlant->"Italic"]
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1749911366],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->971782697],
+
+Cell[BoxData[
+ RowBox[{"<<", "NanoREST`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1078377955],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GenerateRandomPatternFloat", "[", 
+  RowBox[{"20", ",", 
+   RowBox[{"-", "0.1"}], ",", "5"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->540902248],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.20142179309069785`", ",", "4.505838076246032`", ",", "2.88016481242844`",
+    ",", "3.617302420124453`", ",", "2.9450111162407957`", ",", 
+   "0.7326485011160306`", ",", "3.5590370604657373`", ",", 
+   "0.8079878813744585`", ",", "4.40100001495232`", ",", 
+   "0.14721946582814738`", ",", "2.9946534353169127`", ",", 
+   "3.5738625948108282`", ",", "4.49569873033588`", ",", 
+   "3.7766516203925775`", ",", "1.805278251847624`", ",", 
+   RowBox[{"-", "0.012005670096020715`"}], ",", "2.765937703995397`", ",", 
+   "2.4325905993969963`", ",", "2.130131171757835`", ",", 
+   "1.5899557407478593`"}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->929508748]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GenerateRandomPatternFloat", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "20.5", ",", "6", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "50", ",", "7", ",", "100"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1476198789],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.06849963538846104`", ",", "33.64081964031702`", ",", 
+   "6.295485446415371`", ",", "66.8163680844724`"}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1457479358]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomPatternNative"]],
+    "paclet:NanoREST/ref/GenerateRandomPatternNative"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomPatternInt"]],
+    "paclet:NanoREST/ref/GenerateRandomPatternInt"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantNative"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantNative"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantInt"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantInt"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenerateRandomVariantFloat"]],
+    "paclet:NanoREST/ref/GenerateRandomVariantFloat"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Tutorials"
+}], "TutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->250839057],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Clustering"]],"paclet:NanoREST/tutorial/Clustering"},
+  "RefLink",
+  BaseStyle->"Tutorials"]], "Tutorials",
+ CellID->341631938],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Related Guides"
+}], "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["NanoREST Package"]],"paclet:NanoREST/guide/NanoREST"},
+  "RefLink",
+  BaseStyle->"MoreAbout"]], "MoreAbout",
+ CellID->1138653044]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GenerateRandomPatternFloat",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "NanoREST Package", ButtonData -> "paclet:NanoREST/guide/NanoREST", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2020, 2, 5, 16, 43, 5.697727}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "NanoREST`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Nano R E S T Symbol", "language" -> "en", "paclet" -> "NanoREST", 
+    "status" -> "None", "summary" -> 
+    "GenerateRandomPatternFloat[PatternLength, MinVal, MaxVal] generates a \
+random pattern of floats with values from MinVal to MaxVal with length \
+PatternLength GenerateRandomPatternFloat[MinVals, MaxVals] generates a random \
+pattern of floats with the same length as the list of MinVals and MaxVals \
+with each column containing values from the respective MinVal to MaxVal", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "GenerateRandomPatternFloat", "titlemodifier" -> "", "windowtitle" -> 
+    "GenerateRandomPatternFloat", "type" -> "Symbol", "uri" -> 
+    "NanoREST/ref/GenerateRandomPatternFloat", "WorkflowDockedCell" -> ""}, 
+  "SearchTextTranslated" -> "", "NewStyles" -> False},
+CellContext->"Global`",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[7344, 207, 268, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"a6e9a777-af6a-46fd-98df-fbcfff65935c",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1749911366]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 14436, 443}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[598, 21, 4853, 119, 70, "AnchorBarGrid",ExpressionUUID->"2d05dd31-c04e-4319-bab7-8046c7ff8956",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[5476, 144, 183, 6, 70, "ObjectNameGrid",ExpressionUUID->"03674a84-495e-4810-9f24-cd46c75403d0"],
+Cell[5662, 152, 1645, 50, 70, "Usage",ExpressionUUID->"8b7812b4-cd4e-4570-8db2-8d210a687324",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7344, 207, 268, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"a6e9a777-af6a-46fd-98df-fbcfff65935c",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1749911366],
+Cell[CellGroupData[{
+Cell[7637, 221, 195, 6, 70, "ExampleSection",ExpressionUUID->"e9e22db4-3b50-4f6f-a817-668c1598ff2a",
+ CellID->971782697],
+Cell[7835, 229, 97, 3, 70, "Input",ExpressionUUID->"a049f130-e32f-4a17-aa8e-65fb56cf8b9d",
+ CellID->1078377955],
+Cell[CellGroupData[{
+Cell[7957, 236, 177, 5, 70, "Input",ExpressionUUID->"e13b8c23-2c81-41b4-9fac-8b799798bc70",
+ CellID->540902248],
+Cell[8137, 243, 703, 14, 70, "Output",ExpressionUUID->"ff2ec62a-f85d-4cb9-9651-76f6ad0153f1",
+ CellID->929508748]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8877, 262, 312, 9, 70, "Input",ExpressionUUID->"810938d9-db89-465d-abcd-2681bfd19062",
+ CellID->1476198789],
+Cell[9192, 273, 213, 6, 70, "Output",ExpressionUUID->"ceb95aec-0e2d-4045-84b6-a89a1facf900",
+ CellID->1457479358]
+}, Open  ]]
+}, Open  ]],
+Cell[9432, 283, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"ea4f2006-ab7f-4a83-98b4-4377ac86b47f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9500, 288, 150, 7, 70, "SeeAlsoSection",ExpressionUUID->"95672aea-852b-4387-83ec-1b5b94d4db9b",
+ CellID->1255426704],
+Cell[9653, 297, 1666, 48, 70, "SeeAlso",ExpressionUUID->"7b70f874-7ec3-4187-8bef-635a43a21d98",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11356, 350, 152, 7, 70, "TutorialsSection",ExpressionUUID->"31086569-44dd-42f6-98fe-a33719bc40bb",
+ CellID->250839057],
+Cell[11511, 359, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"692f3200-edf4-47cd-bbde-d5510aea1c92"],
+Cell[11545, 361, 175, 5, 70, "Tutorials",ExpressionUUID->"b2b6e117-1c9f-4249-b866-76c654ac915b",
+ CellID->341631938],
+Cell[11723, 368, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"76cdc0cb-9d0c-41e5-abd9-81396c17f944"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11791, 373, 156, 7, 70, "MoreAboutSection",ExpressionUUID->"0bc61f04-c4b2-4a8a-a536-e546c446eda5",
+ CellID->38303248],
+Cell[11950, 382, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"7f3635e7-fdde-4072-a328-44e62882c175"],
+Cell[11984, 384, 177, 5, 70, "MoreAbout",ExpressionUUID->"5fdffabf-37b1-424d-8872-ad261107ad4f",
+ CellID->1138653044]
+}, Open  ]],
+Cell[12176, 392, 23, 0, 70, "FooterCell",ExpressionUUID->"a367891e-3156-4c0a-ab78-338816ad0b32"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,724 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24576,        715]
+NotebookOptionsPosition[     18514,        586]
+NotebookOutlinePosition[     20648,        642]
+CellTagsIndexPosition[     20563,        637]
+WindowTitle->Results
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["NANO R E S T SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Tutorials",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Tutorials", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Clustering\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/tutorial/Clustering"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"Tutorials"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"LoadData\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/LoadData"], "\<\"RunNano\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/RunNano"], "\<\"GetNanoResults\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetNanoResults"], "\<\"GetNanoStatus\"\>":>
+       Documentation`HelpLookup["paclet:NanoREST/ref/GetNanoStatus"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/guide/NanoREST"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"MoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST/ref/Results\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["NanoREST/ref/Results"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/NanoREST/ref/Results.\
+html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$30597], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "NanoREST/ref/Results", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell["Results", "ObjectName"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["Results"], "InlineFormula"],
+     " \[LineSeparator]option for specifying which analytics to return from \
+the nano"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}}},
+ CellID->982511436]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    TemplateBox[{6},
+     "Spacer1"]]],
+   "Details"
+  }], "NotesFrameText"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1365534033],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[{
+ "Options for Results in ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["LoadData"]],"paclet:NanoREST/ref/LoadData"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["RunNano"]],"paclet:NanoREST/ref/RunNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ", and ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoResults"]],"paclet:NanoREST/ref/GetNanoResults"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ":"
+}], "Notes",
+ CellID->1067943069],
+
+Cell[BoxData[GridBox[{
+   {"\[Placeholder]", "All", "\[Placeholder]", Cell[
+    "returns all the results in an association", "TableText"]},
+   {Cell["      ", "TableRowIcon"], "None", "\[Placeholder]", Cell[
+    "doesn't return any clustering results", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ID",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/ID"], "\[Placeholder]", Cell[
+    "Cluster IDs", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["SI",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/SI"], "\[Placeholder]", Cell[
+    "smoothed anomaly indexes", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["RI",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/RI"], "\[Placeholder]", Cell[
+    "raw anomaly indexes", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["FI",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/FI"], "\[Placeholder]", Cell[
+    "frequency indexes", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["DI",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/DI"], "\[Placeholder]", Cell[
+    "distance indexes", "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, 
+   "Rows" -> {None, None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{True, True, True, True, True, True, True, True}}}},
+ CellID->2034115231],
+
+Cell[TextData[{
+ "Options for Results in ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoStatus"]],"paclet:NanoREST/ref/GetNanoStatus"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ":"
+}], "Notes",
+ CellID->544798363],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], "All", "\[Placeholder]", Cell[
+    "returns all the results in an association", "TableText"]},
+   {Cell["      ", "TableRowIcon"], "None", "\[Placeholder]", Cell[
+    "doesn't return any clustering results", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["PCA",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/PCA"], "\[Placeholder]", Cell["\<\
+a 3D list of distance representations spread out over the unit cube (includes \
+0 cluster)\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["clusterGrowth",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/clusterGrowth"], "\[Placeholder]", Cell[
+    "indexes of where the number of clusters increased", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["clusterSizes",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/clusterSizes"], "\[Placeholder]", Cell[
+    "number of patterns in each cluster (includes 0 cluster)", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["anomalyIndexes",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/anomalyIndexes"], "\[Placeholder]", 
+    Cell[TextData[{
+     "see ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["RI"]],"paclet:NanoREST/ref/RI"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+     " (includes 0 cluster)"
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["frequencyIndexes",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/frequencyIndexes"], "\[Placeholder]", 
+    Cell[TextData[{
+     "see ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FI"]],"paclet:NanoREST/ref/FI"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+     " (includes 0 cluster)"
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["distanceIndexes",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/distanceIndexes"], "\[Placeholder]", 
+    Cell[TextData[{
+     "see ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["DI"]],"paclet:NanoREST/ref/DI"},
+       "RefLink",
+       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+     " (includes 0 cluster)"
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["totalInferences",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/totalInferences"], "\[Placeholder]", 
+    Cell["total number of patterns clustered", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["averageInferenceTime",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/averageInferenceTime"], 
+    "\[Placeholder]", Cell[
+    "average time to cluster each pattern", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["numClusters",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/numClusters"], "\[Placeholder]", Cell[
+    "number of clusters created (includes 0 cluster)", "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, 
+   "Rows" -> {
+    None, None, None, None, None, None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{
+     True, True, True, True, True, True, True, True, True, True, True, 
+      True}}}},
+ CellID->1234366660],
+
+Cell["", "SectionFooterSpacer"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->372757142],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->719487295],
+
+Cell[BoxData[
+ RowBox[{"<<", "NanoREST`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->642969661],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nano", "=", 
+   RowBox[{"OpenNano", "[", "\"\<test\>\"", "]"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2119255604],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"GenerateRandomPatternNative", "[", 
+      RowBox[{"20", ",", "10"}], "]"}], ",", "5"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", "#", "}"}], ",", 
+         RowBox[{"GenerateRandomVariantNative", "[", 
+          RowBox[{"#", ",", "10", ",", "0.03", ",", "10"}], "]"}]}], "]"}], 
+       "&"}], "/@", "data"}], ",", "1"}], "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[3]:=",
+ CellID->827679583],
+
+Cell[BoxData[
+ RowBox[{"ConfigureNano", "[", 
+  RowBox[{
+  "nano", ",", "uint16", ",", "20", ",", "0", ",", "10", ",", "0.06"}], 
+  "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->485254255],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"LoadData", "[", 
+  RowBox[{"nano", ",", "data"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"RunNano", "[", 
+  RowBox[{"nano", ",", 
+   RowBox[{"Results", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"ID", ",", "RI"}], "}"}]}]}], "]"}]}], "Input",
+ CellLabel->"In[5]:=",
+ CellID->2038584739],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"ID\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+      "1", ",", "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "2", ",", 
+      "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", 
+      "2", ",", "3", ",", "3", ",", "3", ",", "3", ",", "3", ",", "3", ",", 
+      "3", ",", "3", ",", "3", ",", "3", ",", "3", ",", "4", ",", "4", ",", 
+      "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", 
+      "4", ",", "4", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", 
+      "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5"}], "}"}]}], ",", 
+   RowBox[{"\<\"RI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1458777413]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetNanoStatus", "[", 
+  RowBox[{"nano", ",", 
+   RowBox[{"Results", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"clusterSizes", ",", "numClusters"}], "}"}]}]}], "]"}]], "Input",\
+
+ CellLabel->"In[6]:=",
+ CellID->1114870193],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"ClusterSizes", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "11", ",", "11", ",", "11", ",", "11", ",", "11"}], 
+     "}"}]}], ",", 
+   RowBox[{"NumClusters", "\[Rule]", "6"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->1998666139]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"CloseNano", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1353287715]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["LoadData"]],"paclet:NanoREST/ref/LoadData"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["RunNano"]],"paclet:NanoREST/ref/RunNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoResults"]],"paclet:NanoREST/ref/GetNanoResults"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetNanoStatus"]],"paclet:NanoREST/ref/GetNanoStatus"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Tutorials"
+}], "TutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->250839057],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Clustering"]],"paclet:NanoREST/tutorial/Clustering"},
+  "RefLink",
+  BaseStyle->"Tutorials"]], "Tutorials",
+ CellID->341631938],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Related Guides"
+}], "MoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->38303248],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["NanoREST"]],"paclet:NanoREST/guide/NanoREST"},
+  "RefLink",
+  BaseStyle->"MoreAbout"]], "MoreAbout",
+ CellID->2090034455]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Results",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "NanoREST Package", ButtonData -> "paclet:NanoREST/guide/NanoREST", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2020, 2, 5, 16, 44, 12.428725}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "NanoREST`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Nano R E S T Symbol", "language" -> "en", "paclet" -> "NanoREST", 
+    "status" -> "None", "summary" -> 
+    "Results option for specifying which analytics to return from the nano", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "Results", 
+    "titlemodifier" -> "", "windowtitle" -> "Results", "type" -> "Symbol", 
+    "uri" -> "NanoREST/ref/Results", "WorkflowDockedCell" -> ""}, 
+  "SearchTextTranslated" -> "", "NewStyles" -> False},
+CellContext->"Global`",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[12054, 350, 267, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"fd2a7855-6c11-414d-87b8-96b5773a3a4d",
+   CellTags->"PrimaryExamplesSection",
+   CellID->372757142]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 20364, 630}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[579, 21, 4502, 113, 70, "AnchorBarGrid",ExpressionUUID->"eec6dc62-022d-44d1-a7f3-6700b6163854",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[5106, 138, 164, 6, 70, "ObjectNameGrid",ExpressionUUID->"0ac024c4-b2bc-4210-86c0-87e81fbed12f"],
+Cell[5273, 146, 312, 9, 70, "Usage",ExpressionUUID->"2ed5c896-c14b-458b-b2bc-149ead898977",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5622, 160, 630, 19, 70, "NotesSection",ExpressionUUID->"378a87d6-5e4f-4570-8c0a-c606b28af782",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1365534033],
+Cell[6255, 181, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"6a31ab85-3f2d-42a2-b15d-ddda6b93466a"],
+Cell[6289, 183, 599, 21, 70, "Notes",ExpressionUUID->"75a5a9a2-70f3-4a3c-871f-8092ddb2eb6e",
+ CellID->1067943069],
+Cell[6891, 206, 1473, 37, 70, "3ColumnTableMod",ExpressionUUID->"7091a567-8ae2-44f0-aad9-89785a29dc25",
+ CellID->2034115231],
+Cell[8367, 245, 254, 9, 70, "Notes",ExpressionUUID->"04e2b0da-580c-4efc-a9b8-d236eab4c674",
+ CellID->544798363],
+Cell[8624, 256, 3359, 87, 70, "3ColumnTableMod",ExpressionUUID->"3f72c35d-10e1-47a0-bd3d-7a368d63a082",
+ CellID->1234366660],
+Cell[11986, 345, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"0537d797-be20-4ba4-9bf4-f3d2acfed721"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12054, 350, 267, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"fd2a7855-6c11-414d-87b8-96b5773a3a4d",
+ CellTags->"PrimaryExamplesSection",
+ CellID->372757142],
+Cell[CellGroupData[{
+Cell[12346, 364, 195, 6, 70, "ExampleSection",ExpressionUUID->"48bc1ab0-1249-46d7-8e22-0cef99edd427",
+ CellID->719487295],
+Cell[12544, 372, 96, 3, 70, "Input",ExpressionUUID->"68218eb2-ebd7-446b-aab6-0a1258e838b3",
+ CellID->642969661],
+Cell[12643, 377, 161, 5, 70, "Input",ExpressionUUID->"abaff8a3-9ad9-4ca5-a811-a5dd24a465ed",
+ CellID->2119255604],
+Cell[12807, 384, 665, 21, 70, "Input",ExpressionUUID->"79ef1728-b86d-40e8-92b3-04b6c095484d",
+ CellID->827679583],
+Cell[13475, 407, 191, 6, 70, "Input",ExpressionUUID->"72118d09-e473-48af-a85b-379b87fd10c1",
+ CellID->485254255],
+Cell[CellGroupData[{
+Cell[13691, 417, 312, 9, 70, "Input",ExpressionUUID->"7014572a-42a5-4bc1-8bd6-8ffeaa918e30",
+ CellID->2038584739],
+Cell[14006, 428, 1470, 27, 70, "Output",ExpressionUUID->"e4027468-491a-4f81-8fbe-74334bf8dbd9",
+ CellID->1458777413]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15513, 460, 246, 8, 70, "Input",ExpressionUUID->"eb6474c5-b3cf-4ccd-af35-edc7932127d9",
+ CellID->1114870193],
+Cell[15762, 470, 338, 10, 70, "Output",ExpressionUUID->"2db0e32f-b53d-4e4f-9a5c-6cd8563c0adf",
+ CellID->1998666139]
+}, Open  ]],
+Cell[16115, 483, 109, 3, 70, "Input",ExpressionUUID->"c126ab06-18cd-45d0-bbf5-c64ebeefdcfb",
+ CellID->1353287715]
+}, Open  ]],
+Cell[16239, 489, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"373bb99c-a5d1-445a-96c8-f88cd0cecb39"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16307, 494, 150, 7, 70, "SeeAlsoSection",ExpressionUUID->"09e1464b-a7fa-4274-9d45-01336938e4a6",
+ CellID->1255426704],
+Cell[16460, 503, 1178, 34, 70, "SeeAlso",ExpressionUUID->"b2b435af-a973-41bc-a0b0-f29131405085",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17675, 542, 152, 7, 70, "TutorialsSection",ExpressionUUID->"295112b8-8240-4afe-8795-4430133ec045",
+ CellID->250839057],
+Cell[17830, 551, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"d5a5f58c-453c-4096-88cc-c5662d1a983f"],
+Cell[17864, 553, 175, 5, 70, "Tutorials",ExpressionUUID->"4b3d5b68-3077-481e-9324-f711cd82ac74",
+ CellID->341631938],
+Cell[18042, 560, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"6a343e50-5ed2-435e-9fe5-810d017636d3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18110, 565, 156, 7, 70, "MoreAboutSection",ExpressionUUID->"ff3434b3-5095-46f4-8134-837d00dab748",
+ CellID->38303248],
+Cell[18269, 574, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"b60a5a2e-fb63-4870-8485-81ee27ec3af8"],
+Cell[18303, 576, 169, 5, 70, "MoreAbout",ExpressionUUID->"0ac012f1-eed8-42bb-b984-7955c91f7677",
+ CellID->2090034455]
+}, Open  ]],
+Cell[18487, 584, 23, 0, 70, "FooterCell",ExpressionUUID->"092ebff6-7eab-47b6-bef8-c56e40edcaca"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,3105 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    129256,       3096]
+NotebookOptionsPosition[    111973,       2747]
+NotebookOutlinePosition[    114235,       2805]
+CellTagsIndexPosition[    114192,       2802]
+WindowTitle->NanoREST Clustering
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["NANO R E S T TUTORIAL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/guide/NanoREST"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"TutorialMoreAboutSection"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Functions",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Functions", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"AutotuneConfig\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/AutotuneConfig"], \
+"\<\"ComputePercentVariation\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/ComputePercentVariation"], \
+"\<\"ConfigureNano\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/ConfigureNano"], \
+"\<\"GenerateRandomPatternFloat\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternFloat"], \
+"\<\"GenerateRandomPatternInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternInt"], \
+"\<\"GenerateRandomPatternNative\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomPatternNative"], \
+"\<\"GenerateRandomVariantFloat\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantFloat"], \
+"\<\"GenerateRandomVariantInt\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantInt"], \
+"\<\"GenerateRandomVariantNative\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GenerateRandomVariantNative"], \
+"\<\"GetBufferStatus\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetBufferStatus"], "\<\"GetConfig\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetConfig"], "\<\"GetNanoResults\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetNanoResults"], "\<\"GetNanoStatus\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/GetNanoStatus"], "\<\"LoadData\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/LoadData"], "\<\"NanoList\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/NanoList"], "\<\"RunNano\"\>":>
+       Documentation`HelpLookup[
+       "paclet:NanoREST/ref/RunNano"], "\<\"SaveNano\"\>":>
+       Documentation`HelpLookup["paclet:NanoREST/ref/SaveNano"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"TutorialFunction"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"NanoREST/tutorial/Clustering\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["NanoREST/tutorial/Clustering"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/NanoREST/tutorial/\
+Clustering.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$34233], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "NanoREST/tutorial/Clustering", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellLabel->"In[1]:=",
+ CellID->519074551],
+
+Cell[CellGroupData[{
+
+Cell["NanoREST Clustering", "Title",
+ CellID->509267359],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+     Cell["Nano Startup"],"paclet:NanoREST/tutorial/Clustering#604775092",
+      GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{128, 128, 128, 32}, {128, 128, 128, 
+          16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 
+          128, 128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 
+          128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 
+          128, 143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 
+          128, 64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 32}}, {{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 
+          128, 16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 
+          128, 127}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 
+          128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 128, 
+          128, 0}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+          143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 128, 
+          64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          32}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 
+          16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 128, 
+          127}, {128, 128, 128, 0}, {128, 128, 128, 0}}, {{128, 128, 128, 
+          0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 
+          128, 128, 0}}}], {{0, 8}, {8, 0}}, {0, 255}, ColorFunction -> 
+         RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 
+          95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{
+          229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 
+          28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95, 28, 
+          191}, {229, 95, 28, 32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229, 95, 
+          28, 127}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 
+          48}, {229, 95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229,
+           95, 28, 16}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 
+          239}}, {{229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {
+          229, 95, 28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95,
+           28, 191}, {229, 95, 28, 32}}, {{229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229,
+           95, 28, 127}, {229, 95, 28, 0}, {229, 95, 28, 0}}, {{229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 
+          28, 16}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}}}], {{
+         0, 8}, {8, 0}}, {0, 255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "XMP" -> Association[{
+              "BasicSchema" -> 
+               Association[{
+                 "CreatorTool" -> "Adobe Photoshop CS5 Macintosh"}], 
+               "MediaManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}], 
+                  "DocumentID" -> "xmp.did:AA75CDBB059711E28ADB8BB95CCA5C5A", 
+                  "InstanceID" -> 
+                  "xmp.iid:AA75CDBA059711E28ADB8BB95CCA5C5A"}], 
+               "RightsManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}], 
+               "PagedTextSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}]}], 
+            "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+     Cell["Analytics"],"paclet:NanoREST/tutorial/Clustering#1808925427",
+      GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{128, 128, 128, 32}, {128, 128, 128, 
+          16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 
+          128, 128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 
+          128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 
+          128, 143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 
+          128, 64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 32}}, {{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 
+          128, 16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 
+          128, 127}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 
+          128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 128, 
+          128, 0}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+          143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 128, 
+          64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          32}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 
+          16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 128, 
+          127}, {128, 128, 128, 0}, {128, 128, 128, 0}}, {{128, 128, 128, 
+          0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 
+          128, 128, 0}}}], {{0, 8}, {8, 0}}, {0, 255}, ColorFunction -> 
+         RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 
+          95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{
+          229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 
+          28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95, 28, 
+          191}, {229, 95, 28, 32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229, 95, 
+          28, 127}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 
+          48}, {229, 95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229,
+           95, 28, 16}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 
+          239}}, {{229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {
+          229, 95, 28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95,
+           28, 191}, {229, 95, 28, 32}}, {{229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229,
+           95, 28, 127}, {229, 95, 28, 0}, {229, 95, 28, 0}}, {{229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 
+          28, 16}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}}}], {{
+         0, 8}, {8, 0}}, {0, 255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "XMP" -> Association[{
+              "BasicSchema" -> 
+               Association[{
+                 "CreatorTool" -> "Adobe Photoshop CS5 Macintosh"}], 
+               "MediaManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}], 
+                  "DocumentID" -> "xmp.did:AA75CDBB059711E28ADB8BB95CCA5C5A", 
+                  "InstanceID" -> 
+                  "xmp.iid:AA75CDBA059711E28ADB8BB95CCA5C5A"}], 
+               "RightsManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}], 
+               "PagedTextSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}]}], 
+            "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+     Cell["Clustering"],"paclet:NanoREST/tutorial/Clustering#1035121784",
+      GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{128, 128, 128, 32}, {128, 128, 128, 
+          16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 
+          128, 128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 
+          128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 
+          128, 143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 
+          128, 64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 32}}, {{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 
+          128, 16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 
+          128, 127}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 
+          128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 128, 
+          128, 0}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+          143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 128, 
+          64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          32}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 
+          16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 128, 
+          127}, {128, 128, 128, 0}, {128, 128, 128, 0}}, {{128, 128, 128, 
+          0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 
+          128, 128, 0}}}], {{0, 8}, {8, 0}}, {0, 255}, ColorFunction -> 
+         RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 
+          95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{
+          229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 
+          28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95, 28, 
+          191}, {229, 95, 28, 32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229, 95, 
+          28, 127}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 
+          48}, {229, 95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229,
+           95, 28, 16}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 
+          239}}, {{229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {
+          229, 95, 28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95,
+           28, 191}, {229, 95, 28, 32}}, {{229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229,
+           95, 28, 127}, {229, 95, 28, 0}, {229, 95, 28, 0}}, {{229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 
+          28, 16}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}}}], {{
+         0, 8}, {8, 0}}, {0, 255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "XMP" -> Association[{
+              "BasicSchema" -> 
+               Association[{
+                 "CreatorTool" -> "Adobe Photoshop CS5 Macintosh"}], 
+               "MediaManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}], 
+                  "DocumentID" -> "xmp.did:AA75CDBB059711E28ADB8BB95CCA5C5A", 
+                  "InstanceID" -> 
+                  "xmp.iid:AA75CDBA059711E28ADB8BB95CCA5C5A"}], 
+               "RightsManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}], 
+               "PagedTextSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}]}], 
+            "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+     Cell["Pattern Generation"],
+      "paclet:NanoREST/tutorial/Clustering#1313035530",GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{128, 128, 128, 32}, {128, 128, 128, 
+          16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 
+          128, 128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 
+          128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 
+          128, 143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 
+          128, 64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 
+          128, 32}}, {{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 
+          128, 16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 
+          128, 127}, {128, 128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 
+          128, 48}, {128, 128, 128, 239}, {128, 128, 128, 112}, {128, 128, 
+          128, 0}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+          143}, {128, 128, 128, 239}}, {{128, 128, 128, 0}, {128, 128, 128, 
+          64}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          112}, {128, 128, 128, 223}, {128, 128, 128, 191}, {128, 128, 128, 
+          32}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 
+          16}, {128, 128, 128, 175}, {128, 128, 128, 255}, {128, 128, 128, 
+          127}, {128, 128, 128, 0}, {128, 128, 128, 0}}, {{128, 128, 128, 
+          0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {
+          128, 128, 128, 16}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 
+          128, 128, 0}}}], {{0, 8}, {8, 0}}, {0, 255}, ColorFunction -> 
+         RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[
+        RawArray["UnsignedInteger8",{{{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 
+          95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{
+          229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 
+          28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95, 28, 
+          191}, {229, 95, 28, 32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {
+          229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229, 95, 
+          28, 127}, {229, 95, 28, 0}, {229, 95, 28, 48}}, {{229, 95, 28, 
+          48}, {229, 95, 28, 239}, {229, 95, 28, 112}, {229, 95, 28, 0}, {229,
+           95, 28, 16}, {229, 95, 28, 16}, {229, 95, 28, 143}, {229, 95, 28, 
+          239}}, {{229, 95, 28, 0}, {229, 95, 28, 64}, {229, 95, 28, 223}, {
+          229, 95, 28, 191}, {229, 95, 28, 112}, {229, 95, 28, 223}, {229, 95,
+           28, 191}, {229, 95, 28, 32}}, {{229, 95, 28, 0}, {229, 95, 28, 
+          0}, {229, 95, 28, 16}, {229, 95, 28, 175}, {229, 95, 28, 255}, {229,
+           95, 28, 127}, {229, 95, 28, 0}, {229, 95, 28, 0}}, {{229, 95, 28, 
+          0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 
+          28, 16}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}}}], {{
+         0, 8}, {8, 0}}, {0, 255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic, MetaInformation -> 
+         Association[{
+           "XMP" -> Association[{
+              "BasicSchema" -> 
+               Association[{
+                 "CreatorTool" -> "Adobe Photoshop CS5 Macintosh"}], 
+               "MediaManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}], 
+                  "DocumentID" -> "xmp.did:AA75CDBB059711E28ADB8BB95CCA5C5A", 
+                  "InstanceID" -> 
+                  "xmp.iid:AA75CDBA059711E28ADB8BB95CCA5C5A"}], 
+               "RightsManagementSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}], 
+               "PagedTextSchema" -> 
+               Association[{
+                 "DerivedFrom" -> 
+                  Association[{
+                    "DerivedFrom" -> 
+                    Association[{
+                    "InstanceID" -> 
+                    "xmp.iid:AA75CDB8059711E28ADB8BB95CCA5C5A", "DocumentID" -> 
+                    "xmp.did:AA75CDB9059711E28ADB8BB95CCA5C5A"}]}]}]}], 
+            "Comments" -> Association[{"Software" -> "Adobe ImageReady"}]}]], 
+        Selectable -> False], DefaultBaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]}
+  }]], "TutorialJumpBox"],
+
+Cell["Demonstration on using the Mathematica API of the Boon Nano", "Text",
+ CellID->1534169418],
+
+Cell["Load the package", "MathCaption",
+ CellID->836781195],
+
+Cell[BoxData[
+ RowBox[{"<<", "NanoREST`"}]], "Input",
+ InitializationCell->True,
+ CellLabel->"In[1]:=",
+ CellID->2058623809],
+
+Cell[CellGroupData[{
+
+Cell["Nano Startup", "Section",
+ CellID->604775092],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"OpenNano", "[", "Label", "]"}], Cell[
+    "starts a new nano instance with the given label", "TableText"]},
+   {
+    RowBox[{"CloseNano", "[", "NanoHandle", "]"}], Cell[
+    "frees the running nano", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["NanoList",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/NanoList"], "[", "NanoHandle", "]"}], 
+    Cell["returns a list of running nano instances", "TableText"]}
+  }]], "DefinitionBox",
+ CellID->882910844],
+
+Cell["Nano Instances.", "Caption",
+ CellID->2118037985],
+
+Cell["Call this function to start a nano instance", "MathCaption",
+ CellID->1841362639],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"nano", "=", 
+  RowBox[{"OpenNano", "[", "\"\<test\>\"", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->177170198],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"api-key\"\>", "\[Rule]", "\<\"no-key\"\>"}], ",", 
+   RowBox[{"\<\"api-tenant\"\>", "\[Rule]", "\<\"no-tenant\"\>"}], ",", 
+   RowBox[{"\<\"url\"\>", 
+    "\[Rule]", "\<\"http://localhost:5007/expert/v3/\"\>"}], ",", 
+   RowBox[{"\<\"instance\"\>", "\[Rule]", "\<\"test\"\>"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->577083963]
+}, Open  ]],
+
+Cell[TextData[{
+ "Now the nano, \"test\",  has been initialized and the association returned \
+will be used later in the clustering calls in order to know which nano \
+instance the cluster calls should talk to. Calling ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CloseNano"]],"paclet:NanoREST/ref/CloseNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ "[nano] frees up the nano instance, but it is not recoverable unless it is \
+saved first ."
+}], "Text",
+ CellID->588021026],
+
+Cell["\<\
+Next, configuring the nano sets up the correct number of features (or columns \
+of data) using the specified data types along with setting initial minimum \
+values, maximum values, weights for the columns, percent variation, accuracy, \
+and streaming window. These can be autotuned later but must first be \
+initialized before adding data or running the nano.\
+\>", "Text",
+ CellID->881152906],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["GetConfig",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GetConfig"], "[", 
+     StyleBox["InstanceID",
+      FontSlant->"Italic"], "]"}], Cell[
+    "returns the cluster parameters values", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["ConfigureNano",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/ConfigureNano"], "[", 
+     RowBox[{
+      StyleBox["NumericaFormat",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["FeautreCount",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["Min",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["Max",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["PercentVariation",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["StreamingWindow",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["Weight",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["Accuracy",
+       FontSlant->"Italic"]}], "]"}], Cell[
+    "posts the parameters for reading and clustering data", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["AutotuneConfig",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/AutotuneConfig"], "[", 
+     StyleBox["InstanceID",
+      FontSlant->"Italic"], "]"}], Cell[TextData[Cell[BoxData[Cell["\<\
+returns an unsupervised selection of min, max and percent variation values\
+\>", "TableText"]]]], "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["SaveNano",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/SaveNano"], "[", 
+     StyleBox[
+      RowBox[{"InstanceID", ",", "filename"}],
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "gets the nano state for the ",
+     StyleBox["InstanceID",
+      FontSlant->"Italic"],
+     " to save for later use"
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->1563746915],
+
+Cell["Initializing cluster parameters.", "Caption",
+ CellID->989528419],
+
+Cell["Post the clustering parameters", "MathCaption",
+ CellID->1762705810],
+
+Cell[BoxData[
+ RowBox[{"ConfigureNano", "[", 
+  RowBox[{
+  "nano", ",", "float32", ",", "20", ",", "0", ",", "2", ",", "0.05"}], 
+  "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->174614092],
+
+Cell["\<\
+With the config initialized, the data can be uploaded and clustered. The nano \
+will return a 400 error code if the data is posted before the config because \
+it needs to know how how many features to read in and what data type. The \
+initial config doesn't need to be the final values since you can change them \
+later or autotune, but the number of features needs to be accurate for the \
+data to be read in correctly.\
+\>", "Text",
+ CellID->1600224932],
+
+Cell[CellGroupData[{
+
+Cell["Parameters breakdown", "Subsection",
+ CellID->516340506],
+
+Cell[TextData[{
+ "The nano has three options for ",
+ StyleBox["types",
+  FontWeight->"Bold"],
+ " of data: float, int, and native. Float data is just that, int data is any \
+integer data, and native data is integer data that has a minimum value of 0. \
+All three versions talk to each other and run the same way in the background \
+but the specification is necessary to save that little bit of time when \
+running native data so that the background conversion step is skipped. In \
+other words, running a float or int run converts the data to native and works \
+with it in that form then converts it back so native data is naturally faster."
+}], "Text",
+ CellID->1733472371],
+
+Cell[TextData[{
+ "The number of features (or",
+ StyleBox[" pattern length",
+  FontWeight->"Bold"],
+ ") along with the ",
+ StyleBox["minimum",
+  FontWeight->"Bold"],
+ " and ",
+ StyleBox["maximum",
+  FontWeight->"Bold"],
+ " values are used in the nano to calculate the ",
+ StyleBox["percent variation",
+  FontWeight->"Bold"],
+ ". The percent variation is a distance statistic specific to the nano that \
+determines how different two vectors are from each other."
+}], "Text",
+ CellID->882992252],
+
+Cell["\<\
+Percent variation is a kind of Manhattan distance where the distance is \
+measured component-wise between the two waveforms, and then normalized to be \
+a value between 0 and 1 where 0 is the same waveform and 1 is completely \
+opposite waveforms. Each waveform that is measured could also be thought of \
+as a point in n-dimensional space where n is the pattern length of the \
+waveform. For a simple example, take the waveforms A={1,4,5} and B={3,0,2}. \
+These can be thought of as 3-dimensional points or 2-dimensional waveforms\
+\>", "Text",
+ CellID->1647274132],
+
+Cell["Example points in 3D space", "MathCaption",
+ CellID->1102415943],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPointPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Labeled", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "4", ",", "5"}], "}"}], ",", "\"\<A\>\""}], "]"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Labeled", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"3", ",", "0", ",", "2"}], "}"}], ",", "\"\<B\>\""}], "]"}], 
+      "}"}]}], "}"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"PointSize", "[", ".05", "]"}], "}"}], "}"}]}], ",", 
+   RowBox[{"BoxRatios", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", " ", "1", ",", " ", "1"}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "6"}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1939729647],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {RGBColor[0.3315753, 0.4561011, 0.6388182], PointSize[0.05], 
+     Point3DBox[{1., 4., 5.}]}, 
+    {RGBColor[0.7926498, 0.5499369, 0.1278459], PointSize[0.05], 
+     Point3DBox[{3., 0., 2.}]}}, {{{}, {Inset3DBox[
+       FormBox[
+        GraphicsBox[GraphicsGroupBox[{
+           {EdgeForm[None], FaceForm[{GrayLevel[1], Opacity[
+             NCache[
+              Rational[2, 3], 0.6666666666666666]]}], 
+            PolygonBox[{
+             Offset[{11.999999999999998`, 13.000000000000002`}, {0., 0.}], 
+              Offset[{12.000000000000002`, 1.7763568394002505`*^-15}, {0., 
+               0.}], Offset[{
+               1.7763568394002505`*^-15, -1.7763568394002505`*^-15}, {0., 
+               0.}], Offset[{-1.7763568394002505`*^-15, 
+               12.999999999999998`}, {0., 0.}]}]}, 
+           {RGBColor[
+            0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 
+            AbsoluteThickness[1.25], EdgeForm[None]}, {}, InsetBox[
+            StyleBox[
+             RotationBox["\<\"B\"\>",
+              BoxRotation->0.],
+             StripOnInput->False,
+             Opacity->1,
+             FontOpacity->1,
+             $CellContext`LineOpacity -> 1,
+             $CellContext`FrontFaceOpacity -> 1,
+             $CellContext`BackFaceOpacity -> 1], 
+            Offset[{6., 6.5}, {0., 0.}], {0, 0}]}],
+         AspectRatio->Full,
+         ImageSize->{26, 27},
+         PlotRange->
+          NCache[{{-1 + 2^Rational[-1, 2], 1 + 2^Rational[-1, 2]}, {-1 + 
+             2^Rational[-1, 2], 1 + 
+             2^Rational[-1, 2]}}, {{-0.29289321881345254`, 
+           1.7071067811865475`}, {-0.29289321881345254`, 
+           1.7071067811865475`}}]], StandardForm], {3., 0., 2.}, 
+       Offset[{-5.8824947474752545, -6.931348243237509}, {0, 0}]], 
+      Inset3DBox[
+       FormBox[
+        GraphicsBox[GraphicsGroupBox[{
+           {EdgeForm[None], FaceForm[{GrayLevel[1], Opacity[
+             NCache[
+              Rational[2, 3], 0.6666666666666666]]}], 
+            PolygonBox[{
+             Offset[{11.999999999999998`, 13.000000000000002`}, {0., 0.}], 
+              Offset[{12.000000000000002`, 1.7763568394002505`*^-15}, {0., 0.}
+               ], 
+              Offset[{1.7763568394002505`*^-15, -1.7763568394002505`*^-15}, {
+               0., 0.}], 
+              Offset[{-1.7763568394002505`*^-15, 12.999999999999998`}, {0., 
+               0.}]}]}, 
+           {RGBColor[
+            0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 
+            AbsoluteThickness[1.25], EdgeForm[None]}, {}, InsetBox[
+            StyleBox[
+             RotationBox["\<\"A\"\>",
+              BoxRotation->0.],
+             StripOnInput->False,
+             Opacity->1,
+             FontOpacity->1,
+             $CellContext`LineOpacity -> 1,
+             $CellContext`FrontFaceOpacity -> 1,
+             $CellContext`BackFaceOpacity -> 1], 
+            Offset[{6., 6.5}, {0., 0.}], {0, 0}]}],
+         AspectRatio->Full,
+         ImageSize->{26, 27},
+         PlotRange->
+          NCache[{{-1 + 2^Rational[-1, 2], 1 + 2^Rational[-1, 2]}, {-1 + 
+             2^Rational[-1, 2], 1 + 
+             2^Rational[-1, 2]}}, {{-0.29289321881345254`, 
+           1.7071067811865475`}, {-0.29289321881345254`, 
+           1.7071067811865475`}}]], StandardForm], {1., 4., 5.}, 
+       Offset[{-5.8824947474752545, -6.931348243237509}, {0, 0}]]}}, {}}, {}},
+  
+  Axes->True,
+  AxesLabel->{None, None, None},
+  BoxRatios->{1, 1, 1},
+  DisplayFunction->Identity,
+  FaceGrids->None,
+  FaceGridsStyle->Automatic,
+  PlotRange->{{-1, 6}, {-1, 6}, {-1, 6}},
+  PlotRangePadding->{{0, 0}, {0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic, Automatic},
+  ViewPoint->{1.5331156660425753`, -2.5213615366596542`, 1.655986822407745},
+  ViewVertical->{0.14512925278900748`, -0.056196059833476135`, 
+   0.9878155206535767}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1551291674]
+}, Open  ]],
+
+Cell["Example points in 2D", "MathCaption",
+ CellID->1805753714],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Labeled", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "4", ",", "5"}], "}"}], ",", "\"\<A\>\""}], "]"}], 
+     ",", 
+     RowBox[{"Labeled", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0", ",", "2"}], "}"}], ",", "\"\<B\>\""}], "]"}]}],
+     "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "6"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"PlotMarkers", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\[FilledCircle]", ",", "\[FilledCircle]"}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->40414394],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{{}, {}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+       LineBox[{{1., 1.}, {2., 4.}, {3., 5.}}]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {1}}]& ], 
+     TagBox[
+      {RGBColor[0.880722, 0.611041, 0.142051], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+       LineBox[{{1., 3.}, {2., 0.}, {3., 2.}}]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {2}}]& ]}, {
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+       GeometricTransformationBox[InsetBox[
+         StyleBox["\[FilledCircle]",
+          StripOnInput->False,
+          GraphicsBoxOptions->{DefaultBaseStyle->Directive[
+            PointSize[
+             Rational[7, 360]], 
+            RGBColor[0.368417, 0.506779, 0.709798], 
+            AbsoluteThickness[1.6]]}], {0., 0.}], {{{1., 1.}}, {{2., 4.}}, {{
+        3., 5.}}}]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {1}}]& ], 
+     TagBox[
+      {RGBColor[0.880722, 0.611041, 0.142051], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+       GeometricTransformationBox[InsetBox[
+         StyleBox["\[FilledCircle]",
+          StripOnInput->False,
+          GraphicsBoxOptions->{DefaultBaseStyle->Directive[
+            PointSize[
+             Rational[7, 360]], 
+            RGBColor[0.880722, 0.611041, 0.142051], 
+            AbsoluteThickness[1.6]]}], {0., 0.}], {{{1., 3.}}, {{2., 0.}}, {{
+        3., 2.}}}]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {2}}]& ]}, {
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {1}}]& ], 
+     TagBox[
+      {RGBColor[0.880722, 0.611041, 0.142051], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {
+        2}}]& ], {}, {}, {}}, {
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {1}}]& ], 
+     TagBox[
+      {RGBColor[0.880722, 0.611041, 0.142051], PointSize[
+        NCache[
+         Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6]},
+      Annotation[#, {{Labeled}, Charting`Private`Tag$3678, {
+        2}}]& ], {}, {}, {}}}, {{{{}, {GraphicsGroupBox[{
+         {EdgeForm[None], FaceForm[{GrayLevel[1], Opacity[
+           NCache[
+            Rational[2, 3], 0.6666666666666666]]}], 
+          PolygonBox[{
+           Offset[{11.999999999999998`, 6.5000000000000036`}, {
+             3.0425347222222223`, 4.99999690203674}], 
+            Offset[{12.000000000000002`, -6.4999999999999964`}, {
+             3.0425347222222223`, 4.99999690203674}], 
+            Offset[{1.7763568394002505`*^-15, -6.5}, {3.0425347222222223`, 
+             4.99999690203674}], 
+            Offset[{-1.7763568394002505`*^-15, 6.5}, {3.0425347222222223`, 
+             4.99999690203674}]}]}, 
+         {RGBColor[
+          0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 
+          AbsoluteThickness[1.25], EdgeForm[None]}, {}, InsetBox[
+          StyleBox[
+           RotationBox["\<\"A\"\>",
+            BoxRotation->0.],
+           StripOnInput->False,
+           Opacity->1,
+           FontOpacity->1,
+           $CellContext`LineOpacity -> 1,
+           $CellContext`FrontFaceOpacity -> 1,
+           $CellContext`BackFaceOpacity -> 1], Offset[{6., 1.3322676295501878*^-15},
+           {3.0425347222222223, 4.99999690203674}], {0, 0}]}], 
+       GraphicsGroupBox[{
+         {EdgeForm[None], FaceForm[{GrayLevel[1], Opacity[
+           NCache[
+            Rational[2, 3], 0.6666666666666666]]}], 
+          PolygonBox[{
+           Offset[{11.999999999999998`, 6.5000000000000036`}, {
+             3.0425347222222223`, 1.9999982744078872`}], 
+            Offset[{12.000000000000002`, -6.4999999999999964`}, {
+             3.0425347222222223`, 1.9999982744078872`}], 
+            Offset[{1.7763568394002505`*^-15, -6.5}, {3.0425347222222223`, 
+             1.9999982744078872`}], 
+            Offset[{-1.7763568394002505`*^-15, 6.5}, {3.0425347222222223`, 
+             1.9999982744078872`}]}]}, 
+         {RGBColor[
+          0.6666666666666666, 0.6666666666666666, 0.6666666666666666], 
+          AbsoluteThickness[1.25], EdgeForm[None]}, {}, InsetBox[
+          StyleBox[
+           RotationBox["\<\"B\"\>",
+            BoxRotation->0.],
+           StripOnInput->False,
+           Opacity->1,
+           FontOpacity->1,
+           $CellContext`LineOpacity -> 1,
+           $CellContext`FrontFaceOpacity -> 1,
+           $CellContext`BackFaceOpacity -> 1], 
+          Offset[{6., 1.3322676295501878*^-15}, \
+{3.0425347222222223, 1.9999982744078872}], {0, 0}]}]}}, {}}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.9583333333333336, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->{{All, 36}, {All, All}},
+  ImageSize->{290.73828125, Automatic},
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0.9583333333333336, 3.}, {-1, 6}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->324790687]
+}, Open  ]],
+
+Cell[TextData[{
+ "Visualizing the waveforms in n-dimensional space is a better representation \
+of a Euclidean distance measurement but when thinking of percent variation, \
+the 2D visualization is more accurate in how it is measured. Percent \
+variation takes the absolute value of the differences of each column, and \
+takes the total sum of those values divided by the ",
+ StyleBox["box area.",
+  FontSlant->"Italic"]
+}], "Text",
+ CellID->1053866482],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["box area",
+  FontSlant->"Italic"],
+ " is the range of the min and max values multiplied by the pattern length. \
+In this example, if the min is -1 and the max is 6, the box area would be 21. \
+The column differences would be 2, 4, and 3 respectively for a final percent \
+variation of 9/21 = 3/7 = 0.428."
+}], "Text",
+ CellID->1835395460],
+
+Cell["\<\
+When using the nano, instead of specifying the number of clusters, the \
+percent variation is set to determine how close together the waveforms must \
+be to be in the same cluster. This can be set manually or autotuned to the \
+dataset (described in the autotuning section).\
+\>", "Text",
+ CellID->104870119],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["weights ",
+  FontWeight->"Bold"],
+ "are 0 and 1 values that specify which columns should be used when \
+clustering. This is kind of a manual PCA step where instead of altering the \
+data and removing columns, the weights can just be set to zero and those \
+columns will just be ignored when calculating the percent variation."
+}], "Text",
+ CellID->1268560897],
+
+Cell[TextData[{
+ "In running the nano, there is also a variable of ",
+ StyleBox["accuracy",
+  FontWeight->"Bold"],
+ " for statistical significance. The nano uses statistical models so when \
+setting a higher accuracy, it takes a little longer to run but the clustering \
+is more reliable. The default value is 0.99, since the run time is still fast \
+enough, but this can be set fairly low (such as 0.8) and still get decent \
+results from the nano. It is not a very sensitive value in regards to nano \
+results."
+}], "Text",
+ CellID->660948814],
+
+Cell[TextData[{
+ "The final parameter is the ",
+ StyleBox["streaming window size",
+  FontWeight->"Bold"],
+ ". This value, in the most simple case, is for single sensor time-series \
+data. When receiving a single stream of values, the nano can take a set \
+number of those values and cluster as one waveform, then shift over one and \
+take the next window of values to cluster and so on and so forth."
+}], "Text",
+ CellID->1437253665],
+
+Cell["Streaming window size of 25", "MathCaption",
+ CellID->1825694216],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"NanoREST`r", ",", "100"}], "]"}], ",", 
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"i", "+", "j"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "0", ",", 
+                RowBox[{"25", "-", "1"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Take", "[", 
+             RowBox[{"NanoREST`r", ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", 
+                RowBox[{"i", "+", "25", "-", "1"}]}], "}"}]}], "]"}]}], "}"}],
+           "]"}]}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+       RowBox[{"PlotMarkers", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"Automatic", ",", " ", "10"}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"EdgeForm", "[", 
+         RowBox[{"{", "Thick", "}"}], "]"}], ",", 
+        RowBox[{"FaceForm", "[", "]"}], ",", 
+        RowBox[{"Rectangle", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"i", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"i", "+", "25", "-", "1"}], ",", "1.39"}], "}"}]}], 
+         "]"}]}], "}"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{
+      RowBox[{"Length", "[", "NanoREST`r", "]"}], "-", "25", "+", "1"}], ",", 
+     "1"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->2076453728],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`i$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`i$$], 1, 76, 1}}, Typeset`size$$ = {180., {55., 59.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`i$3972$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`i$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`i$$, $CellContext`i$3972$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ListLinePlot[{
+          Take[NanoREST`r, 100], 
+          Transpose[{
+            
+            Table[$CellContext`i$$ + $CellContext`j, {$CellContext`j, 0, 25 - 
+              1}], 
+            Take[
+            NanoREST`r, {$CellContext`i$$, $CellContext`i$$ + 25 - 1}]}]}, 
+         PlotRange -> All, PlotMarkers -> {Automatic, 10}], 
+        Graphics[{
+          EdgeForm[{Thick}], 
+          FaceForm[], 
+          
+          Rectangle[{$CellContext`i$$, 0}, {$CellContext`i$$ + 25 - 1, 
+            1.39}]}]], "Specifications" :> {{$CellContext`i$$, 1, 76, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{242., {99., 105.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1495896714]
+}, Open  ]],
+
+Cell["\<\
+The streaming window is defaulted to 1 since most of the nano clustering is \
+done on vectors, but the streaming window can still be set to a higher value \
+in those cases. An application is when dealing with position mapping, if the \
+data is a list of (x, y) positions in time, a streaming window of 10 would \
+take the first ten positions and concatenate the (x, y) values into a vector \
+of length 20 and cluster the new waveform.\
+\>", "Text",
+ CellID->788473062]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Autotuning", "Subsection",
+ CellID->2124186955],
+
+Cell[TextData[{
+ "Once the parameters are initialized, the data can be uploaded and \
+clustered. In order to make the nano as unsupervised as possible, ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["Autotune"]],"paclet:NanoREST/ref/Autotune"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ "[",
+ StyleBox["InstanceID",
+  FontSlant->"Italic"],
+ "] can be run on the dataset to find the optimal minimum and maximum values \
+as well as the percent variation."
+}], "Text",
+ CellID->1102008683],
+
+Cell["Create artificial data", "MathCaption",
+ CellID->1570159993],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"GenerateRandomVariantFloat", "[", 
+        RowBox[{
+         RowBox[{"GenerateRandomPatternFloat", "[", 
+          RowBox[{"20", ",", "0", ",", "2"}], "]"}], ",", "0", ",", "2", ",", 
+         "0.01", ",", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "10"}], "}"}], "]"}], ",", "1", ",", 
+         RowBox[{"Exact", "\[Rule]", "False"}]}], "]"}], ",", "5"}], "]"}], 
+     ",", "1"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->991845930],
+
+Cell["Post data to autotune", "MathCaption",
+ CellID->1698531397],
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", 
+  RowBox[{"nano", ",", "data"}], "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1354358910],
+
+Cell[BoxData[
+ RowBox[{"AutotuneConfig", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->904050081],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GetConfig", "[", "nano", "]"}], "[", "\"\<percentVariation\>\"", 
+  "]"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->772266715],
+
+Cell[BoxData["0.03200003`"], "Output",
+ CellLabel->"Out[9]=",
+ CellID->714083983]
+}, Open  ]],
+
+Cell["\<\
+The min and max values are set based on the .5 and 99.5 percentiles of the \
+dataset, and any data that falls outside this range is just rounded down (or \
+up).\
+\>", "Text",
+ CellID->190426261],
+
+Cell["\<\
+The percent variation is a little trickier. Setting this value is like \
+setting k in a k-means clustering algorithm and is a difficult thing to \
+automate since each case is vastly different and could have multiple \
+\"correct\" answers. \
+\>", "Text",
+ CellID->1717038227],
+
+Cell["\<\
+Most approaches to automate the number of clusters in k-means try and cluster \
+with various different k's and run a simple test on which works the best for \
+the data. There are multiple issues with this. The main is that k-means is so \
+slow that the clustering cannot be done on all the different values of k or \
+even all k's in a range. This means the test on which k is best is \
+incomplete. \
+\>", "Text",
+ CellID->1372321920],
+
+Cell["\<\
+The nano, however, is fast enough that the autotuning approach runs the \
+clustering using percent variation values between 1% and 20% and tests with \
+those results. Doing the equivalent with k-means would mean that in some \
+cases, there would be over 10,000 clusters and that would take hours, but \
+with the nano, it takes seconds. \
+\>", "Text",
+ CellID->1994286916],
+
+Cell["\<\
+The autotuning uses the total number of clusters that were created for each \
+percent variation and finds the \"elbow\". This is essentially where percent \
+variations to the left give exponentially more clusters for each iteration \
+over because decreasing the percent variation just splits up the natural \
+clusters into smaller and smaller pieces. Percent variation values to the \
+right don't change the number of clusters as much. The main clusters have \
+been separated and changing the percent variation alters a few middle vectors \
+but for the most part, the clustering stays the same. \
+\>", "Text",
+ CellID->959219332],
+
+Cell["Clustering visualization using euclidean distance clustering", \
+"MathCaption",
+ CellID->1892111865],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"index", "=", 
+       RowBox[{"LengthWhile", "[", 
+        RowBox[{"NanoREST`c", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Transpose", "[", "#", "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "1"}], "\[RightDoubleBracket]"}], 
+           "\[GreaterEqual]", "dist"}], "&"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"GraphicsRow", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Show", "[", 
+          RowBox[{
+           RowBox[{"ListPlot", "[", 
+            RowBox[{"NanoREST`points", ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "4"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "4"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"PointSize", "[", "0.01", "]"}]}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{"NanoREST`c", "\[LeftDoubleBracket]", 
+                 RowBox[{"index", ",", "i", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"1", ",", "2"}], "}"}]}], 
+                 "\[RightDoubleBracket]"}], ",", 
+                RowBox[{"NanoREST`c", "\[LeftDoubleBracket]", 
+                 RowBox[{"index", ",", "i", ",", "3"}], 
+                 "\[RightDoubleBracket]"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", 
+                RowBox[{"Length", "[", 
+                 RowBox[{
+                 "NanoREST`c", "\[LeftDoubleBracket]", "index", 
+                  "\[RightDoubleBracket]"}], "]"}]}], "}"}]}], "]"}], "]"}]}],
+           "]"}], ",", 
+         RowBox[{"ListLinePlot", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+               "2", ",", "1.5", ",", "1", ",", ".75", ",", ".5", ",", ".25"}],
+                "}"}], ",", 
+              RowBox[{"Length", "/@", "NanoREST`c"}]}], "}"}], "]"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+           RowBox[{"PlotMarkers", "\[Rule]", "Automatic"}]}], "]"}]}], "}"}], 
+       ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Medium"}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"dist", ",", 
+     RowBox[{"{", 
+      RowBox[{".25", ",", ".5", ",", ".75", ",", "1", ",", "1.5"}], "}"}]}], 
+    "}"}], ",", 
+   RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->129757655],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`dist$$ = 0.25, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`dist$$], {0.25, 0.5, 0.75, 1, 1.5}}}, 
+    Typeset`size$$ = {360., {74., 79.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`dist$5345$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`dist$$ = 0.25}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`dist$$, $CellContext`dist$5345$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`index = LengthWhile[NanoREST`c, Part[
+             Transpose[#], 3, 1] >= $CellContext`dist$$& ]}, 
+        GraphicsRow[{
+          Show[
+           ListPlot[
+           NanoREST`points, PlotRange -> {{0, 4}, {0, 4}}, PlotStyle -> 
+            PointSize[0.01], AspectRatio -> 1], 
+           Graphics[
+            Table[
+             Circle[
+              Part[NanoREST`c, $CellContext`index, $CellContext`i, {1, 2}], 
+              Part[
+              NanoREST`c, $CellContext`index, $CellContext`i, 
+               3]], {$CellContext`i, 1, 
+              Length[
+               Part[NanoREST`c, $CellContext`index]]}]]], 
+          ListLinePlot[
+           Transpose[{{2, 1.5, 1, 0.75, 0.5, 0.25}, 
+             Map[Length, NanoREST`c]}], PlotRange -> All, PlotMarkers -> 
+           Automatic]}, ImageSize -> Medium]], 
+      "Specifications" :> {{$CellContext`dist$$, {0.25, 0.5, 0.75, 1, 1.5}}}, 
+      "Options" :> {ContinuousAction -> False}, "DefaultOptions" :> {}],
+     ImageSizeCache->{403., {117., 123.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->105286033]
+}, Open  ]],
+
+Cell["\<\
+In this example, using a euclidean distance of around 0.5 would be the \
+autotuned value of this clustering technique.\
+\>", "Text",
+ CellID->1585688024],
+
+Cell[TextData[{
+ "For a similar idea yet more rudimentary approach: ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["see this article."]],
+    "https://www.datasciencecentral.com/profiles/blogs/how-to-automatically-\
+determine-the-number-of-clusters-in-your-dat"},
+   "WebLink",
+   BaseStyle->{"Text"}]]]
+}], "Text",
+ CellID->1801106846]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Clustering", "Section",
+ CellID->1035121784],
+
+Cell[TextData[{
+ "At this point, the parameters are set and the data is uploaded so all \
+that's left is to run the nano. This is done with ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["RunNano"]],"paclet:NanoREST/ref/RunNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ "[",
+ StyleBox["NanoHandle",
+  FontSlant->"Italic"],
+ "]. Calling that alone would run the nano and return a success or fail code. \
+Then calling any of the get cluster statistics would return the analytics \
+from that nanorun."
+}], "Text",
+ CellID->1799255150],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["LoadData",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/LoadData"], "[", 
+     StyleBox["NanoHandle",
+      FontSlant->"Italic"], "]"}], Cell["\<\
+uploads the data to be clustered and returns any results specified (if any)\
+\>", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["RunNano",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/RunNano"], "[", 
+     StyleBox["NanoHandle",
+      FontSlant->"Italic"], "]"}], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+      "runs", " ", "the", " ", "nano", " ", "on", " ", "the", " ", "posted", 
+       " ", "data"}], "\n", 
+      RowBox[{
+      "runs", " ", "the", " ", "nano", " ", "and", " ", "returns", " ", "the",
+        " ", "specified", " ", "cluster", " ", "analytics"}]}], "Text"]}
+  }]], "DefinitionBox",
+ CellID->1666542804],
+
+Cell["Nano run options.", "Caption",
+ CellID->2103182654],
+
+Cell["\<\
+Post the nano run and optionally print the analytics directly (in the nano \
+run or when posting data)\
+\>", "MathCaption",
+ CellID->1463548130],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RunNano", "[", 
+  RowBox[{"nano", ",", 
+   RowBox[{"Results", "\[Rule]", "ID"}]}], "]"}]], "Input",
+ CellLabel->"In[11]:=",
+ CellID->1449679274],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"ID\"\>", "\[Rule]", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "2", ",", "2",
+      ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "3", ",", "3", 
+     ",", "3", ",", "3", ",", "3", ",", "4", ",", "4", ",", "4", ",", "4", 
+     ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", 
+     ",", "5"}], "}"}]}], "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[11]=",
+ CellID->1906110567]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"LoadData", "[", 
+  RowBox[{"nano", ",", "data", ",", 
+   RowBox[{"AppendData", "\[Rule]", "False"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"RunNano", "[", 
+  RowBox[{"nano", ",", 
+   RowBox[{"Results", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellLabel->"In[12]:=",
+ CellID->1513511709],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"DI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "311", ",", "311", ",", "311", ",", "311", ",", "433", ",", "433", ",", 
+      "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", 
+      "433", ",", "346", ",", "346", ",", "346", ",", "346", ",", "346", ",", 
+      "293", ",", "293", ",", "293", ",", "293", ",", "404", ",", "404", ",", 
+      "404", ",", "404", ",", "404", ",", "404", ",", "404", ",", "404"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"FI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "2012", ",", "2012", ",", "2012", ",", "2012", ",", "1255", ",", "1255", 
+      ",", "1255", ",", "1255", ",", "1255", ",", "1255", ",", "1255", ",", 
+      "1255", ",", "1255", ",", "1000", ",", "1000", ",", "1000", ",", "1000",
+       ",", "1000", ",", "903", ",", "903", ",", "903", ",", "903", ",", 
+      "1204", ",", "1204", ",", "1204", ",", "1204", ",", "1204", ",", "1204",
+       ",", "1204", ",", "1204"}], "}"}]}], ",", 
+   RowBox[{"\<\"ID\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "2", ",", 
+      "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "3", ",", 
+      "3", ",", "3", ",", "3", ",", "3", ",", "4", ",", "4", ",", "4", ",", 
+      "4", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", 
+      "5", ",", "5"}], "}"}]}], ",", 
+   RowBox[{"\<\"RI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "0", ",", "0", ",", "0", ",", "377", ",", "377", ",", "377", 
+      ",", "377", ",", "377", ",", "377", ",", "377", ",", "377", ",", "377", 
+      ",", "504", ",", "504", ",", "504", ",", "504", ",", "504", ",", "552", 
+      ",", "552", ",", "552", ",", "552", ",", "402", ",", "402", ",", "402", 
+      ",", "402", ",", "402", ",", "402", ",", "402", ",", "402"}], "}"}]}], 
+   ",", 
+   RowBox[{"\<\"SI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "155", ",", "155", ",", "153", ",", "151", ",", "147", ",", "138", ",", 
+      "122", ",", "89", ",", "22", ",", "46", ",", "93", ",", "188", ",", 
+      "377", ",", "377", ",", "377", ",", "378", ",", "380", ",", "384", ",", 
+      "392", ",", "408", ",", "441", ",", "505", ",", "506", ",", "509", ",", 
+      "513", ",", "523", ",", "542", ",", "533", ",", "514", ",", "477"}], 
+     "}"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->252098408]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RunNano", "[", 
+  RowBox[{"nano", ",", 
+   RowBox[{"Results", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellLabel->"In[14]:=",
+ CellID->1861027118],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"DI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "311", ",", "311", ",", "311", ",", "311", ",", "433", ",", "433", ",", 
+      "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", 
+      "433", ",", "346", ",", "346", ",", "346", ",", "346", ",", "346", ",", 
+      "293", ",", "293", ",", "293", ",", "293", ",", "404", ",", "404", ",", 
+      "404", ",", "404", ",", "404", ",", "404", ",", "404", ",", "404"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"FI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1725", ",", "1725", ",", "1725", ",", "1725", ",", "1217", ",", "1217", 
+      ",", "1217", ",", "1217", ",", "1217", ",", "1217", ",", "1217", ",", 
+      "1217", ",", "1217", ",", "1000", ",", "1000", ",", "1000", ",", "1000",
+       ",", "1000", ",", "917", ",", "917", ",", "917", ",", "917", ",", 
+      "1173", ",", "1173", ",", "1173", ",", "1173", ",", "1173", ",", "1173",
+       ",", "1173", ",", "1173"}], "}"}]}], ",", 
+   RowBox[{"\<\"ID\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "2", ",", 
+      "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "3", ",", 
+      "3", ",", "3", ",", "3", ",", "3", ",", "4", ",", "4", ",", "4", ",", 
+      "4", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", 
+      "5", ",", "5"}], "}"}]}], ",", 
+   RowBox[{"\<\"RI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "0", ",", "0", ",", "0", ",", "295", ",", "295", ",", "295", 
+      ",", "295", ",", "295", ",", "295", ",", "295", ",", "295", ",", "295", 
+      ",", "421", ",", "421", ",", "421", ",", "421", ",", "421", ",", "469", 
+      ",", "469", ",", "469", ",", "469", ",", "320", ",", "320", ",", "320", 
+      ",", "320", ",", "320", ",", "320", ",", "320", ",", "320"}], "}"}]}], 
+   ",", 
+   RowBox[{"\<\"SI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "401", ",", "399", ",", "396", ",", "390", ",", "378", ",", "354", ",", 
+      "306", ",", "210", ",", "17", ",", "36", ",", "73", ",", "147", ",", 
+      "295", ",", "295", ",", "295", ",", "296", ",", "298", ",", "302", ",", 
+      "310", ",", "326", ",", "358", ",", "422", ",", "423", ",", "426", ",", 
+      "430", ",", "440", ",", "459", ",", "450", ",", "431", ",", "394"}], 
+     "}"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->1721626778]
+}, Open  ]],
+
+Cell["\<\
+Running two consecutive nano runs will just re-cluster the previous data. \
+Additionally, when posting the data, setting AppendData->True will \
+concatenate the new data set with the previously posted data. This is useful \
+if you want to re-cluster previous data and also cluster the new data. Also \
+appending the data is helpful when the previous data has not yet been \
+clustered.\
+\>", "Text",
+ CellID->959685038],
+
+Cell[CellGroupData[{
+
+Cell["Saving or restoring a nano run", "Subsection",
+ CellID->1336846017],
+
+Cell[TextData[{
+ "When opening a nano, a previous version can be loaded at that time as well \
+using the \"Filename\" option in ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["OpenNano"]],"paclet:NanoREST/ref/OpenNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ". ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SaveNano"]],"paclet:NanoREST/ref/SaveNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ "[",
+ StyleBox["NanoHandle, Filename",
+  FontSlant->"Italic"],
+ "] saves the current nano run so it can used again later. If no filename is \
+supplied to ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SaveNano"]],"paclet:NanoREST/ref/SaveNano"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ", the default is to save a file named \"Untitled-",
+ StyleBox["index.bn",
+  FontSlant->"Italic"],
+ "\"."
+}], "Text",
+ CellID->1275156425],
+
+Cell["Save version", "MathCaption",
+ CellID->1187565494],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"snapshotFile", "=", 
+  RowBox[{"SaveNano", "[", "nano", "]"}]}]], "Input",
+ CellLabel->"In[15]:=",
+ CellID->1653493345],
+
+Cell[BoxData["\<\"Untitled-1.bn\"\>"], "Output",
+ CellLabel->"Out[15]=",
+ CellID->1002840196]
+}, Open  ]],
+
+Cell["Delete current instance", "MathCaption",
+ CellID->1915690578],
+
+Cell[BoxData[
+ RowBox[{"CloseNano", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[16]:=",
+ CellID->101722565],
+
+Cell["\<\
+Reloading the snapshot sets the config with the previous values\
+\>", "MathCaption",
+ CellID->791295902],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nano", "=", 
+   RowBox[{"OpenNano", "[", 
+    RowBox[{"\"\<test\>\"", ",", "\"\<default\>\"", ",", 
+     RowBox[{"\"\<Filename\>\"", "->", "snapshotFile"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[18]:=",
+ CellID->286156722],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetConfig", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[20]:=",
+ CellID->1712562472],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"accuracy\"\>", "\[Rule]", "0.99`"}], ",", 
+   RowBox[{"\<\"features\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "1.9729459`"}], ",", 
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "0.0014513725`"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], 
+       "\[RightAssociation]"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"numericFormat\"\>", "\[Rule]", "\<\"float32\"\>"}], ",", 
+   RowBox[{"\<\"percentVariation\"\>", "\[Rule]", "0.03200003`"}], ",", 
+   RowBox[{"\<\"streamingWindowSize\"\>", "\[Rule]", "1"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[20]=",
+ CellID->1583537315]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Analytics", "Section",
+ CellID->1808925427],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["GetBufferStatus",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GetBufferStatus"], "[", 
+     StyleBox["InstanceID",
+      FontSlant->"Italic"], "]"}], Cell[
+    "gives the byte information on the buffer", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["GetNanoResults",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GetNanoResults"], "[", 
+     StyleBox["InstanceID",
+      FontSlant->"Italic"], "]"}], Cell[
+    "returns the list of results corresponding to each pattern", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["GetNanoStatus",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GetNanoStatus"], "[", 
+     StyleBox["InstanceID",
+      FontSlant->"Italic"], "]"}], Cell[
+    "gives the results relating to each cluster", "TableText"]}
+  }]], "DefinitionBox",
+ CellID->1707265691],
+
+Cell["Cluster analytics.", "Caption",
+ CellID->1485461070],
+
+Cell["Post data and run clustering", "MathCaption",
+ CellID->1956162873],
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", 
+  RowBox[{"nano", ",", "data"}], "]"}]], "Input",
+ CellLabel->"In[21]:=",
+ CellID->136940809],
+
+Cell[BoxData[
+ RowBox[{"RunNano", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[22]:=",
+ CellID->572165286],
+
+Cell["Get analytics", "MathCaption",
+ CellID->1106610299],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetBufferStatus", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[23]:=",
+ CellID->840321796],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"totalBytesInBuffer\"\>", "\[Rule]", "2400"}], ",", 
+   RowBox[{"\<\"totalBytesProcessed\"\>", "\[Rule]", "2400"}], ",", 
+   RowBox[{"\<\"totalBytesWritten\"\>", "\[Rule]", "2400"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[23]=",
+ CellID->1261988463]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetNanoResults", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[24]:=",
+ CellID->219022385],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"DI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "311", ",", "311", ",", "311", ",", "311", ",", "433", ",", "433", ",", 
+      "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", "433", ",", 
+      "433", ",", "346", ",", "346", ",", "346", ",", "346", ",", "346", ",", 
+      "293", ",", "293", ",", "293", ",", "293", ",", "404", ",", "404", ",", 
+      "404", ",", "404", ",", "404", ",", "404", ",", "404", ",", "404"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"FI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1572", ",", "1572", ",", "1572", ",", "1572", ",", "1196", ",", "1196", 
+      ",", "1196", ",", "1196", ",", "1196", ",", "1196", ",", "1196", ",", 
+      "1196", ",", "1196", ",", "1000", ",", "1000", ",", "1000", ",", "1000",
+       ",", "1000", ",", "925", ",", "925", ",", "925", ",", "925", ",", 
+      "1157", ",", "1157", ",", "1157", ",", "1157", ",", "1157", ",", "1157",
+       ",", "1157", ",", "1157"}], "}"}]}], ",", 
+   RowBox[{"\<\"ID\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1", ",", "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "2", ",", 
+      "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "2", ",", "3", ",", 
+      "3", ",", "3", ",", "3", ",", "3", ",", "4", ",", "4", ",", "4", ",", 
+      "4", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", "5", ",", 
+      "5", ",", "5"}], "}"}]}], ",", 
+   RowBox[{"\<\"RI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "0", ",", "0", ",", "0", ",", "240", ",", "240", ",", "240", 
+      ",", "240", ",", "240", ",", "240", ",", "240", ",", "240", ",", "240", 
+      ",", "364", ",", "364", ",", "364", ",", "364", ",", "364", ",", "412", 
+      ",", "412", ",", "412", ",", "412", ",", "265", ",", "265", ",", "265", 
+      ",", "265", ",", "265", ",", "265", ",", "265", ",", "265"}], "}"}]}], 
+   ",", 
+   RowBox[{"\<\"SI\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "3", ",", 
+      "7", ",", "14", ",", "29", ",", "59", ",", "119", ",", "240", ",", 
+      "240", ",", "240", ",", "241", ",", "243", ",", "247", ",", "255", ",", 
+      "271", ",", "302", ",", "365", ",", "366", ",", "369", ",", "373", ",", 
+      "383", ",", "403", ",", "393", ",", "375", ",", "338"}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[24]=",
+ CellID->411307046]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetNanoStatus", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[25]:=",
+ CellID->1547464614],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"PCA\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.294`", ",", "0.381`", ",", "0.431`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1", ",", "0.309`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.272`", ",", "0.309`", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.463`", ",", "0.294`", ",", "0.371`"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0", ",", "0.272`"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"anomalyIndexes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "1000", ",", "0", ",", "240", ",", "364", ",", "412", ",", "265"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"clusterGrowth\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "5", ",", "14", ",", "19", ",", "23"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"clusterSizes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "111", ",", "36", ",", "20", ",", "16", ",", "32"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"distanceIndexes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "311", ",", "433", ",", "346", ",", "293", ",", "404"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"frequencyIndexes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "1572", ",", "1196", ",", "1000", ",", "925", ",", "1157"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"numClusters\"\>", "\[Rule]", "6"}], ",", 
+   RowBox[{"\<\"totalInferences\"\>", "\[Rule]", "120"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[25]=",
+ CellID->29887287]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["PCA", "Subsection",
+ CellID->1714077191],
+
+Cell["\<\
+The PCA function is a visual representation way to represent the spatial \
+distribution of the clusters. This uses the pattern memory and transforms it \
+to three dimensions. The first three values in each coordinate returned is \
+the projection of the pattern memory from the pattern memory space to the \
+reduced dimension space. These can be used to plot the pattern memory in 3D \
+or using RGB values to get a visual result in how different the clusters are. \
+The forth coordinate is the raw frequency index. Another visual \
+representation is by using the first two projections and the frequency index \
+as the third coordinate to get a representation of the clustering with both \
+the spatial and frequency aspects represented.\
+\>", "Text",
+ CellID->72809450],
+
+Cell["Plot 3D projections with RGB coloring", "MathCaption",
+ CellID->1759864937],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p", "=", 
+   RowBox[{
+    RowBox[{"GetNanoStatus", "[", 
+     RowBox[{"nano", ",", 
+      RowBox[{"Results", "\[Rule]", "PCA"}]}], "]"}], "[", "\"\<PCA\>\"", 
+    "]"}]}], ";"}]], "Input",
+ CellLabel->"In[28]:=",
+ CellID->334577222],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPointPlot3D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", "#", "}"}], "&"}], "/@", "p"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"BoxRatios", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", " ", "1", ",", " ", "1"}], "}"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.05", "]"}], ",", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"p", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+         "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "p", "]"}]}], "}"}]}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[29]:=",
+ CellID->201431682],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {RGBColor[0, 0, 0], PointSize[0.05], Point3DBox[{{0., 0., 0.}}]}, 
+    {RGBColor[0.294, 0.381, 0.431], PointSize[0.05], 
+     Point3DBox[{{0.294, 0.381, 0.431}}]}, 
+    {RGBColor[0, 1, 0.309], PointSize[0.05], Point3DBox[{{0., 1., 0.309}}]}, 
+    {RGBColor[0.272, 0.309, 1], PointSize[0.05], 
+     Point3DBox[{{0.272, 0.309, 1.}}]}, 
+    {RGBColor[0.463, 0.294, 0.371], PointSize[0.05], 
+     Point3DBox[{{0.463, 0.294, 0.371}}]}, 
+    {RGBColor[1, 0, 0.272], PointSize[0.05], 
+     Point3DBox[{{1., 0., 0.272}}]}}, {}, {}},
+  Axes->True,
+  AxesLabel->{None, None, None},
+  BoxRatios->{1, 1, 1},
+  DisplayFunction->Identity,
+  FaceGrids->None,
+  FaceGridsStyle->Automatic,
+  PlotRange->{All, All, All},
+  PlotRangePadding->{{0, 0}, {0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic, Automatic}]], "Output",
+ CellLabel->"Out[29]=",
+ CellID->180377506]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pattern Generation", "Section",
+ CellID->1313035530],
+
+Cell["\<\
+Generating patterns is used for testing purposes when artificial data is \
+needed with a set number of clusters or a set distance apart. The following \
+functions generate random vectors for the given specifications.\
+\>", "Text",
+ CellID->1696845706],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     RowBox[{
+      ButtonBox["GenerateRandomPatternNative",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternNative"], "[", 
+      StyleBox[
+       RowBox[{"PatternLength", ",", "MaxVal"}],
+       FontSlant->"Italic"], "]"}], "\n", 
+     RowBox[{
+      ButtonBox["GenerateRandomPatternNative",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternNative"], "[", 
+      StyleBox["MaxVals",
+       FontSlant->"Italic"], "]"}]}], Cell["\<\
+creates a random vector of integer values from 0 to MaxVal(s)\
+\>", "TableText"]},
+   {
+    RowBox[{
+     RowBox[{
+      ButtonBox["GenerateRandomPatternInt",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternInt"], "[", 
+      StyleBox[
+       RowBox[{"PatternLength", ",", "MinVal", ",", "MaxVal"}],
+       FontSlant->"Italic"], "]"}], "\n", 
+     RowBox[{
+      ButtonBox["GenerateRandomPatternInt",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternInt"], "[", 
+      StyleBox[
+       RowBox[{"MinVals", ",", "MaxVals"}],
+       FontSlant->"Italic"], "]"}]}], Cell["\<\
+creates a random vector of integer values from MinVals(s) to MaxVal(s)\
+\>", "TableText"]},
+   {
+    RowBox[{
+     RowBox[{
+      ButtonBox["GenerateRandomPatternFloat",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternFloat"], "[", 
+      StyleBox[
+       RowBox[{"PatternLength", ",", "MinVal", ",", "MaxVal"}],
+       FontSlant->"Italic"], "]"}], "\n", 
+     RowBox[{
+      ButtonBox["GenerateRandomPatternFloat",
+       BaseStyle->"Link",
+       ButtonData->"paclet:NanoREST/ref/GenerateRandomPatternFloat"], "[", 
+      StyleBox[
+       RowBox[{"MinVals", ",", "MaxVals"}],
+       FontSlant->"Italic"], "]"}]}], Cell["\<\
+creates a random vector of float values from MinVal(s) to MaxVal(s)\
+\>", "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["GenerateRandomVariantNative",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GenerateRandomVariantNative"], "[", 
+     StyleBox[
+      RowBox[{
+      "SourcePattern", ",", " ", "MaxVal", ",", " ", "PercentVariation", ",", 
+       " ", "Num", ",", "WeightsIn"}],
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "generates ",
+     StyleBox["Num",
+      FontSlant->"Italic"],
+     " pseudo random integer vector(s) with values from 0 to ",
+     StyleBox["MaxVal",
+      FontSlant->"Italic"],
+     " using the columns that correspond to ",
+     StyleBox["WeightsIn",
+      FontSlant->"Italic"],
+     " of 1 (or all columns when ",
+     StyleBox["WeightsIn",
+      FontSlant->"Italic"],
+     " == 0) that deviates from ",
+     StyleBox["SourcePattern",
+      FontSlant->"Italic"],
+     " by at most ",
+     StyleBox["PercentVariation",
+      FontSlant->"Italic"],
+     " when ",
+     StyleBox["Exact->False",
+      FontSlant->"Italic"]
+    }], "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["GenerateRandomVariantInt",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GenerateRandomVariantInt"], "[", 
+     StyleBox[
+      RowBox[{
+      "SourcePattern", ",", " ", "MinVal", ",", " ", "MaxVal", ",", " ", 
+       "PercentVariation", ",", " ", "Num", ",", "Weights"}],
+      FontSlant->"Italic"], "]"}], Cell[TextData[Cell[BoxData[Cell[TextData[{
+      "generates ",
+      StyleBox["Num",
+       FontSlant->"Italic"],
+      " pseudo random integer vector(s) with values from ",
+      StyleBox["MinVal",
+       FontSlant->"Italic"],
+      " to ",
+      StyleBox["MaxVal",
+       FontSlant->"Italic"],
+      " using the columns that correspond to ",
+      StyleBox["WeightsIn",
+       FontSlant->"Italic"],
+      " of 1 (or all columns when ",
+      StyleBox["WeightsIn",
+       FontSlant->"Italic"],
+      " == 0) that deviates from ",
+      StyleBox["SourcePattern",
+       FontSlant->"Italic"],
+      " by at most ",
+      StyleBox["PercentVariation",
+       FontSlant->"Italic"],
+      " when ",
+      StyleBox["Exact->False",
+       FontSlant->"Italic"]
+     }], "TableText"]]]], "TableText"]},
+   {
+    RowBox[{
+     ButtonBox["GenerateRandomVariantFloat",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/GenerateRandomVariantFloat"], "[", 
+     StyleBox[
+      RowBox[{
+      "SourcePattern", ",", " ", "MinVal", ",", " ", "MaxVal", ",", " ", 
+       "PercentVariation", ",", " ", "Num", ",", "Weights"}],
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "generates ",
+     StyleBox["Num",
+      FontSlant->"Italic"],
+     " pseudo random float vector(s) with values from ",
+     StyleBox["MinVal",
+      FontSlant->"Italic"],
+     " to ",
+     StyleBox["MaxVal",
+      FontSlant->"Italic"],
+     " using the columns that correspond to ",
+     StyleBox["WeightsIn",
+      FontSlant->"Italic"],
+     " of 1 (or all columns when ",
+     StyleBox["WeightsIn",
+      FontSlant->"Italic"],
+     " == 0) that deviates from ",
+     StyleBox["SourcePattern",
+      FontSlant->"Italic"],
+     " by at most ",
+     StyleBox["PercentVariation",
+      FontSlant->"Italic"],
+     " when ",
+     StyleBox["Exact->False",
+      FontSlant->"Italic"]
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->427882516],
+
+Cell["Creating random pattern vectors.", "Caption",
+ CellID->1646196256],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["ComputePercentVariation",
+      BaseStyle->"Link",
+      ButtonData->"paclet:NanoREST/ref/ComputePercentVariation"], "[", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["v",
+        FontSlant->"Italic"], "1"], 
+      StyleBox[",",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      SubscriptBox[
+       StyleBox["v",
+        FontSlant->"Italic"], "2"], 
+      StyleBox[",",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["MinVal",
+       FontSlant->"Italic"], 
+      StyleBox[",",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["MaxVal",
+       FontSlant->"Italic"]}], "]"}], Cell[TextData[{
+     "calculates the percent variation between ",
+     Cell[BoxData[
+      SubscriptBox["v", "1"]], "InlineFormula",
+      FontSlant->"Italic"],
+     " and ",
+     Cell[BoxData[
+      StyleBox[
+       SubscriptBox["v", "2"],
+       FontSlant->"Italic"]], "InlineFormula"],
+     " using the ",
+     StyleBox["MinVal",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["MaxVal",
+      FontSlant->"Italic"],
+     " (along with the length of the vectors) as the box area"
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellID->1791743534],
+
+Cell["Percent Variation.", "Caption",
+ CellID->1817877704],
+
+Cell["\<\
+Calculating the percent variation is yet another test for the data. This is \
+as simple as just comparing two waveforms to see if they were correctly \
+clustered or some other test.\
+\>", "Text",
+ CellID->33193888],
+
+Cell["Generate random vectors with vectors 5% away from each", "MathCaption",
+ CellID->1666952364],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"patterns", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"GenerateRandomVariantInt", "[", 
+        RowBox[{
+         RowBox[{"GenerateRandomPatternInt", "[", 
+          RowBox[{"25", ",", " ", 
+           RowBox[{"-", "10"}], ",", " ", "10"}], "]"}], ",", 
+         RowBox[{"-", "10"}], ",", "10", ",", "0.05", ",", "10"}], "]"}], ",",
+        "2"}], "]"}], ",", "1"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[30]:=",
+ CellID->2115830160],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"ComputePercentVariation", "[", 
+     RowBox[{
+      RowBox[{
+      "patterns", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+      RowBox[{
+      "patterns", "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}], ",", 
+      RowBox[{"-", "10"}], ",", "10"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "patterns", "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", 
+      RowBox[{"Length", "[", "patterns", "]"}]}], "}"}]}], "]"}], 
+  "]"}]], "Input",
+ CellLabel->"In[31]:=",
+ CellID->1206004194],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0.`", "0.045714285714285714`", "0.0380952380952381`", 
+     "0.049523809523809526`", "0.030476190476190476`", "0.04`", 
+     "0.05333333333333333`", "0.04380952380952381`", "0.05714285714285715`", 
+     "0.047619047619047616`", "0.30666666666666664`", "0.30095238095238097`", 
+     "0.2895238095238095`", "0.32000000000000006`", "0.30095238095238097`", 
+     "0.29714285714285715`", "0.30095238095238097`", "0.28380952380952384`", 
+     "0.3180952380952381`", "0.3123809523809524`"},
+    {"0.045714285714285714`", "0.`", "0.049523809523809526`", 
+     "0.0419047619047619`", "0.0380952380952381`", "0.032380952380952385`", 
+     "0.0380952380952381`", "0.047619047619047616`", "0.01904761904761905`", 
+     "0.05523809523809524`", "0.3028571428571429`", "0.29714285714285715`", 
+     "0.2780952380952381`", "0.31619047619047624`", "0.2895238095238095`", 
+     "0.29333333333333333`", "0.29714285714285715`", "0.2723809523809524`", 
+     "0.3142857142857143`", "0.30095238095238097`"},
+    {"0.0380952380952381`", "0.049523809523809526`", "0.`", 
+     "0.045714285714285714`", "0.049523809523809526`", "0.05142857142857143`",
+      "0.0380952380952381`", "0.04380952380952381`", "0.06095238095238095`", 
+     "0.05142857142857143`", "0.3066666666666667`", "0.30095238095238097`", 
+     "0.2819047619047619`", "0.32`", "0.29333333333333333`", 
+     "0.29714285714285715`", "0.30095238095238097`", "0.27619047619047615`", 
+     "0.31809523809523815`", "0.3047619047619048`"},
+    {"0.049523809523809526`", "0.0419047619047619`", "0.045714285714285714`", 
+     "0.`", "0.049523809523809526`", "0.03619047619047619`", 
+     "0.03428571428571429`", "0.05904761904761904`", "0.030476190476190476`", 
+     "0.04380952380952381`", "0.30666666666666664`", "0.3047619047619048`", 
+     "0.27809523809523806`", "0.31619047619047624`", "0.30095238095238097`", 
+     "0.29714285714285715`", "0.3085714285714286`", "0.28380952380952384`", 
+     "0.3142857142857143`", "0.3085714285714286`"},
+    {"0.030476190476190476`", "0.0380952380952381`", "0.049523809523809526`", 
+     "0.049523809523809526`", "0.`", "0.03619047619047619`", 
+     "0.05333333333333334`", "0.03619047619047619`", "0.0419047619047619`", 
+     "0.05523809523809524`", "0.29904761904761906`", "0.30095238095238097`", 
+     "0.28190476190476194`", "0.3123809523809524`", "0.30095238095238097`", 
+     "0.2895238095238095`", "0.30095238095238097`", "0.2838095238095238`", 
+     "0.3104761904761905`", "0.31238095238095237`"},
+    {"0.04`", "0.032380952380952385`", "0.05142857142857143`", 
+     "0.03619047619047619`", "0.03619047619047619`", "0.`", 
+     "0.05523809523809524`", "0.03428571428571429`", "0.028571428571428574`", 
+     "0.05333333333333333`", "0.31619047619047624`", "0.30666666666666664`", 
+     "0.2952380952380953`", "0.32571428571428573`", "0.31047619047619046`", 
+     "0.30666666666666664`", "0.31047619047619046`", "0.29333333333333333`", 
+     "0.32380952380952377`", "0.3180952380952381`"},
+    {"0.05333333333333333`", "0.0380952380952381`", "0.0380952380952381`", 
+     "0.03428571428571429`", "0.05333333333333334`", "0.05523809523809524`", 
+     "0.`", "0.05904761904761905`", "0.02666666666666667`", 
+     "0.047619047619047616`", "0.3066666666666667`", "0.3047619047619048`", 
+     "0.2780952380952381`", "0.31619047619047624`", "0.30095238095238097`", 
+     "0.29714285714285715`", "0.30857142857142855`", "0.28380952380952384`", 
+     "0.3142857142857143`", "0.3085714285714286`"},
+    {"0.04380952380952381`", "0.047619047619047616`", "0.04380952380952381`", 
+     "0.05904761904761904`", "0.03619047619047619`", "0.03428571428571429`", 
+     "0.05904761904761905`", "0.`", "0.05142857142857143`", 
+     "0.05333333333333333`", "0.3085714285714286`", "0.3028571428571428`", 
+     "0.2914285714285714`", "0.3219047619047619`", "0.3028571428571428`", 
+     "0.29904761904761906`", "0.3028571428571428`", "0.28571428571428575`", 
+     "0.32000000000000006`", "0.3142857142857143`"},
+    {"0.05714285714285715`", "0.01904761904761905`", "0.06095238095238095`", 
+     "0.030476190476190476`", "0.0419047619047619`", "0.028571428571428574`", 
+     "0.02666666666666667`", "0.05142857142857143`", "0.`", 
+     "0.04380952380952381`", "0.3066666666666667`", "0.3047619047619048`", 
+     "0.2780952380952381`", "0.31619047619047624`", "0.30095238095238097`", 
+     "0.29714285714285715`", "0.30857142857142855`", "0.28380952380952384`", 
+     "0.3142857142857143`", "0.3085714285714286`"},
+    {"0.047619047619047616`", "0.05523809523809524`", "0.05142857142857143`", 
+     "0.04380952380952381`", "0.05523809523809524`", "0.05333333333333333`", 
+     "0.047619047619047616`", "0.05333333333333333`", "0.04380952380952381`", 
+     "0.`", "0.31238095238095237`", "0.31047619047619046`", 
+     "0.28380952380952384`", "0.3219047619047619`", "0.30666666666666664`", 
+     "0.3028571428571428`", "0.3142857142857143`", "0.2895238095238095`", 
+     "0.32`", "0.3142857142857143`"},
+    {"0.30666666666666664`", "0.3028571428571429`", "0.3066666666666667`", 
+     "0.30666666666666664`", "0.29904761904761906`", "0.31619047619047624`", 
+     "0.3066666666666667`", "0.3085714285714286`", "0.3066666666666667`", 
+     "0.31238095238095237`", "0.`", "0.05904761904761905`", "0.04`", 
+     "0.032380952380952385`", "0.047619047619047616`", "0.03619047619047619`",
+      "0.02857142857142857`", "0.06095238095238095`", "0.03047619047619048`", 
+     "0.04761904761904762`"},
+    {"0.30095238095238097`", "0.29714285714285715`", "0.30095238095238097`", 
+     "0.3047619047619048`", "0.30095238095238097`", "0.30666666666666664`", 
+     "0.3047619047619048`", "0.3028571428571428`", "0.3047619047619048`", 
+     "0.31047619047619046`", "0.05904761904761905`", "0.`", 
+     "0.049523809523809526`", "0.05714285714285715`", "0.045714285714285714`",
+      "0.045714285714285714`", "0.049523809523809526`", 
+     "0.03619047619047619`", "0.04380952380952381`", "0.0419047619047619`"},
+    {"0.2895238095238095`", "0.2780952380952381`", "0.2819047619047619`", 
+     "0.27809523809523806`", "0.28190476190476194`", "0.2952380952380953`", 
+     "0.2780952380952381`", "0.2914285714285714`", "0.2780952380952381`", 
+     "0.28380952380952384`", "0.04`", "0.049523809523809526`", "0.`", 
+     "0.045714285714285714`", "0.049523809523809526`", 
+     "0.026666666666666665`", "0.06095238095238096`", "0.047619047619047616`",
+      "0.06285714285714286`", "0.05333333333333334`"},
+    {"0.32000000000000006`", "0.31619047619047624`", "0.32`", 
+     "0.31619047619047624`", "0.3123809523809524`", "0.32571428571428573`", 
+     "0.31619047619047624`", "0.3219047619047619`", "0.31619047619047624`", 
+     "0.3219047619047619`", "0.032380952380952385`", "0.05714285714285715`", 
+     "0.045714285714285714`", "0.`", "0.049523809523809526`", 
+     "0.049523809523809526`", "0.04571428571428571`", "0.06285714285714286`", 
+     "0.032380952380952385`", "0.05333333333333333`"},
+    {"0.30095238095238097`", "0.2895238095238095`", "0.29333333333333333`", 
+     "0.30095238095238097`", "0.30095238095238097`", "0.31047619047619046`", 
+     "0.30095238095238097`", "0.3028571428571428`", "0.30095238095238097`", 
+     "0.30666666666666664`", "0.047619047619047616`", "0.045714285714285714`",
+      "0.049523809523809526`", "0.049523809523809526`", "0.`", 
+     "0.05333333333333334`", "0.0380952380952381`", "0.032380952380952385`", 
+     "0.047619047619047616`", "0.05714285714285715`"},
+    {"0.29714285714285715`", "0.29333333333333333`", "0.29714285714285715`", 
+     "0.29714285714285715`", "0.2895238095238095`", "0.30666666666666664`", 
+     "0.29714285714285715`", "0.29904761904761906`", "0.29714285714285715`", 
+     "0.3028571428571428`", "0.03619047619047619`", "0.045714285714285714`", 
+     "0.026666666666666665`", "0.049523809523809526`", "0.05333333333333334`",
+      "0.`", "0.049523809523809526`", "0.04380952380952381`", 
+     "0.05904761904761904`", "0.05714285714285714`"},
+    {"0.30095238095238097`", "0.29714285714285715`", "0.30095238095238097`", 
+     "0.3085714285714286`", "0.30095238095238097`", "0.31047619047619046`", 
+     "0.30857142857142855`", "0.3028571428571428`", "0.30857142857142855`", 
+     "0.3142857142857143`", "0.02857142857142857`", "0.049523809523809526`", 
+     "0.06095238095238096`", "0.04571428571428571`", "0.0380952380952381`", 
+     "0.049523809523809526`", "0.`", "0.051428571428571435`", 
+     "0.028571428571428574`", "0.05333333333333334`"},
+    {"0.28380952380952384`", "0.2723809523809524`", "0.27619047619047615`", 
+     "0.28380952380952384`", "0.2838095238095238`", "0.29333333333333333`", 
+     "0.28380952380952384`", "0.28571428571428575`", "0.28380952380952384`", 
+     "0.2895238095238095`", "0.06095238095238095`", "0.03619047619047619`", 
+     "0.047619047619047616`", "0.06285714285714286`", "0.032380952380952385`",
+      "0.04380952380952381`", "0.051428571428571435`", "0.`", 
+     "0.05333333333333333`", "0.04`"},
+    {"0.3180952380952381`", "0.3142857142857143`", "0.31809523809523815`", 
+     "0.3142857142857143`", "0.3104761904761905`", "0.32380952380952377`", 
+     "0.3142857142857143`", "0.32000000000000006`", "0.3142857142857143`", 
+     "0.32`", "0.03047619047619048`", "0.04380952380952381`", 
+     "0.06285714285714286`", "0.032380952380952385`", "0.047619047619047616`",
+      "0.05904761904761904`", "0.028571428571428574`", "0.05333333333333333`",
+      "0.`", "0.047619047619047616`"},
+    {"0.3123809523809524`", "0.30095238095238097`", "0.3047619047619048`", 
+     "0.3085714285714286`", "0.31238095238095237`", "0.3180952380952381`", 
+     "0.3085714285714286`", "0.3142857142857143`", "0.3085714285714286`", 
+     "0.3142857142857143`", "0.04761904761904762`", "0.0419047619047619`", 
+     "0.05333333333333334`", "0.05333333333333333`", "0.05714285714285715`", 
+     "0.05714285714285714`", "0.05333333333333334`", "0.04`", 
+     "0.047619047619047616`", "0.`"}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[31]//TableForm=",
+ CellID->1167149134]
+}, Open  ]],
+
+Cell["\<\
+So in this example, the there are two clusters where the first 10 vectors are \
+each within 5% from each other then are quite different from vectors in the \
+other cluster.\
+\>", "Text",
+ CellID->1993806483],
+
+Cell["", "Text",
+ CellID->101706998],
+
+Cell["", "Text",
+ CellID->407660048],
+
+Cell["\<\
+Finish up working with the nano by clearing the instances if you are \
+completely done with them (since they are not recoverable without saving the \
+nanoState)\
+\>", "Text",
+ CellID->877354992],
+
+Cell["Close the nano", "MathCaption",
+ CellID->222522017],
+
+Cell[BoxData[
+ RowBox[{"CloseNano", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[32]:=",
+ CellID->1067825234]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{6},
+   "Spacer1"]]],
+ "Related Guides"
+}], "TutorialMoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->23220180],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[ButtonBox["NanoREST",
+ BaseStyle->"Link",
+ ButtonData->"paclet:NanoREST/guide/NanoREST"]], "TutorialMoreAbout",
+ CellID->1567025153]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"NanoREST Clustering",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "NanoREST Package", ButtonData -> "paclet:NanoREST/guide/NanoREST", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2020, 2, 5, 16, 44, 40.102164}", 
+    "history" -> {"0.0", "", "", ""}, "context" -> "NanoREST`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Nano R E S T Tutorial", "language" -> "en", "paclet" -> "NanoREST", 
+    "status" -> "None", "summary" -> 
+    "Demonstration on using the Mathematica API of the Boon Nano Load the \
+package Nano Instances.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$34005, "title" -> 
+    "NanoREST Clustering", "titlemodifier" -> "", "windowtitle" -> 
+    "NanoREST Clustering", "type" -> "Tutorial", "uri" -> 
+    "NanoREST/tutorial/Clustering", "WorkflowDockedCell" -> ""}, 
+  "SearchTextTranslated" -> ""},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[591, 21, 5335, 121, 70, "AnchorBarGrid",ExpressionUUID->"b29ad36b-7b6a-4281-b487-4b2d7eadbb53",
+ CellID->1],
+Cell[5929, 144, 88, 2, 70, "Input",ExpressionUUID->"d6722c50-d995-44ea-a131-c476d2ef6084",
+ CellID->519074551],
+Cell[CellGroupData[{
+Cell[6042, 150, 56, 1, 70, "Title",ExpressionUUID->"14817879-b211-4e8f-a939-c6b892d9475b",
+ CellID->509267359],
+Cell[6101, 153, 23445, 411, 70, "TutorialJumpBox",ExpressionUUID->"3c1224e0-d2cc-487c-8253-c774b4105edf"],
+Cell[29549, 566, 96, 1, 70, "Text",ExpressionUUID->"93366031-d27c-49df-9a46-50f844c1d844",
+ CellID->1534169418],
+Cell[29648, 569, 59, 1, 70, "MathCaption",ExpressionUUID->"345959fb-b4f6-4f33-a73f-1b0c99180a48",
+ CellID->836781195],
+Cell[29710, 572, 124, 4, 70, "Input",ExpressionUUID->"8bfe9991-56c8-449c-a3e3-ffdba4259e48",
+ InitializationCell->True,
+ CellID->2058623809],
+Cell[CellGroupData[{
+Cell[29859, 580, 51, 1, 70, "Section",ExpressionUUID->"b237fe33-2c1d-4f99-a21c-76648717e04e",
+ CellID->604775092],
+Cell[29913, 583, 514, 14, 70, "DefinitionBox",ExpressionUUID->"b0d4d51b-8607-4fc7-ae9d-5cb6255b6321",
+ CellID->882910844],
+Cell[30430, 599, 55, 1, 70, "Caption",ExpressionUUID->"a764092a-cfe5-4ab2-8b47-dfdba3b432dc",
+ CellID->2118037985],
+Cell[30488, 602, 87, 1, 70, "MathCaption",ExpressionUUID->"a407052a-8c5a-4488-bd57-499000166f7a",
+ CellID->1841362639],
+Cell[CellGroupData[{
+Cell[30600, 607, 141, 4, 70, "Input",ExpressionUUID->"ee75a5eb-55cd-4453-b7d0-b64a71d1be9b",
+ CellID->177170198],
+Cell[30744, 613, 434, 10, 70, "Output",ExpressionUUID->"346e8506-aab1-416d-94f8-e77c87b97f09",
+ CellID->577083963]
+}, Open  ]],
+Cell[31193, 626, 511, 12, 70, "Text",ExpressionUUID->"f7438902-6b8f-46b4-b968-bb623367ea3b",
+ CellID->588021026],
+Cell[31707, 640, 403, 7, 70, "Text",ExpressionUUID->"a4b84eb3-09a6-4812-8c6b-d9443ea27f20",
+ CellID->881152906],
+Cell[32113, 649, 1841, 55, 70, "DefinitionBox",ExpressionUUID->"27f22df9-d849-41f4-a7fb-ac9fab8e1836",
+ CellID->1563746915],
+Cell[33957, 706, 71, 1, 70, "Caption",ExpressionUUID->"fb5cdcfe-0e83-4bd3-9e8e-5299f6d37288",
+ CellID->989528419],
+Cell[34031, 709, 74, 1, 70, "MathCaption",ExpressionUUID->"829b0dad-4a51-4981-baee-036864ff23f2",
+ CellID->1762705810],
+Cell[34108, 712, 191, 6, 70, "Input",ExpressionUUID->"a9cdaf62-1632-4926-b35a-57f4365ba1b5",
+ CellID->174614092],
+Cell[34302, 720, 465, 8, 70, "Text",ExpressionUUID->"bb93f834-a777-4e1f-ad1d-8e89057b5120",
+ CellID->1600224932],
+Cell[CellGroupData[{
+Cell[34792, 732, 62, 1, 70, "Subsection",ExpressionUUID->"9de99be1-209b-436a-9abd-01ec4e4323aa",
+ CellID->516340506],
+Cell[34857, 735, 673, 12, 70, "Text",ExpressionUUID->"43a6d677-12ad-43ab-8c94-f5aa97d05d53",
+ CellID->1733472371],
+Cell[35533, 749, 492, 16, 70, "Text",ExpressionUUID->"4d33ef4b-da7e-42f0-8482-456c0fa40007",
+ CellID->882992252],
+Cell[36028, 767, 576, 9, 70, "Text",ExpressionUUID->"074deb59-4dc9-496c-8d52-70d5ad96e7fa",
+ CellID->1647274132],
+Cell[36607, 778, 70, 1, 70, "MathCaption",ExpressionUUID->"86ca142b-67ff-4d5a-a419-8b7ee10a0e07",
+ CellID->1102415943],
+Cell[CellGroupData[{
+Cell[36702, 783, 1132, 37, 70, "Input",ExpressionUUID->"2c3f792a-915e-469b-b2fe-dd882028a10a",
+ CellID->1939729647],
+Cell[37837, 822, 3923, 90, 70, "Output",ExpressionUUID->"dbded344-0a7f-4c9f-aa3e-3c63ba4ee49e",
+ CellID->1551291674]
+}, Open  ]],
+Cell[41775, 915, 64, 1, 70, "MathCaption",ExpressionUUID->"e6c0ae13-c39d-44d3-904c-106d194b133e",
+ CellID->1805753714],
+Cell[CellGroupData[{
+Cell[41864, 920, 770, 26, 70, "Input",ExpressionUUID->"eb7a1a5d-edf9-4b76-828b-74644176b674",
+ CellID->40414394],
+Cell[42637, 948, 6298, 146, 70, "Output",ExpressionUUID->"eb910476-7696-4628-9ce5-0a7f52d8f171",
+ CellID->324790687]
+}, Open  ]],
+Cell[48950, 1097, 453, 9, 70, "Text",ExpressionUUID->"092639d7-ede7-4dc6-a654-d55e28fd6244",
+ CellID->1053866482],
+Cell[49406, 1108, 374, 9, 70, "Text",ExpressionUUID->"0bd1bfbe-1c40-4b43-980c-2a3acdf7ebac",
+ CellID->1835395460],
+Cell[49783, 1119, 318, 6, 70, "Text",ExpressionUUID->"21af4318-6203-4f64-902f-6df659b36901",
+ CellID->104870119],
+Cell[50104, 1127, 395, 9, 70, "Text",ExpressionUUID->"d0e52797-582b-4f5a-91bd-bf586f095ccf",
+ CellID->1268560897],
+Cell[50502, 1138, 545, 11, 70, "Text",ExpressionUUID->"517d332d-9e8e-4b05-92ea-32a6b4a58d60",
+ CellID->660948814],
+Cell[51050, 1151, 433, 9, 70, "Text",ExpressionUUID->"acd7b85f-9790-4d24-8205-949f1e46c937",
+ CellID->1437253665],
+Cell[51486, 1162, 71, 1, 70, "MathCaption",ExpressionUUID->"c684af99-d89f-4961-af48-961446a3faf0",
+ CellID->1825694216],
+Cell[CellGroupData[{
+Cell[51582, 1167, 1741, 50, 70, "Input",ExpressionUUID->"fe54bb2c-776f-44f6-8faf-bdba826f1924",
+ CellID->2076453728],
+Cell[53326, 1219, 2053, 47, 70, "Output",ExpressionUUID->"1efffdb7-5aec-4f07-afb6-09bbeeba6194",
+ CellID->1495896714]
+}, Open  ]],
+Cell[55394, 1269, 478, 8, 70, "Text",ExpressionUUID->"a717cd42-e32d-4fb0-bf06-f33c371fa1c3",
+ CellID->788473062]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55909, 1282, 53, 1, 70, "Subsection",ExpressionUUID->"5bd84c70-955b-4ac2-8ced-248f0a596d26",
+ CellID->2124186955],
+Cell[55965, 1285, 518, 14, 70, "Text",ExpressionUUID->"12a899bc-46b2-47ec-b01a-03b355aa8a46",
+ CellID->1102008683],
+Cell[56486, 1301, 66, 1, 70, "MathCaption",ExpressionUUID->"dd3d1205-4bb2-4b70-ba27-71d0e5bf354e",
+ CellID->1570159993],
+Cell[56555, 1304, 648, 18, 70, "Input",ExpressionUUID->"7706f749-a0ca-4269-a272-8403f7667e76",
+ CellID->991845930],
+Cell[57206, 1324, 65, 1, 70, "MathCaption",ExpressionUUID->"f9b7a7bc-6e0e-4baf-a69d-43a259b71d33",
+ CellID->1698531397],
+Cell[57274, 1327, 134, 4, 70, "Input",ExpressionUUID->"68178b71-004a-4f4c-a4bc-0339d0a515b4",
+ CellID->1354358910],
+Cell[57411, 1333, 113, 3, 70, "Input",ExpressionUUID->"43d2e4a6-bb87-4700-9f6b-e410b561cae1",
+ CellID->904050081],
+Cell[CellGroupData[{
+Cell[57549, 1340, 162, 5, 70, "Input",ExpressionUUID->"882dcf49-1b9a-4a57-b10a-5fa8003e57f9",
+ CellID->772266715],
+Cell[57714, 1347, 81, 2, 70, "Output",ExpressionUUID->"8c619cab-3d10-4068-993c-0fd09bdd930b",
+ CellID->714083983]
+}, Open  ]],
+Cell[57810, 1352, 204, 5, 70, "Text",ExpressionUUID->"c8f0504e-f51e-40ca-8554-799afb2f94f9",
+ CellID->190426261],
+Cell[58017, 1359, 284, 6, 70, "Text",ExpressionUUID->"1496afb7-12c4-4b86-9213-2cfd0fe3ac3e",
+ CellID->1717038227],
+Cell[58304, 1367, 443, 8, 70, "Text",ExpressionUUID->"2d57ec69-dbb3-4145-a4cf-674523ad863c",
+ CellID->1372321920],
+Cell[58750, 1377, 381, 7, 70, "Text",ExpressionUUID->"9b3f57ee-7abd-4b19-9582-9db69f0c7c70",
+ CellID->1994286916],
+Cell[59134, 1386, 639, 10, 70, "Text",ExpressionUUID->"cd63af19-d541-434b-860a-da95b791a1a8",
+ CellID->959219332],
+Cell[59776, 1398, 106, 2, 70, "MathCaption",ExpressionUUID->"0e165ba3-c7c0-47c2-9b10-b4c6a3edd31b",
+ CellID->1892111865],
+Cell[CellGroupData[{
+Cell[59907, 1404, 2925, 74, 70, "Input",ExpressionUUID->"7b5b6310-109d-46de-92b4-a98e376df76b",
+ CellID->129757655],
+Cell[62835, 1480, 2472, 54, 70, "Output",ExpressionUUID->"82905a88-52b6-47a7-970c-0b131fdbf972",
+ CellID->105286033]
+}, Open  ]],
+Cell[65322, 1537, 163, 4, 70, "Text",ExpressionUUID->"5d350755-1d41-4a86-8d22-c1a545432a9b",
+ CellID->1585688024],
+Cell[65488, 1543, 342, 10, 70, "Text",ExpressionUUID->"b6b55571-5ee0-4f50-9a56-2b5b704c50ab",
+ CellID->1801106846]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65879, 1559, 50, 1, 70, "Section",ExpressionUUID->"a6779ab5-3797-4168-a4a9-09eb1af533cd",
+ CellID->1035121784],
+Cell[65932, 1562, 566, 15, 70, "Text",ExpressionUUID->"3eca8bed-f5db-4e5b-a28a-0059870cb35a",
+ CellID->1799255150],
+Cell[66501, 1579, 870, 26, 70, "DefinitionBox",ExpressionUUID->"940732af-bb15-4540-b253-70491937ff77",
+ CellID->1666542804],
+Cell[67374, 1607, 57, 1, 70, "Caption",ExpressionUUID->"a854130f-e0eb-456d-9922-734b5d292e4a",
+ CellID->2103182654],
+Cell[67434, 1610, 154, 4, 70, "MathCaption",ExpressionUUID->"167ffa29-4be9-42cb-a76a-a947f8b7cf18",
+ CellID->1463548130],
+Cell[CellGroupData[{
+Cell[67613, 1618, 168, 5, 70, "Input",ExpressionUUID->"ba0fb64e-1d26-4bdb-9842-798565e2f462",
+ CellID->1449679274],
+Cell[67784, 1625, 526, 11, 70, "Output",ExpressionUUID->"c28400cd-ad5f-492c-bb69-e80576870e40",
+ CellID->1906110567]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68347, 1641, 315, 8, 70, "Input",ExpressionUUID->"28fc2640-5b99-4802-acb1-064962127e05",
+ CellID->1513511709],
+Cell[68665, 1651, 2479, 48, 70, "Output",ExpressionUUID->"aeb9715e-d0f3-4fc0-9891-535d05b070f8",
+ CellID->252098408]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71181, 1704, 169, 5, 70, "Input",ExpressionUUID->"c993696a-3896-4454-ac49-3124db4b5665",
+ CellID->1861027118],
+Cell[71353, 1711, 2481, 48, 70, "Output",ExpressionUUID->"73c5f096-aac4-4057-98de-974f4f1a6eb2",
+ CellID->1721626778]
+}, Open  ]],
+Cell[73849, 1762, 428, 8, 70, "Text",ExpressionUUID->"2d089763-1bb4-40db-aaa9-4eb60c558893",
+ CellID->959685038],
+Cell[CellGroupData[{
+Cell[74302, 1774, 73, 1, 70, "Subsection",ExpressionUUID->"1d0bb391-43c3-4844-b672-ddae457e668f",
+ CellID->1336846017],
+Cell[74378, 1777, 924, 29, 70, "Text",ExpressionUUID->"142a65a8-a341-4676-aeaf-d126178ed95e",
+ CellID->1275156425],
+Cell[75305, 1808, 56, 1, 70, "MathCaption",ExpressionUUID->"3a9f8494-d1cc-4ca5-a0c3-46b6e7b7e99d",
+ CellID->1187565494],
+Cell[CellGroupData[{
+Cell[75386, 1813, 143, 4, 70, "Input",ExpressionUUID->"c55c6aa1-abad-4b67-b57e-0709d8ba6aa2",
+ CellID->1653493345],
+Cell[75532, 1819, 93, 2, 70, "Output",ExpressionUUID->"de16bbc4-09ad-4482-8ab7-5e16e693d30f",
+ CellID->1002840196]
+}, Open  ]],
+Cell[75640, 1824, 67, 1, 70, "MathCaption",ExpressionUUID->"b8241840-c9c5-403e-afca-779a7bb6534a",
+ CellID->1915690578],
+Cell[75710, 1827, 109, 3, 70, "Input",ExpressionUUID->"4af5f42d-2bdf-4ef3-9b92-f6ce792d1d2f",
+ CellID->101722565],
+Cell[75822, 1832, 114, 3, 70, "MathCaption",ExpressionUUID->"4171f9b9-4aea-4922-9301-758a6e4124b1",
+ CellID->791295902],
+Cell[75939, 1837, 266, 8, 70, "Input",ExpressionUUID->"59c8bfa5-ef2a-417d-bc69-b6a808e21ccd",
+ CellID->286156722],
+Cell[CellGroupData[{
+Cell[76230, 1849, 110, 3, 70, "Input",ExpressionUUID->"e55d29bf-3d42-43e9-aab1-37853e837d44",
+ CellID->1712562472],
+Cell[76343, 1854, 6135, 132, 70, "Output",ExpressionUUID->"eac5807d-da24-4709-8b28-d4dea2d258be",
+ CellID->1583537315]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82539, 1993, 49, 1, 70, "Section",ExpressionUUID->"833a1fd0-ecab-4c33-8bd9-0f621d30e2a4",
+ CellID->1808925427],
+Cell[82591, 1996, 898, 26, 70, "DefinitionBox",ExpressionUUID->"21b01464-addb-48cf-92ff-1fb4822815e4",
+ CellID->1707265691],
+Cell[83492, 2024, 58, 1, 70, "Caption",ExpressionUUID->"220f05a0-c056-447f-9082-1333ddbd5072",
+ CellID->1485461070],
+Cell[83553, 2027, 72, 1, 70, "MathCaption",ExpressionUUID->"28a63826-2615-4ebc-baaa-cf24e7078cc8",
+ CellID->1956162873],
+Cell[83628, 2030, 134, 4, 70, "Input",ExpressionUUID->"d5e237f7-3cae-41e9-b713-f3336222dd50",
+ CellID->136940809],
+Cell[83765, 2036, 107, 3, 70, "Input",ExpressionUUID->"af385f72-016d-4e9f-b66a-0f3059d8ebbb",
+ CellID->572165286],
+Cell[83875, 2041, 57, 1, 70, "MathCaption",ExpressionUUID->"060568a3-0501-4014-965b-9e69a38d2055",
+ CellID->1106610299],
+Cell[CellGroupData[{
+Cell[83957, 2046, 115, 3, 70, "Input",ExpressionUUID->"279696d4-ec27-4091-96f7-cbdcc403aa2c",
+ CellID->840321796],
+Cell[84075, 2051, 340, 8, 70, "Output",ExpressionUUID->"8e87b72d-cf54-4807-b4d2-063792efa06e",
+ CellID->1261988463]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84452, 2064, 114, 3, 70, "Input",ExpressionUUID->"21ffd63d-886a-4d95-a562-45a1ba605065",
+ CellID->219022385],
+Cell[84569, 2069, 2461, 48, 70, "Output",ExpressionUUID->"164e1b55-158a-494e-b62f-b26ccaa5060f",
+ CellID->411307046]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87067, 2122, 114, 3, 70, "Input",ExpressionUUID->"e3415a51-c804-4ed0-b193-79ae2b462192",
+ CellID->1547464614],
+Cell[87184, 2127, 1689, 45, 70, "Output",ExpressionUUID->"eabcc8f1-bc7a-4a94-8643-b00a6c09c6e5",
+ CellID->29887287]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88910, 2177, 46, 1, 70, "Subsection",ExpressionUUID->"66c23f6e-f295-428d-b568-1f90e1c5ef5d",
+ CellID->1714077191],
+Cell[88959, 2180, 777, 12, 70, "Text",ExpressionUUID->"72c17846-4ebe-486c-952f-c85931a5e5b8",
+ CellID->72809450],
+Cell[89739, 2194, 81, 1, 70, "MathCaption",ExpressionUUID->"f5faf901-7b77-4e17-a5ec-bad24e57023c",
+ CellID->1759864937],
+Cell[89823, 2197, 267, 9, 70, "Input",ExpressionUUID->"dca43684-e207-414d-b811-dfe5f56576d7",
+ CellID->334577222],
+Cell[CellGroupData[{
+Cell[90115, 2210, 805, 24, 70, "Input",ExpressionUUID->"5d275f6a-4e80-4886-8771-bdd661f05219",
+ CellID->201431682],
+Cell[90923, 2236, 884, 22, 70, "Output",ExpressionUUID->"4e26bad9-3ca2-460e-9f70-59316bf7d098",
+ CellID->180377506]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91868, 2265, 58, 1, 70, "Section",ExpressionUUID->"90389822-dbfd-468e-843e-7d374733f26f",
+ CellID->1313035530],
+Cell[91929, 2268, 261, 5, 70, "Text",ExpressionUUID->"0d0304b0-ab5f-4eae-81fa-067820121e74",
+ CellID->1696845706],
+Cell[92193, 2275, 5249, 157, 70, "DefinitionBox",ExpressionUUID->"03bca23b-0ee4-48b9-8f98-aad0597728f8",
+ CellID->427882516],
+Cell[97445, 2434, 72, 1, 70, "Caption",ExpressionUUID->"18bf2ab8-c91c-4591-aef9-fe28f0341e1b",
+ CellID->1646196256],
+Cell[97520, 2437, 1324, 47, 70, "DefinitionBox",ExpressionUUID->"191a113a-ccad-4c8b-9390-ce076f45fca7",
+ CellID->1791743534],
+Cell[98847, 2486, 58, 1, 70, "Caption",ExpressionUUID->"13bcda60-db93-42d2-801c-05024a7a984c",
+ CellID->1817877704],
+Cell[98908, 2489, 224, 5, 70, "Text",ExpressionUUID->"9af91ac7-261c-4ae7-acb0-0bedabad0c1a",
+ CellID->33193888],
+Cell[99135, 2496, 98, 1, 70, "MathCaption",ExpressionUUID->"69400d48-a498-400d-a604-f15424c849eb",
+ CellID->1666952364],
+Cell[99236, 2499, 534, 15, 70, "Input",ExpressionUUID->"bd68efe0-ba71-44c9-a2d8-da249f7b9f16",
+ CellID->2115830160],
+Cell[CellGroupData[{
+Cell[99795, 2518, 678, 19, 70, "Input",ExpressionUUID->"f9e8de2b-a724-4bbe-a153-d6b42228a3c3",
+ CellID->1206004194],
+Cell[100476, 2539, 10369, 154, 70, "Output",ExpressionUUID->"f805dccd-2199-4c47-bec9-435b94d251e4",
+ CellID->1167149134]
+}, Open  ]],
+Cell[110860, 2696, 217, 5, 70, "Text",ExpressionUUID->"03bfaf4a-b649-4422-8201-647e8e9c1337",
+ CellID->1993806483],
+Cell[111080, 2703, 36, 1, 70, "Text",ExpressionUUID->"ab0ed03b-8fba-41d4-a539-5b0fc267c145",
+ CellID->101706998],
+Cell[111119, 2706, 36, 1, 70, "Text",ExpressionUUID->"8888049b-66f7-4ad3-b37c-c0242a9d9e10",
+ CellID->407660048],
+Cell[111158, 2709, 204, 5, 70, "Text",ExpressionUUID->"54bb3277-4279-4446-bf7b-48e86bb563fa",
+ CellID->877354992],
+Cell[111365, 2716, 57, 1, 70, "MathCaption",ExpressionUUID->"2c017388-8576-4f48-afa9-c6e2086a215a",
+ CellID->222522017],
+Cell[111425, 2719, 110, 3, 70, "Input",ExpressionUUID->"1de1fbb2-724b-49ca-9c9d-896bf255b28a",
+ CellID->1067825234]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[111572, 2727, 164, 7, 70, "TutorialMoreAboutSection",ExpressionUUID->"b9bf5147-6cea-4eb6-aa85-6f7322508aad",
+ CellID->23220180],
+Cell[111739, 2736, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"9006b327-11aa-41cb-94b9-3ce8887a756c"],
+Cell[111773, 2738, 146, 3, 70, "TutorialMoreAbout",ExpressionUUID->"b42d8172-7fc1-4f68-9cc3-4378081328cf",
+ CellID->1567025153]
+}, Open  ]]
+}, Open  ]],
+Cell[111946, 2745, 23, 0, 70, "FooterCell",ExpressionUUID->"ee3cd995-8688-4e46-9d68-5513e516ba30"]
+}
+]
+*)
+
+(* End of internal cache information *)
