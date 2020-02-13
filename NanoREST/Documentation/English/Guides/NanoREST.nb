@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     18625,        530]
+NotebookDataLength[     18626,        530]
 NotebookOptionsPosition[     13490,        429]
-NotebookOutlinePosition[     15052,        468]
-CellTagsIndexPosition[     15009,        465]
+NotebookOutlinePosition[     15053,        468]
+CellTagsIndexPosition[     15010,        465]
 WindowTitle->NanoREST Package
 WindowFrame->Normal*)
 
@@ -119,7 +119,7 @@ NanoREST.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]},
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7018], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7000], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "NanoREST/guide/NanoREST", ".html"]], None}]}]},
@@ -441,14 +441,14 @@ TaggingRules->{
          BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
     Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
   "", "Metadata" -> {
-   "built" -> "{2020, 2, 5, 16, 41, 58.535153}", 
+   "built" -> "{2020, 2, 11, 14, 36, 46.281327}", 
     "history" -> {"", "", "", ""}, "context" -> "NanoREST`", "keywords" -> {},
      "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> 
     True, "label" -> "Nano R E S T Guide", "language" -> "en", "paclet" -> 
     "NanoREST", "status" -> "None", "summary" -> 
     "This package contains the API calls to run the Boon Nano in the \
 Mathematica interface.", "synonyms" -> {}, "tabletags" -> 
-    DocumentationBuild`Make`Private`tabletaggingrules$6926, "title" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$6908, "title" -> 
     "NanoREST Package", "titlemodifier" -> "", "windowtitle" -> 
     "NanoREST Package", "type" -> "Guide", "uri" -> 
     "NanoREST/guide/NanoREST"}},
@@ -467,7 +467,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[588, 21, 5158, 114, 70, "AnchorBarGrid",ExpressionUUID->"2bfc8ca2-644c-417a-be6d-7376b596a056",
+Cell[588, 21, 5158, 114, 70, "AnchorBarGrid",ExpressionUUID->"e9d51fd2-63f4-43a7-9298-5abf01b208b0",
  CellID->1],
 Cell[CellGroupData[{
 Cell[5771, 139, 58, 1, 70, "GuideTitle",ExpressionUUID->"9068e96f-239c-44ec-8cb6-0c930ad71431",
@@ -476,8 +476,8 @@ Cell[5832, 142, 142, 4, 70, "GuideAbstract",ExpressionUUID->"414242cf-a0c0-4651-
  CellID->2001916300]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6011, 151, 137, 6, 70, "GuideReferenceSection",ExpressionUUID->"cefd2f72-eb1f-4345-a51c-5bec374ad06a"],
-Cell[6151, 159, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"22e88654-d685-491a-87a2-81b5649ad775"],
+Cell[6011, 151, 137, 6, 70, "GuideReferenceSection",ExpressionUUID->"e194427b-8f5e-4cec-9715-9b0584e0e190"],
+Cell[6151, 159, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"eaac71c2-4413-4bb9-8408-6430a3d7f304"],
 Cell[CellGroupData[{
 Cell[6207, 163, 79, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"17e758ee-7384-4951-b930-f016188d8e2f",
  CellID->523325678],
@@ -522,16 +522,16 @@ Cell[12245, 376, 339, 10, 70, "GuideText",ExpressionUUID->"f2195401-30e8-42cb-98
 Cell[12587, 388, 239, 7, 70, "InlineGuideFunctionListing",ExpressionUUID->"fe154280-794f-4968-98a1-a87ac4aa949e",
  CellID->58033752]
 }, Open  ]],
-Cell[12841, 398, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"69e88ce5-07bc-4621-b05d-c4003ed66232"]
+Cell[12841, 398, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"618b37f9-1d79-48d3-88bd-390b13abb31b"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[12909, 403, 157, 7, 70, "GuideTutorialsSection",ExpressionUUID->"3c57a0a9-5b22-4d88-bb87-b1b1fb79d0b5",
  CellID->415694126],
-Cell[13069, 412, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"5f7ed124-309a-4b9a-bd55-b680922409f3"],
+Cell[13069, 412, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"f4f8a519-48dd-4707-a220-3c889008b940"],
 Cell[13103, 414, 345, 10, 70, "GuideText",ExpressionUUID->"8190c579-5488-4a2f-8925-fdc3d1bd582c",
  CellID->1606979511]
 }, Open  ]],
-Cell[13463, 427, 23, 0, 70, "FooterCell",ExpressionUUID->"6e9d3144-3931-40a5-9c52-7a2020672db1"]
+Cell[13463, 427, 23, 0, 70, "FooterCell",ExpressionUUID->"ebf68dff-7350-4c1a-8ca5-c5c0365fef88"]
 }
 ]
 *)
