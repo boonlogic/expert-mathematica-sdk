@@ -227,7 +227,7 @@ GenerateRandomVariantInt[SourcePattern_,Min_,Max_,PercentVariation_,Num_:1,Weigh
 
 (****** INSTANCE ******)
 (* Create a nano instance *)
-Options[OpenNano]={"Filename"->None,"AuthenticationPath"->FileNameJoin[{$HomeDirectory,".BoonLogic"}]};
+Options[OpenNano]={"Filename"->None,"AuthenticationPath"->FileNameJoin[{$HomeDirectory,".BoonLogic.license"}]};
 OpenNano[Label_,User_:"default",OptionsPattern[]]:=Module[{cred},
 	cred=Check[SetServerGlobals[User,OptionValue["AuthenticationPath"]],Return[]];
 	cred["instance"]=Check[CreateInstance[cred,Label],Return[],NanoError::return];
