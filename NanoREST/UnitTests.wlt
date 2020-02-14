@@ -27,8 +27,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetVersion[nano],
-	<|"api-version" -> "/expert/v3", "boon-nano" -> "eef0f182", "expert-api" -> "d849b2f7", "expert-common" -> "829a7477"|>,
+	GetVersion[nano]["api-version"],
+	"/expert/v3",
 	TestID->"GetVersion-success"
 ]
 
@@ -77,7 +77,7 @@ VerificationTest[
 
 VerificationTest[
 	config=GetConfig[nano],
-	<|"accuracy" -> 0.99, "features" -> {<|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>}, "numericFormat" -> "uint16", "percentVariation" -> 0.07, "streamingWindowSize" -> 1|>,
+	<|"numericFormat" -> "uint16", "features" -> {<|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>}, "percentVariation" -> 0.07, "accuracy" -> 0.99, "streamingWindowSize" -> 1|>,
 	TestID->"GetConfig-success-1"
 ]
 
@@ -146,7 +146,7 @@ VerificationTest[
 
 VerificationTest[
 	GetBufferStatus[nano],
-	<|"totalBytesInBuffer" -> 400, "totalBytesProcessed" -> 0, "totalBytesWritten" -> 400|>,
+	<|"totalBytesWritten" -> 400, "totalBytesProcessed" -> 0, "totalBytesInBuffer" -> 400|>,
 	TestID->"GetBufferStatus-success"
 ]
 
