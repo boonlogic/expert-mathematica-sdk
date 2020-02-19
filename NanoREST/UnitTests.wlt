@@ -145,8 +145,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetBufferStatus[nano],
-	<|"totalBytesWritten" -> 400, "totalBytesProcessed" -> 0, "totalBytesInBuffer" -> 400|>,
+	GetBufferStatus[nano]["totalBytesWritten"],
+	400,
 	TestID->"GetBufferStatus-success"
 ]
 
@@ -201,8 +201,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetBufferStatus[nano],
-	<|"totalBytesInBuffer" -> 800, "totalBytesProcessed" -> 0, "totalBytesWritten" -> 800|>,
+	GetBufferStatus[nano]["totalBytesWritten"],
+	800,
 	TestID->"GetBufferStatus-success-1"
 ]
 
@@ -219,14 +219,14 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetNanoStatus[nano],
-	<|"PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, "anomalyIndexes" -> {1000, 0, 157}, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "numClusters" -> 3, "totalInferences" -> 80|>,
+	Sort[Keys[GetNanoStatus[nano]]],
+	{"anomalyIndexes","clusterGrowth","clusterSizes","distanceIndexes","frequencyIndexes","numClusters","PCA","totalInferences"},
 	TestID->"GetNanoStatus-success"
 ]
 
 VerificationTest[
-	GetNanoResults[nano],
-	<|"DI" -> {503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 486, 503, 486, 486, 486, 486, 486, 486, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 486, 503, 486, 486, 486, 486, 486, 486}, "FI" -> {1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1014, 1203, 1014, 1014, 1014, 1014, 1014, 1014, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1014, 1203, 1014, 1014, 1014, 1014, 1014, 1014}, "ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}, "SI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58, 117, 77, 154, 152, 147, 137, 117, 78, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58}|>,
+	Sort[Keys[GetNanoResults[nano]]],
+	{"DI","FI","ID","RI","SI"},
 	TestID->"GetNanoResults-success"
 ]
 
@@ -292,8 +292,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetNanoStatus[nano],
-	<|"PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, "anomalyIndexes" -> {1000, 0, 157}, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "numClusters" -> 3, "totalInferences" -> 80|>,
+	Sort[GetNanoStatus[nano]],
+	<|"numClusters" -> 3, "totalInferences" -> 80, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "anomalyIndexes" -> {1000, 0, 157}, "PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}|>,
 	TestID->"GetNanoStatus-success-2"
 ]
 
