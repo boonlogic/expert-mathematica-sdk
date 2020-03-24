@@ -10,11 +10,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	nano = OpenNano["test"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- "api-tenant" -> "b97b89a6f84071c1", 
- "url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- "instance" -> "test"|>,
+	ContainsAll[Keys[nano = OpenNano["test"]],{"api-key", "api-tenant", "url", "proxy-server", "instance"}],
+	True,
 	TestID->"OpenNano-success-1"
 ]
 
@@ -33,8 +30,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	#["instanceID"]&/@NanoList[nano],
-	{"test"},
+	MemberQ[#["instanceID"]&/@NanoList[nano],"test"],
+	True,
   TestID->"NanoList-success"
 ]
 
@@ -42,16 +39,6 @@ VerificationTest[
 	ExistsQ[nano],
 	True,
 	TestID->"ExistsQ-success"
-]
-
-VerificationTest[
-	ExistsQ[<|"api-key" -> 
-   "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
-  "api-tenant" -> "b97b89a6f84071c1", 
-  "url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
-  "instance" -> "nonexistant"|>],
-  False,
-  TestID->"ExistsQ-failure"
 ]
 
 VerificationTest[
@@ -261,11 +248,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	OpenNano["test"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "test"|>,
+	ContainsAll[Keys[OpenNano["test"]],{"api-key","api-tenant","proxy-server","url","instance"}],
+	True,
 	TestID->"OpenNano-success-2"
 ]
 
@@ -283,11 +267,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	OpenNano["test","default","Filename"->"ExampleData.bn"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "test"|>,
+	ContainsAll[Keys[OpenNano["test","default","Filename"->"ExampleData.bn"]],{"api-key","api-tenant","proxy-server","url","instance"}],
+	True,
 	TestID->"OpenNano-success-3"
 ]
 
@@ -299,19 +280,23 @@ VerificationTest[
 
 
 VerificationTest[
-	CloseNano[<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "nonexistant"|>],
- 	Null,
- 	{NanoError::return},
- 	TestID->"CloseNano-failure"
+	CloseNano[nano],
+	Null,
+	TestID->"CloseNano-success-3"
+]
+
+VerificationTest[
+	nano["instance"]="nonexistant";
+	ExistsQ[nano],
+  	False,
+  	TestID->"ExistsQ-failure"
 ]
 
 VerificationTest[
 	CloseNano[nano],
-	Null,
-	TestID->"CloseNano-success-3"
+ 	Null,
+ 	{NanoError::return},
+ 	TestID->"CloseNano-failure"
 ]
 
 EndTestSection[]

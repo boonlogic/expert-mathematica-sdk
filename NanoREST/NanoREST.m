@@ -237,7 +237,7 @@ OpenNano[Label_,User_:"default",OptionsPattern[]]:=Module[{cred},
 	Return[cred]
 ]
 
-SetServerGlobals[User_,AuthPath_]:=Module[{Credentials},
+SetServerGlobals[User_,AuthPath_]:=Module[{Credentials,proxy},
 	Credentials=Check[Import[AuthPath,"RawJSON"],Return[]];
 	If[MemberQ[Keys[Credentials],User]==False,Message[NanoError::handle,User];
 	Return[]];
@@ -245,9 +245,16 @@ SetServerGlobals[User_,AuthPath_]:=Module[{Credentials},
 		Credentials[User,"url"]=Credentials[User,"server"]<>"/expert/v3/";,
 		Credentials[User,"url"]="http://"<>Credentials[User,"server"]<>"/expert/v3/";
 	];
+	If[Credentials[User,"proxy-server"]!="",
+		PacletManager`UseInternetProxy[True];
+		proxy=StringReplace[#,"/"->""]&/@StringSplit[Credentials[User,"proxy-server"],":"];
+		PacletManager`SetInternetProxy["HTTPS",{proxy[[-2]],proxy[[-1]]}];,
+		PacletManager`UseInternetProxy[False];
+	];
 	Credentials[User]=KeyDrop[Credentials[User],"server"]; 
 	Return[Credentials[User]];
 ]
+
 CreateInstance[NanoHandle_,Label_]:=Module[{req,RetVal},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	req = HTTPRequest[NanoHandle["url"]<>"nanoInstance/"<>Label<>"?api-tenant="<>NanoHandle["api-tenant"], 
