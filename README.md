@@ -6,7 +6,7 @@ Mathematica documentation is located within Mathematica itself. See below for in
 
 ---------
 ### Setup
-1. Download and save the `.Boonlogic` file in user home directory (ie Mac: /Users/'username' or Windows: C:\\Users\\'username'). This file can be found in the welcome email for the BoonNano NanoSaas.
+1. Download and save the `.BoonLogic.license` file in user home directory (ie Mac: /Users/'username' or Windows: C:\\Users\\'username'). This file can be found in the welcome email for the BoonNano NanoSaas.
 >NOTE: This file is what the SDK's look for to access the API. If it is placed somewhere other than the home directory, when opening a new nano, the file path will have to be specified.
 
 2. Clone this repository
