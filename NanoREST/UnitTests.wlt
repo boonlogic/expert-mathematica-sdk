@@ -10,11 +10,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	nano = OpenNano["test"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- "api-tenant" -> "b97b89a6f84071c1", 
- "url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- "instance" -> "test"|>,
+	ContainsAll[Keys[nano = OpenNano["test"]],{"api-key", "api-tenant", "url", "proxy-server", "instance"}],
+	True,
 	TestID->"OpenNano-success-1"
 ]
 
@@ -27,14 +24,14 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetVersion[nano],
-	<|"api-version" -> "/expert/v3", "boon-nano" -> "eef0f182", "expert-api" -> "d849b2f7", "expert-common" -> "829a7477"|>,
+	GetVersion[nano]["api-version"],
+	"/expert/v3",
 	TestID->"GetVersion-success"
 ]
 
 VerificationTest[
-	#["instanceID"]&/@NanoList[nano],
-	{"test"},
+	MemberQ[#["instanceID"]&/@NanoList[nano],"test"],
+	True,
   TestID->"NanoList-success"
 ]
 
@@ -42,16 +39,6 @@ VerificationTest[
 	ExistsQ[nano],
 	True,
 	TestID->"ExistsQ-success"
-]
-
-VerificationTest[
-	ExistsQ[<|"api-key" -> 
-   "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
-  "api-tenant" -> "b97b89a6f84071c1", 
-  "url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
-  "instance" -> "nonexistant"|>],
-  False,
-  TestID->"ExistsQ-failure"
 ]
 
 VerificationTest[
@@ -77,7 +64,7 @@ VerificationTest[
 
 VerificationTest[
 	config=GetConfig[nano],
-	<|"accuracy" -> 0.99, "features" -> {<|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>, <|"maxVal" -> 10, "minVal" -> 0, "weight" -> 1|>}, "numericFormat" -> "uint16", "percentVariation" -> 0.07, "streamingWindowSize" -> 1|>,
+	<|"numericFormat" -> "uint16", "features" -> {<|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>}, "percentVariation" -> 0.07, "accuracy" -> 0.99, "streamingWindowSize" -> 1|>,
 	TestID->"GetConfig-success-1"
 ]
 
@@ -145,8 +132,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetBufferStatus[nano],
-	<|"totalBytesInBuffer" -> 400, "totalBytesProcessed" -> 0, "totalBytesWritten" -> 400|>,
+	GetBufferStatus[nano]["totalBytesWritten"],
+	400,
 	TestID->"GetBufferStatus-success"
 ]
 
@@ -201,8 +188,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetBufferStatus[nano],
-	<|"totalBytesInBuffer" -> 800, "totalBytesProcessed" -> 0, "totalBytesWritten" -> 800|>,
+	GetBufferStatus[nano]["totalBytesWritten"],
+	800,
 	TestID->"GetBufferStatus-success-1"
 ]
 
@@ -219,14 +206,14 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetNanoStatus[nano],
-	<|"PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, "anomalyIndexes" -> {1000, 0, 157}, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "numClusters" -> 3, "totalInferences" -> 80|>,
+	Sort[Keys[GetNanoStatus[nano]]],
+	{"anomalyIndexes","clusterGrowth","clusterSizes","distanceIndexes","frequencyIndexes","numClusters","PCA","totalInferences"},
 	TestID->"GetNanoStatus-success"
 ]
 
 VerificationTest[
-	GetNanoResults[nano],
-	<|"DI" -> {503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 486, 503, 486, 486, 486, 486, 486, 486, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 503, 486, 503, 486, 486, 486, 486, 486, 486}, "FI" -> {1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1014, 1203, 1014, 1014, 1014, 1014, 1014, 1014, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1203, 1014, 1203, 1014, 1014, 1014, 1014, 1014, 1014}, "ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}, "SI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58, 117, 77, 154, 152, 147, 137, 117, 78, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58}|>,
+	Sort[Keys[GetNanoResults[nano]]],
+	{"DI","FI","ID","RI","SI"},
 	TestID->"GetNanoResults-success"
 ]
 
@@ -261,11 +248,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	OpenNano["test"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "test"|>,
+	ContainsAll[Keys[OpenNano["test"]],{"api-key","api-tenant","proxy-server","url","instance"}],
+	True,
 	TestID->"OpenNano-success-2"
 ]
 
@@ -283,35 +267,36 @@ VerificationTest[
 ]
 
 VerificationTest[
-	OpenNano["test","default","Filename"->"ExampleData.bn"],
-	<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "test"|>,
+	ContainsAll[Keys[OpenNano["test","default","Filename"->"ExampleData.bn"]],{"api-key","api-tenant","proxy-server","url","instance"}],
+	True,
 	TestID->"OpenNano-success-3"
 ]
 
 VerificationTest[
-	GetNanoStatus[nano],
-	<|"PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}, "anomalyIndexes" -> {1000, 0, 157}, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "numClusters" -> 3, "totalInferences" -> 80|>,
+	Sort[GetNanoStatus[nano]],
+	<|"numClusters" -> 3, "totalInferences" -> 80, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "anomalyIndexes" -> {1000, 0, 157}, "PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}|>,
 	TestID->"GetNanoStatus-success-2"
 ]
 
 
 VerificationTest[
-	CloseNano[<|"api-key" -> "05b44fa3aa8a46c7bcd27c0def74915ea663dc4f0f836a43", 
- 	"api-tenant" -> "b97b89a6f84071c1", 
- 	"url" -> "https://b97b89a6f84071c1.boonlogic.com/expert/v3/", 
- 	"instance" -> "nonexistant"|>],
- 	Null,
- 	{NanoError::return},
- 	TestID->"CloseNano-failure"
+	CloseNano[nano],
+	Null,
+	TestID->"CloseNano-success-3"
+]
+
+VerificationTest[
+	nano["instance"]="nonexistant";
+	ExistsQ[nano],
+  	False,
+  	TestID->"ExistsQ-failure"
 ]
 
 VerificationTest[
 	CloseNano[nano],
-	Null,
-	TestID->"CloseNano-success-3"
+ 	Null,
+ 	{NanoError::return},
+ 	TestID->"CloseNano-failure"
 ]
 
 EndTestSection[]
