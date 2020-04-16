@@ -12,7 +12,7 @@ VerificationTest[
 VerificationTest[
 	ContainsAll[Keys[nano = OpenNano["test"]],{"api-key", "api-tenant", "url", "proxy-server", "instance"}],
 	True,
-	TestID->"OpenNano-success-1"
+	TestID->"OpenNano-success"
 ]
 
 VerificationTest[
@@ -39,6 +39,18 @@ VerificationTest[
 	ExistsQ[nano],
 	True,
 	TestID->"ExistsQ-success"
+]
+
+VerificationTest[
+	CloseNano[nano],
+	Null,
+	TestID->"CloseNano-success"
+]
+
+VerificationTest[
+	ContainsAll[Keys[nano = OpenNano["test"]],{"api-key", "api-tenant", "url", "proxy-server", "instance"}],
+	True,
+	TestID->"OpenNano-success-1"
 ]
 
 VerificationTest[
@@ -218,8 +230,8 @@ VerificationTest[
 ]
 
 VerificationTest[
-	Keys[GetNanoStatus[nano,Results->{averageInferenceTime,numClusters,PCA}]],
-	{"PCA","averageInferenceTime","numClusters"},
+	Sort[Keys[GetNanoStatus[nano,Results->{averageInferenceTime,numClusters,PCA}]]],
+	{"averageInferenceTime","numClusters","PCA"},
 	TestID->"GetNanoStatus-results-success"
 ]
 
@@ -272,12 +284,17 @@ VerificationTest[
 	TestID->"OpenNano-success-3"
 ]
 
-VerificationTest[
+(*VerificationTest[
 	Sort[GetNanoStatus[nano]],
 	<|"numClusters" -> 3, "totalInferences" -> 80, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "anomalyIndexes" -> {1000, 0, 157}, "PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}|>,
 	TestID->"GetNanoStatus-success-2"
-]
+]*)
 
+VerificationTest[
+	Sort[Keys[GetConfig[nano]]],
+	{"accuracy", "features", "numericFormat", "percentVariation", "streamingWindowSize"},
+	TestID->"GetConfig-success-2"
+]
 
 VerificationTest[
 	CloseNano[nano],
@@ -297,6 +314,46 @@ VerificationTest[
  	Null,
  	{NanoError::return},
  	TestID->"CloseNano-failure"
+]
+
+VerificationTest[
+	nano=OpenNano["test"];,
+	Null,
+	TestID->"OpenNano-success-4"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",1,0,10,0.05,10],
+	Null,
+	TestID->"ConfigureNano-streaming-success"
+]
+
+VerificationTest[
+	IntegerQ[Do[If[ContainsOnly[RunStreamingData[nano, Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]]["ID"], {0}], Null, Return[i]], {i, 1, 1000}]],
+	True,
+	TestID->"RunStreamingData-autotune-success"
+]
+
+VerificationTest[
+	RunStreamingData[nano, Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
+	<|"ID" -> {2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2,
+    3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 
+   4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
+    6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 
+   7, 8, 9, 16, 1, 2, 3, 4, 5, 6, 7, 8, 17, 16, 1, 2, 3, 4, 12, 13, 
+   14, 15, 17, 16, 18, 11, 19, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6,
+    14, 8, 17, 16, 18, 11, 19, 4, 12, 13, 14, 15, 17, 16, 18, 11, 19, 
+   4, 12, 6, 14, 15, 17, 16, 18, 11, 19, 4, 12, 13, 14, 8, 17, 16, 1, 
+   11, 19, 4, 12, 13, 14, 15, 17, 16, 18, 2, 19, 4, 5, 6, 7, 8, 9, 10,
+    1}|>,
+    TestID->"RunStreamingData-cluster-success"
+]
+
+VerificationTest[
+	CloseNano[nano],
+ 	Null,
+ 	TestID->"CloseNano-success-4"
 ]
 
 EndTestSection[]

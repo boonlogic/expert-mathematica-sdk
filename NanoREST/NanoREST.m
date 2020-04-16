@@ -37,6 +37,8 @@ LoadData::usage="LoadData[NanoHandle,data] posts the data to be clustered"
 
 RunNano::usage="RunNano[NanoHandle] clusters the data"
 
+RunStreamingData::usage="RunStreamingData[NanoHandle, data] pushes data through the nano and autotunes in the process"
+
 GetBufferStatus::usage="GetBufferStatus[NanoHandle] returns information on the buffer"
 
 GetNanoStatus::usage="GetNanoStatus[NanoHandle] returns statistics on the clusters"
@@ -85,6 +87,7 @@ AutotuneRange::usage="option to autotune the min and max values"
 Excludes::usage="columns to exclude from autotuning when autotuning by feature"
 
 AppendData::usage="option for combining new data to previous data not yet clustered"
+GZip::usage="option for loading data in a zip format"
 Results::usage="specifies which clustering results options to return"
 	ID::usage="cluster index of the inferences"
 	SI::usage="smoothed anomaly index ranging from 0 to 1000"
@@ -102,10 +105,6 @@ Results::usage="specifies which clustering results options to return"
 	averageInferenceTime::usage="time to cluster per inference"
 	numClusters::usage="number of clusters created (including the zero cluster)"
 	
-	(*SourceVector::usage="fuzzy template vector estimation"
-	CMYK::usage="color version of the pattern memory"
-	BinaryPM::usage="pattern memory converted from base64 to binary"
-	Features::usage="histogram of feature importance when creating a new cluster"*)
 RowSort::usage="pattern memory sorting based on distance"
 
 float32::usage="float data to upload"
@@ -463,12 +462,17 @@ AutotuneConfig[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal},
 
 (******** CLUSTER ********)
 (* Uploads the data to be clustered and returns any results specified *)
-Options[LoadData]={AppendData->False};
+Options[LoadData]={AppendData->False,GZip->False};
 LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[MemberQ[{True,False},OptionValue[AppendData]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[AppendData]],ToString[AppendData]];
+		Return[]
+	];
+	
+	If[MemberQ[{True,False},OptionValue[GZip]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[GZip]],ToString[GZip]];
 		Return[]
 	];
 	
@@ -481,7 +485,7 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 	url=NanoHandle["url"]<>"data/"<>NanoHandle["instance"]
 	<>"?runNano=false"
 	<>"&fileType=raw"
-	<>"&gzip=false"
+	<>"&gzip="<>ToLowerCase[ToString[OptionValue[GZip]]]
 	<>"&appendData="<>ToLowerCase[ToString[OptionValue[AppendData]]]
 	<>"&api-tenant="<>NanoHandle["api-tenant"];
 
@@ -496,6 +500,54 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
 	];
+]
+
+(* Uploads the data to be clustered for streaming applications *)
+Options[RunStreamingData]={Results->ID,GZip->False};
+RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	
+	If[SubsetQ[{None,All,ID,SI,RI,FI,DI},Flatten[{OptionValue[Results]}]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
+		Return[]
+	];
+	
+	If[MemberQ[{True,False},OptionValue[GZip]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[GZip]],ToString[GZip]];
+		Return[]
+	];
+	
+	If[MemberQ[Flatten[{OptionValue[Results]}],None]==False,
+		If[MemberQ[Flatten[{OptionValue[Results]}],All],
+			ResultString=ToString[{ID,SI,RI,FI,DI}], (* list out all result options *)
+			ResultString=ToString[OptionValue[Results]]; (* not None or All so must be a subset of result options *)
+		]
+	];
+	
+	NumericFormat=GetConfig[NanoHandle]["numericFormat"];
+	SetDirectory[$TemporaryDirectory];
+	Quiet[Close[tempFile]];
+	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
+	Export[tempFile,Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	t=FindFile[tempFile];
+	url=NanoHandle["url"]<>"nanoRunStreaming/"<>NanoHandle["instance"]
+	<>"?fileType=raw"
+	<>"&gzip="<>ToLowerCase[ToString[OptionValue[GZip]]]
+	<>"&results="<>StringDelete[ResultString, {" ", "{", "}","NanoREST`","Private`"}]
+	<>"&api-tenant="<>NanoHandle["api-tenant"];
+
+	req = HTTPRequest[url, 
+	<|
+	"Method" ->"POST",
+	"Headers"->{"Content-Type"->"multipart/form-data","x-token"->NanoHandle["api-key"],"type"->"text/csv"},
+	"Body"->{"data"->File[t]}
+	|>];
+	RetVal= URLRead[req,{"Status","Body"}];
+	ResetDirectory[];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+	];
+	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
 (* Post a nanorun using previous data and clustering parameters *)
@@ -734,6 +786,7 @@ Protect[AutotuneConfig]
 
 Protect[RunNano]
 Protect[LoadData]
+Protect[RunStreamingData]
 Protect[GetNanoStatus]
 Protect[DecodePM]
 Protect[GetNanoResults]
