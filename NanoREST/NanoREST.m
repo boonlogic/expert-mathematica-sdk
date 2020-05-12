@@ -21,6 +21,10 @@ NanoList::usage="NanoList[NanoHandle] returns a list names for the allocated nan
 
 ExistsQ::usage="ExistsQ[NanoHandle] tests to see whether the given nanohandle still poitns to an active nano"
 
+LearningQ::usage="Learning[NanoHandle] checks whether learning is on"
+
+PostLearning::usage="PostLeanring[NanoHandle,Status] set the learning to true if status is true and false if status is false"
+
 SaveNano::usage="SaveNano[NanoHandle,Filename] saves the nano in a .bn file"
 
 (* CONFIGURATION *)
@@ -77,7 +81,7 @@ InvalidParam::argerr="The first parameter must either be a list of magnitudes or
 FileError::argerr="File not found"
 NanoError::handle="`1` is not a valid nano reference"
 InvalidOption::option="`1` is not a valid option value for `2`"
-MissingParameter::argerr="`1` was not provided"
+MissingParameter::argerr="`1` was not provided or was invalid"
 NanoWarning::message="`1`"
 
 (*Options*)
@@ -313,6 +317,38 @@ ExistsQ[NanoHandle_]:=Module[{req,RetVal},
 	];
 	Return[True]
 ]	
+
+LearningQ[NanoHandle_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	req = HTTPRequest[NanoHandle["url"]<>"learning/"<>NanoHandle["instance"]<>"?api-tenant="<>NanoHandle["api-tenant"],
+	<|
+	"Method"->"GET",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal=URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	If[ImportString[RetVal[[2]],"RawJSON"]===True,Return[True],Return[False]]
+]
+
+PostLearning[NanoHandle_,Status_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	If[ToString[Status]!=True && ToString[Status]!=False, Message[MissingParameter::argerr,Status];Return[]];
+	req = HTTPRequest[NanoHandle["url"]
+		<>"learning/"<>NanoHandle["instance"]
+		<>"?enable="<>ToLowerCase[ToString[Status]]
+		<>"&api-tenant="<>NanoHandle["api-tenant"],
+	<|
+	"Method"->"POST",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal=URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	Return[];
+]
 
 (* Get saved version of the nano state *)
 SaveNano[NanoHandle_,Filename_:""]:=Module[{file,req,RetVal,index=1,currentDirectory},
@@ -778,6 +814,8 @@ Protect[OpenNano]
 Protect[CloseNano]
 Protect[NanoList]
 Protect[ExistsQ]
+Protect[LearningQ]
+Protect[PostLearning]
 Protect[SaveNano]
 
 Protect[GetConfig]

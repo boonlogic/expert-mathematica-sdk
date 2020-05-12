@@ -180,6 +180,13 @@ VerificationTest[
 ]
 
 VerificationTest[
+	LearningQ[nano],
+	True,
+	TestID->"LearningQ-True"
+	
+]
+
+VerificationTest[
 	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"],AppendData->True],
 	Null,
 	TestID->"LoadData-append-success"
@@ -193,10 +200,9 @@ VerificationTest[
 ]
 
 VerificationTest[
-	GetNanoStatus[nano],
-	Null,
-	{NanoError::return},
-	TestID->"GetNanoStatus-failure"
+	Sort[GetNanoStatus[nano]],
+	<|"numClusters" -> 1, "clusterGrowth" -> {0}, "clusterSizes" -> {0}, "frequencyIndexes" -> {0}, "distanceIndexes" -> {0}, "anomalyIndexes" -> {1000}, "PCA" -> {{0, 0, 0}}|>,
+	TestID->"GetNanoStatus-zero cluster"
 ]
 
 VerificationTest[
@@ -215,6 +221,18 @@ VerificationTest[
 	RunNano[nano,Results->{ID,RI}],
 	<|"ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}|>,
 	TestID->"RunNano-results-success"
+]
+
+VerificationTest[
+	PostLearning[nano,False],
+	Null,
+	TestID->"PostLearning-off"
+]
+
+VerificationTest[
+	RunNano[nano,Results->{ID,RI}],
+	<|"ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}|>,
+	TestID->"RunNano-results-no-learning"
 ]
 
 VerificationTest[
