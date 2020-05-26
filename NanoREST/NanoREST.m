@@ -23,7 +23,7 @@ ExistsQ::usage="ExistsQ[NanoHandle] tests to see whether the given nanohandle st
 
 LearningQ::usage="Learning[NanoHandle] checks whether learning is on"
 
-PostLearning::usage="PostLeanring[NanoHandle,Status] set the learning to true if status is true and false if status is false"
+SetLearningStatus::usage="SetLearningStatus[NanoHandle,Status] set the learning to true if status is true and false if status is false"
 
 SaveNano::usage="SaveNano[NanoHandle,Filename] saves the nano in a .bn file"
 
@@ -332,7 +332,7 @@ LearningQ[NanoHandle_]:=Module[{req,RetVal},
 	If[ImportString[RetVal[[2]],"RawJSON"]===True,Return[True],Return[False]]
 ]
 
-PostLearning[NanoHandle_,Status_]:=Module[{req,RetVal},
+SetLearningStatus[NanoHandle_,Status_]:=Module[{req,RetVal},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	If[ToString[Status]!=True && ToString[Status]!=False, Message[MissingParameter::argerr,Status];Return[]];
 	req = HTTPRequest[NanoHandle["url"]
@@ -815,7 +815,7 @@ Protect[CloseNano]
 Protect[NanoList]
 Protect[ExistsQ]
 Protect[LearningQ]
-Protect[PostLearning]
+Protect[SetLearningStatus]
 Protect[SaveNano]
 
 Protect[GetConfig]
