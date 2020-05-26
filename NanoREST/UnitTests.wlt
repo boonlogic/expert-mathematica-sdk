@@ -224,9 +224,9 @@ VerificationTest[
 ]
 
 VerificationTest[
-	PostLearning[nano,False],
+	SetLearningStatus[nano,False],
 	Null,
-	TestID->"PostLearning-off"
+	TestID->"SetLearningStatus-off"
 ]
 
 VerificationTest[
