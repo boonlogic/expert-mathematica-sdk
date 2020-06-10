@@ -63,7 +63,7 @@ VerificationTest[
 VerificationTest[
 	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
 	Null,
-	{NanoError::return,Export::infer,General::erropts,NanoError::return},
+	{NanoError::return,FileError::argerr},
 	TestID->"LoadData-failure-no-config"
 ]
 
@@ -139,7 +139,7 @@ VerificationTest[
 VerificationTest[
 	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","NoData.csv"}],"CSV"]],
 	Null,
-	{Import::nffil,BinaryWrite::nocoerce,General::erropts,NanoError::return},
+	{Import::nffil,FileError::argerr},
 	TestID->"LoadData-file-doesnt-exist"
 ]
 

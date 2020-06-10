@@ -499,7 +499,7 @@ AutotuneConfig[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal},
 (******** CLUSTER ********)
 (* Uploads the data to be clustered and returns any results specified *)
 Options[LoadData]={AppendData->False,GZip->False};
-LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[MemberQ[{True,False},OptionValue[AppendData]]==False,
@@ -516,7 +516,12 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 	SetDirectory[$TemporaryDirectory];
 	Quiet[Close[tempFile]];
 	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	Export[tempFile,Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
+	If[result===$Failed,
+		ResetDirectory[];
+		Message[FileError::argerr];
+		Return[]
+	];
 	t=FindFile[tempFile];
 	url=NanoHandle["url"]<>"data/"<>NanoHandle["instance"]
 	<>"?runNano=false"
@@ -540,7 +545,7 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 
 (* Uploads the data to be clustered for streaming applications *)
 Options[RunStreamingData]={Results->ID,GZip->False};
-RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[SubsetQ[{None,All,ID,SI,RI,FI,DI},Flatten[{OptionValue[Results]}]]==False,
@@ -564,7 +569,12 @@ RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{ResultString,req,u
 	SetDirectory[$TemporaryDirectory];
 	Quiet[Close[tempFile]];
 	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	Export[tempFile,Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
+	If[result===$Failed,
+		ResetDirectory[];
+		Message[FileError::argerr];
+		Return[]
+	];
 	t=FindFile[tempFile];
 	url=NanoHandle["url"]<>"nanoRunStreaming/"<>NanoHandle["instance"]
 	<>"?fileType=raw"
