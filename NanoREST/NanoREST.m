@@ -10,10 +10,7 @@ GetVersion::usage="GetVersion[] returns the nano version running"
 
 (* INSTANCES *)
 OpenNano::usage="OpenNano[Label] starts a nano using the default user's credentials and returns the NanoHandle
-\nOpenNano[Label,User] starts a nano with the given label using the user's credentials and returns the NanoHandle
-\nOpenNano[Label,User,Filename] starts a nano and loads the saved nano and returns the NanoHandle"
-
-LoadNano::usage=""
+\nOpenNano[Label,User] starts a nano with the given label using the user's credentials and returns the NanoHandle"
 
 CloseNano::usage="CloseNano[NanoHandle] stops the nano associated with the NanoHandle and closes the connection"
 
@@ -23,16 +20,21 @@ ExistsQ::usage="ExistsQ[NanoHandle] tests to see whether the given nanohandle st
 
 SaveNano::usage="SaveNano[NanoHandle,Filename] saves the nano in a .bn file"
 
+LoadNano::usage=""
+
 (* CONFIGURATION *)
 GetConfig::usage="GetConfig[NanoHandle] gets the nano configuration"
 
-ConfigureNano::usage="ConfigureNano[NanoHandle,NumericFormat,FeatureCount,MinVal,MaxVal,PercentVariation] sets a config with the given parameters
-\nConfigureNano[NanoHandle,NumericFormat,FeatureCount,MinVal,MaxVal,PercentVariation,StreamingWindow,Weight,ClusterAccuracy] sets a config with the given parameters
+ConfigureNano::usage="ConfigureNano[NanoHandle,NumericFormat,FeatureCount] sets a config with the given parameters
 \nConfigureNano[NanoHandle,ConfigJSON] posts the JSON string to set the cluster parameters"
 
+(* CLUSTER *)
 AutotuneConfig::usage="AutotuneConfig[NanoHandle] autotunes the min, max, and percent variation for the given data"
 
-(* CLUSTER *)
+LearningQ::usage="Learning[NanoHandle] checks whether learning is on"
+
+SetLearningStatus::usage="SetLearningStatus[NanoHandle,Status] set the learning to true if status is true and false if status is false"
+
 LoadData::usage="LoadData[NanoHandle,data] posts the data to be clustered"
 
 RunNano::usage="RunNano[NanoHandle] clusters the data"
@@ -75,16 +77,33 @@ NanoError::length="Lengths of unequal value"
 NanoError::return="Failed with an error code of `1` and body: `2`"
 InvalidParam::argerr="The first parameter must either be a list of magnitudes or a pattern length"
 FileError::argerr="File not found"
+FileError::argwrite="File write error"
 NanoError::handle="`1` is not a valid nano reference"
 InvalidOption::option="`1` is not a valid option value for `2`"
-MissingParameter::argerr="`1` was not provided"
+MissingParameter::argerr="`1` was not provided or was invalid"
 NanoWarning::message="`1`"
 
 (*Options*)
-ByFeature::usage="option for autotuning min/max by column or overall"
+MinVals::usage=""
+MaxVals::usage=""
+PercentVariation::usage=""
+StreamingWindow::usage=""
+Weights::usage=""
+Labels::usage=""
+NanoAccuracy::usage=""
+ClusterMode::usage=""
+AutotuneByFeature::usage="option for autotuning min/max by column or overall"
 AutotunePV::usage="option for autotuning the percent variation"
 AutotuneRange::usage="option to autotune the min and max values"
-Excludes::usage="columns to exclude from autotuning when autotuning by feature"
+AutotuneExcludes::usage="columns to exclude from autotuning when autotuning by feature"
+AutotuneMaxClusters::usage=""
+StreamAutotune::usage=""
+StreamGraduation::usage=""
+StreamMaxClusters::usage=""
+StreamMaxSamples::usage=""
+StreamRateDenominator::usage=""
+StreamRateNumerator::usage=""
+StreamBufferLength::usage=""
 
 AppendData::usage="option for combining new data to previous data not yet clustered"
 GZip::usage="option for loading data in a zip format"
@@ -106,10 +125,6 @@ Results::usage="specifies which clustering results options to return"
 	numClusters::usage="number of clusters created (including the zero cluster)"
 	
 RowSort::usage="pattern memory sorting based on distance"
-
-float32::usage="float data to upload"
-uint16::usage="integer data with values with a minimum of 0"
-int16::usage="integer data to upload"
 
 Exact::usage="whether to make the variant vector exactly the given percent variation away from the source pattern"
 
@@ -314,6 +329,38 @@ ExistsQ[NanoHandle_]:=Module[{req,RetVal},
 	Return[True]
 ]	
 
+LearningQ[NanoHandle_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	req = HTTPRequest[NanoHandle["url"]<>"learning/"<>NanoHandle["instance"]<>"?api-tenant="<>NanoHandle["api-tenant"],
+	<|
+	"Method"->"GET",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal=URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	If[ImportString[RetVal[[2]],"RawJSON"]===True,Return[True],Return[False]]
+]
+
+SetLearningStatus[NanoHandle_,Status_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	If[ToString[Status]!=True && ToString[Status]!=False, Message[MissingParameter::argerr,Status];Return[]];
+	req = HTTPRequest[NanoHandle["url"]
+		<>"learning/"<>NanoHandle["instance"]
+		<>"?enable="<>ToLowerCase[ToString[Status]]
+		<>"&api-tenant="<>NanoHandle["api-tenant"],
+	<|
+	"Method"->"POST",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal=URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	Return[];
+]
+
 (* Get saved version of the nano state *)
 SaveNano[NanoHandle_,Filename_:""]:=Module[{file,req,RetVal,index=1,currentDirectory},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
@@ -374,30 +421,98 @@ LoadNano[NanoHandle_,Filename_]:=Module[{req,RetVal,file,currentDirectory},
 ]
 
 (******** CONFIGURATION *********)
-GenerateClusterConfig[numericFormat_,minVals_,maxVals_,weights_,percentVariation_,accuracy_,streamingWindow_]:=
+GenerateClusterConfig[numericFormat_,minVals_,maxVals_,weights_,labels_,percentVariation_,accuracy_,streamingWindow_,clusterMode_,
+	byFeature_,autotunePV_,autotuneRange_,exclusions_,maxClusters_,
+	enableAutotune_,learningGraduation_,learningMaxClusters_,learningMaxSamples_,learningDenominator_,learningNumerator_,bufferLength_]:=
 	ExportString[{
-	"numericFormat"->ToString[numericFormat],
-	"features"->Table[{"minVal"->minVals[[i]],"maxVal"->maxVals[[i]],"weight"->weights[[i]]},{i,1,Length[minVals]}],
-	"percentVariation"->percentVariation,
-	"accuracy"->accuracy,
-	"streamingWindowSize"->streamingWindow},
+		"accuracy"->accuracy,
+		"autoTuning"->{
+			"autoTuneByFeature"->byFeature,
+			"autoTunePV"->autotunePV,
+			"autoTuneRange"->autotuneRange,
+			"exclusions"->exclusions,
+			"maxClusters"->maxClusters
+		},
+		"clusterMode"->clusterMode,
+		"features"->Table[Drop[{
+			"minVal"->minVals[[i]],
+			"maxVal"->maxVals[[i]],
+			"weight"->weights[[i]],
+			"label"->labels[[i]]},
+			If[labels[[i]]=="",-1,0]],{i,1,Length[minVals]}],
+		"numericFormat"->numericFormat,
+		"percentVariation"->percentVariation,
+		"streaming"->{
+			"enableAutoTuning"->enableAutotune,
+			"learningGraduation"->learningGraduation,
+			"learningMaxClusters"->learningMaxClusters,
+			"learningMaxSamples"->learningMaxSamples,
+			"learningRateDenominator"->learningDenominator,
+			"learningRateNumerator"->learningNumerator,
+			"samplesToBuffer"->bufferLength
+		},
+		"streamingWindowSize"->streamingWindow},
 	"JSON"]
+	
 
-(* numeric format is either data type or JSON config *)
-ConfigureNano[NanoHandle_,NumericFormat_,FeatureCount_:10,Min_:1,Max_:10,PercentVariation_:0.05,StreamingWindow_:1,Weights_:1,Accuracy_:0.99]:=Module[{req,RetVal,config,min,max,weight},
+Options[ConfigureNano]={MinVals->0,MaxVals->10,PercentVariation->0.05,StreamingWindow->1,Weights->1,Labels->"",NanoAccuracy->0.99,ClusterMode->"batch",
+	AutotuneByFeature->True,AutotunePV->True,AutotuneRange->True,AutotuneExcludes->{},AutotuneMaxClusters->1000,
+	StreamAutotune->True,StreamGraduation->True,StreamMaxClusters->1000,StreamMaxSamples->10^6,StreamRateDenominator->10000,StreamRateNumerator->10,StreamBufferLength->10000};
+	
+ConfigureNano[NanoHandle_,NumericFormat_,FeatureCount_,OptionsPattern[]]:=Module[{req,RetVal,config,mins,maxes,weights,labels},
+	
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 
-	If[Depth[Min]==1,min=ConstantArray[Min,FeatureCount],min=Min];
-	If[Depth[Max]==1,max=ConstantArray[Max,FeatureCount],max=Max];
-	If[Length[max]!=Length[min]||Length[min]!=FeatureCount,Message[NanoError::length];Return[];];
-	If[Weights==1,weight=ConstantArray[1,FeatureCount],
-		If[Length[Weights]!=FeatureCount,Message[NanoError::length];Return[]],weight=Weights
+	If[Depth[OptionValue[MinVals]]==1,mins=ConstantArray[OptionValue[MinVals],FeatureCount],mins=OptionValue[MinVals]];
+	If[Depth[OptionValue[MaxVals]]==1,maxes=ConstantArray[OptionValue[MaxVals],FeatureCount],maxes=OptionValue[MaxVals]];
+	If[Length[maxes]!=Length[mins]||Length[mins]!=FeatureCount,Message[NanoError::length];Return[];];
+	If[OptionValue[Weights]==1,weights=ConstantArray[1,FeatureCount],
+		If[Length[OptionValue[Weights]]!=FeatureCount,Message[NanoError::length];Return[]],weights=OptionValue[Weights]
 	];
-	If[ToLowerCase[ToString[NumericFormat]]!="int16"&&ToLowerCase[ToString[NumericFormat]]!="uint16"&&ToLowerCase[ToString[NumericFormat]]!="float32",
-		config=NumericFormat;, (* not actually numeric format...it is a JSON config *)
-		(*else*)
-		config=GenerateClusterConfig[NumericFormat,min,max,weight,PercentVariation,Accuracy,StreamingWindow];
+	If[OptionValue[Labels]=="",labels=ConstantArray["",FeatureCount],
+		If[Length[OptionValue[Labels]]!=FeatureCount,Message[NanoError::length];Return[]],labels=OptionValue[Labels]
 	];
+	
+	If[MemberQ[{True,False},OptionValue[AutotuneByFeature]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[AutotuneByFeature]],ToString[AutotuneByFeature]];
+		Return[]
+	];
+	If[MemberQ[{True,False},OptionValue[AutotunePV]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[AutotunePV]],ToString[AutotunePV]];
+		Return[]
+	];
+	If[MemberQ[{True,False},OptionValue[AutotuneRange]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[AutotuneRange]],ToString[AutotuneRange]];
+		Return[]
+	];
+	
+	If[MemberQ[{True,False},OptionValue[StreamAutotune]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[StreamAutotune]],ToString[StreamAutotune]];
+		Return[]
+	];
+	
+	If[MemberQ[{True,False},OptionValue[StreamGraduation]]==False,
+		Message[InvalidOption::option,ToString[OptionValue[StreamGraduation]],ToString[StreamGraduation]];
+		Return[]
+	];
+	
+	config=GenerateClusterConfig[NumericFormat,mins,maxes,weights,labels,OptionValue[PercentVariation],OptionValue[NanoAccuracy],OptionValue[StreamingWindow],OptionValue[ClusterMode],
+	OptionValue[AutotuneByFeature],OptionValue[AutotunePV],OptionValue[AutotuneRange],OptionValue[AutotuneExcludes],OptionValue[AutotuneMaxClusters],
+	OptionValue[StreamAutotune],OptionValue[StreamGraduation],OptionValue[StreamMaxClusters],OptionValue[StreamMaxSamples],OptionValue[StreamRateDenominator],OptionValue[StreamRateNumerator],OptionValue[StreamBufferLength]];
+	
+	req = HTTPRequest[NanoHandle["url"]<>"clusterConfig/"<>NanoHandle["instance"]<>"?api-tenant="<>NanoHandle["api-tenant"], 
+	<|
+	"Method" ->"POST",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]},
+	"Body"->config|>];
+	RetVal= URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+	];
+]
+
+ConfigureNano[NanoHandle_,config_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	req = HTTPRequest[NanoHandle["url"]<>"clusterConfig/"<>NanoHandle["instance"]<>"?api-tenant="<>NanoHandle["api-tenant"], 
 	<|
@@ -426,28 +541,11 @@ GetConfig[NanoHandle_]:=Module[{req,RetVal},
 ]
 
 (* Autotunes the cluster config *)
-Options[AutotuneConfig]={ByFeature->False,AutotunePV->True,AutotuneRange->True,Excludes->{}};
-AutotuneConfig[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal},
+AutotuneConfig[NanoHandle_]:=Module[{req,url,RetVal},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-	If[MemberQ[{True,False},OptionValue[ByFeature]]==False,
-		Message[InvalidOption::option,ToString[OptionValue[ByFeature]],ToString[ByFeature]];
-		Return[]
-	];
-	If[MemberQ[{True,False},OptionValue[AutotunePV]]==False,
-		Message[InvalidOption::option,ToString[OptionValue[AutotunePV]],ToString[AutotunePV]];
-		Return[]
-	];
-	If[MemberQ[{True,False},OptionValue[AutotuneRange]]==False,
-		Message[InvalidOption::option,ToString[OptionValue[AutotuneRange]],ToString[AutotuneRange]];
-		Return[]
-	];
 	
-	url=NanoHandle["url"]<>"autoTuneConfig/"<>NanoHandle["instance"]
-	<>"?byFeature="<>ToLowerCase[ToString[OptionValue[ByFeature]]]
-	<>"&autoTunePV="<>ToLowerCase[ToString[OptionValue[AutotunePV]]]
-	<>"&autoTuneRange="<>ToLowerCase[ToString[OptionValue[AutotuneRange]]]
-	<>"&exclusions="<>StringDelete[ToString[OptionValue[Excludes]],{"{","}"," "}]
-	<>"&api-tenant="<>NanoHandle["api-tenant"];
+	url=NanoHandle["url"]<>"autoTune/"<>NanoHandle["instance"]
+	<>"?api-tenant="<>NanoHandle["api-tenant"];
 	req = HTTPRequest[url, 
 	<|
 	"Method" ->"POST",
@@ -463,7 +561,7 @@ AutotuneConfig[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal},
 (******** CLUSTER ********)
 (* Uploads the data to be clustered and returns any results specified *)
 Options[LoadData]={AppendData->False,GZip->False};
-LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[MemberQ[{True,False},OptionValue[AppendData]]==False,
@@ -480,7 +578,12 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 	SetDirectory[$TemporaryDirectory];
 	Quiet[Close[tempFile]];
 	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	Export[tempFile,Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
+	If[result===$Failed,
+		ResetDirectory[];
+		Message[FileError::argwrite];
+		Return[]
+	];
 	t=FindFile[tempFile];
 	url=NanoHandle["url"]<>"data/"<>NanoHandle["instance"]
 	<>"?runNano=false"
@@ -504,7 +607,7 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{req,url,RetVal,t,NumericFo
 
 (* Uploads the data to be clustered for streaming applications *)
 Options[RunStreamingData]={Results->ID,GZip->False};
-RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[SubsetQ[{None,All,ID,SI,RI,FI,DI},Flatten[{OptionValue[Results]}]]==False,
@@ -528,7 +631,12 @@ RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{ResultString,req,u
 	SetDirectory[$TemporaryDirectory];
 	Quiet[Close[tempFile]];
 	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	Export[tempFile,Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
+	If[result===$Failed,
+		ResetDirectory[];
+		Message[FileError::argwrite];
+		Return[]
+	];
 	t=FindFile[tempFile];
 	url=NanoHandle["url"]<>"nanoRunStreaming/"<>NanoHandle["instance"]
 	<>"?fileType=raw"
@@ -778,6 +886,8 @@ Protect[OpenNano]
 Protect[CloseNano]
 Protect[NanoList]
 Protect[ExistsQ]
+Protect[LearningQ]
+Protect[SetLearningStatus]
 Protect[SaveNano]
 
 Protect[GetConfig]

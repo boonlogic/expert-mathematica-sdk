@@ -10,11 +10,11 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17422,        531]
-NotebookOptionsPosition[     12074,        417]
-NotebookOutlinePosition[     14126,        472]
-CellTagsIndexPosition[     14041,        467]
-WindowTitle->Excludes
+NotebookDataLength[     13067,        397]
+NotebookOptionsPosition[      8680,        300]
+NotebookOutlinePosition[     10753,        355]
+CellTagsIndexPosition[     10668,        350]
+WindowTitle->ExistsQ
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -51,14 +51,11 @@ Cell[BoxData[GridBox[{
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
-        StripOnInput->False], {"\<\"AutotuneRange\"\>":>
+        StripOnInput->False], {"\<\"LearningQ\"\>":>Documentation`HelpLookup[
+       "paclet:NanoREST/ref/LearningQ"], "\<\"CloseNano\"\>":>
        Documentation`HelpLookup[
-       "paclet:NanoREST/ref/AutotuneRange"], "\<\"AutotunePV\"\>":>
-       Documentation`HelpLookup[
-       "paclet:NanoREST/ref/AutotunePV"], "\<\"ByFeature\"\>":>
-       Documentation`HelpLookup[
-       "paclet:NanoREST/ref/ByFeature"], "\<\"AutotuneConfig\"\>":>
-       Documentation`HelpLookup["paclet:NanoREST/ref/AutotuneConfig"]},
+       "paclet:NanoREST/ref/CloseNano"], "\<\"OpenNano\"\>":>
+       Documentation`HelpLookup["paclet:NanoREST/ref/OpenNano"]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
@@ -95,12 +92,12 @@ Cell[BoxData[GridBox[{
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
-        StripOnInput->False], {"\<\"NanoREST/ref/Excludes\"\>":>
+        StripOnInput->False], {"\<\"NanoREST/ref/ExistsQ\"\>":>
        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
        Module[{DocumentationSearch`Private`nb$}, 
         DocumentationSearch`Private`nb$ = NotebookPut[
            Notebook[{
-             Cell["NanoREST/ref/Excludes"]}, Visible -> False]]; 
+             Cell["NanoREST/ref/ExistsQ"]}, Visible -> False]]; 
         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
@@ -112,7 +109,7 @@ Cell[BoxData[GridBox[{
               BoxData[
                MakeBoxes[
                 Hyperlink[
-                "http://reference.wolfram.com/language/NanoREST/ref/Excludes.\
+                "http://reference.wolfram.com/language/NanoREST/ref/ExistsQ.\
 html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible -> 
             False]]; SelectionMove[
          DocumentationSearch`Private`nb$, All, Notebook]; 
@@ -123,10 +120,10 @@ html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$20016], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$20648], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
-             "NanoREST/ref/Excludes", ".html"]], None}]}]},
+             "NanoREST/ref/ExistsQ", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
@@ -136,7 +133,7 @@ html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible ->
  CellID->1],
 
 Cell[TextData[{
- Cell["Excludes", "ObjectName"],
+ Cell["ExistsQ", "ObjectName"],
  Cell[BoxData[
   TemplateBox[{8},
    "Spacer1"]]],
@@ -146,60 +143,20 @@ Cell[TextData[{
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      TemplateBox[{
-        Cell[
-         TextData["Excludes"]], "paclet:NanoREST/ref/Excludes"},
-       "RefLink",
-       BaseStyle->{"InlineFormula"}]], "InlineFormula"],
-     " \[LineSeparator]specifies which columns to exclude when autotuning the \
-min and max"
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["ExistsQ"]], "paclet:NanoREST/ref/ExistsQ"},
+        "RefLink",
+        BaseStyle->{"InlineFormula"}], "[", "NanoHandle", "]"}]], 
+      "InlineFormula"],
+     " \[LineSeparator]ExistsQ[NanoHandle] tells whether the given instance \
+is a valid running instance"
     }]]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}}},
  CellID->982511436],
-
-Cell[CellGroupData[{
-
-Cell[TextData[Cell[BoxData[
- ButtonBox[Cell[TextData[{
-   Cell[BoxData[
-    TemplateBox[{6},
-     "Spacer1"]]],
-   "Details"
-  }], "NotesFrameText"],
-  Appearance->{Automatic, None, "Normal", Automatic},
-  BaseStyle->None,
-  ButtonFunction:>(FrontEndExecute[{
-     FrontEnd`SelectionMove[
-      FrontEnd`SelectedNotebook[], All, ButtonCell], 
-     FrontEndToken["OpenCloseGroup"], 
-     FrontEnd`SelectionMove[
-      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
-  Evaluator->None,
-  Method->"Preemptive"]]]], "NotesSection",
- WholeCellGroupOpener->True,
- CellGroupingRules->{"SectionGrouping", 50},
- CellID->1],
-
-Cell["", "SectionHeaderSpacer"],
-
-Cell[TextData[{
- "Option for ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["AutotuneConfig"]], "paclet:NanoREST/ref/AutotuneConfig"},
-   "RefLink",
-   BaseStyle->{"InlineFormula"}]], "InlineFormula"]
-}], "Notes",
- CellID->1067943069],
-
-Cell["options include the indexes of the columns of data", "Notes",
- CellID->2096673655],
-
-Cell["", "SectionFooterSpacer"]
-}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -225,91 +182,27 @@ Cell[TextData[{
  WholeCellGroupOpener->True,
  CellID->1],
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"data", "=", 
-   RowBox[{"Join", "[", 
-    RowBox[{
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"10", 
-         RowBox[{"Sin", "[", "i", "]"}]}], "+", 
-        RowBox[{"RandomReal", "[", "]"}]}], ",", "10", ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "0", ",", 
-         RowBox[{"2", "\[Pi]"}], ",", ".01"}], "}"}]}], "]"}], ",", 
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"2", "i"}], "+", 
-        RowBox[{"RandomReal", "[", "]"}]}], ",", "10", ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "0", ",", 
-         RowBox[{"2", "\[Pi]"}], ",", "0.01"}], "}"}]}], "]"}], ",", 
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"1", "/", "2"}], 
-         SuperscriptBox["i", "2"]}], "-", "5", "+", 
-        RowBox[{"RandomReal", "[", "]"}]}], ",", "10", ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "0", ",", 
-         RowBox[{"2", "\[Pi]"}], ",", "0.01"}], "}"}]}], "]"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"-", "3"}], "i"}], "+", "11", "+", 
-        RowBox[{"RandomReal", "[", "]"}]}], ",", "10", ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "0", ",", 
-         RowBox[{"2", "\[Pi]"}], ",", "0.01"}], "}"}]}], "]"}]}], "]"}]}], 
-  ";"}]], "Input",
+Cell[BoxData[{
+ RowBox[{"<<", "NanoREST`"}], "\[IndentingNewLine]", 
+ RowBox[{"nano", "=", 
+  RowBox[{"OpenNano", "[", "\"\<test\>\"", "]"}]}]}], "Input",
  CellLabel->"In[1]:=",
- CellID->1572180595],
+ CellID->1334940375],
 
 Cell[BoxData[
- RowBox[{"<<", "NanoREST`"}]], "Input",
+ RowBox[{"ExistsQ", "[", "nano", "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->2087148475],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"nano", "=", 
-   RowBox[{"OpenNano", "[", "\"\<test\>\"", "]"}]}], ";"}]], "Input",
- CellLabel->"In[3]:=",
- CellID->659725796],
-
-Cell[BoxData[
- RowBox[{"ConfigureNano", "[", 
-  RowBox[{"nano", ",", "float32", ",", "629", ",", 
-   RowBox[{"-", "10"}], ",", "30"}], "]"}]], "Input",
- CellLabel->"In[4]:=",
- CellID->2122308118],
-
-Cell[BoxData[
- RowBox[{"LoadData", "[", 
-  RowBox[{"nano", ",", "data"}], "]"}]], "Input",
- CellLabel->"In[5]:=",
- CellID->845248711],
-
-Cell[BoxData[
- RowBox[{"AutotuneConfig", "[", 
-  RowBox[{"nano", ",", 
-   RowBox[{"ByFeature", "\[Rule]", "True"}], ",", 
-   RowBox[{"Excludes", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}]}], "]"}]], "Input",
- CellLabel->"In[6]:=",
- CellID->1646603315],
+ CellID->543306839],
 
 Cell[BoxData[
  RowBox[{"CloseNano", "[", "nano", "]"}]], "Input",
- CellLabel->"In[7]:=",
- CellID->388249840]
+ CellLabel->"In[3]:=",
+ CellID->464741012],
+
+Cell[BoxData[
+ RowBox[{"ExistsQ", "[", "nano", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->233475481]
 }, Open  ]]
 }, Open  ]],
 
@@ -330,7 +223,7 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["AutotuneRange"]], "paclet:NanoREST/ref/AutotuneRange"},
+     TextData["LearningQ"]], "paclet:NanoREST/ref/LearningQ"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
  "\[NonBreakingSpace]",
@@ -340,7 +233,7 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["AutotunePV"]], "paclet:NanoREST/ref/AutotunePV"},
+     TextData["CloseNano"]], "paclet:NanoREST/ref/CloseNano"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
  "\[NonBreakingSpace]",
@@ -350,17 +243,7 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["ByFeature"]], "paclet:NanoREST/ref/ByFeature"},
-   "RefLink",
-   BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"],
- "\[NonBreakingSpace]",
- StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
-  "InlineSeparator"],
- " ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["AutotuneConfig"]], "paclet:NanoREST/ref/AutotuneConfig"},
+     TextData["OpenNano"]], "paclet:NanoREST/ref/OpenNano"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana"}]], "InlineFormula"]
 }], "SeeAlso",
@@ -386,7 +269,7 @@ Cell[BoxData[
     TextData["Clustering"]], "paclet:NanoREST/tutorial/Clustering"},
   "RefLink",
   BaseStyle->"Tutorials"]], "Tutorials",
- CellID->982807169],
+ CellID->341631938],
 
 Cell["", "SectionFooterSpacer"]
 }, Open  ]],
@@ -419,7 +302,7 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"Excludes",
+WindowTitle->"ExistsQ",
 TaggingRules->{
  "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
   GridBox[{{
@@ -430,16 +313,16 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2020, 6, 11, 11, 34, 27.937748}", 
+   "built" -> "{2020, 6, 11, 11, 34, 29.047570}", 
     "history" -> {"0.0", "", "", ""}, "context" -> "NanoREST`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Nano R E S T Symbol", "language" -> "en", "paclet" -> "NanoREST", 
     "status" -> "None", "summary" -> 
-    "Excludes specifies which columns to exclude when autotuning the min and \
-max", "synonyms" -> {}, "tabletags" -> {}, "title" -> "Excludes", 
-    "titlemodifier" -> "", "windowtitle" -> "Excludes", "type" -> "Symbol", 
-    "uri" -> "NanoREST/ref/Excludes"}},
+    "ExistsQ[NanoHandle] ExistsQ[NanoHandle] tells whether the given instance \
+is a valid running instance", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "ExistsQ", "titlemodifier" -> "", "windowtitle" -> "ExistsQ", "type" -> 
+    "Symbol", "uri" -> "NanoREST/ref/ExistsQ"}},
 CellContext->"Global`",
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
 StyleDefinitions->Notebook[{
@@ -459,80 +342,63 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[6825, 205, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"6806ddfa-b4de-41b5-a157-72d0a4f01a76",
+  Cell[5693, 162, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"61ceb53a-05c2-45f0-8d40-9a0a220466f0",
    CellTags->"PrimaryExamplesSection",
    CellID->1]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 13851, 460}
+ {"PrimaryExamplesSection", 10478, 343}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[580, 21, 4522, 114, 70, "AnchorBarGrid",ExpressionUUID->"b3763f1f-abef-41af-b4ba-7bccd6067205",
+Cell[579, 21, 4392, 111, 70, "AnchorBarGrid",ExpressionUUID->"05c0c471-4617-495b-bee7-dbec3027b6f8",
  CellID->1],
-Cell[5105, 137, 165, 6, 70, "ObjectNameGrid",ExpressionUUID->"b56a5409-a0a6-4f8a-b44d-39b26418534e"],
-Cell[5273, 145, 462, 14, 70, "Usage",ExpressionUUID->"5f1212a4-d482-4e7a-8729-4a0225ad501c",
+Cell[4974, 134, 164, 6, 70, "ObjectNameGrid",ExpressionUUID->"903474a8-265a-4d60-b55c-8158048a8a34"],
+Cell[5141, 142, 527, 16, 70, "Usage",ExpressionUUID->"e941ae54-ae51-4e5d-a5a2-64542f70f890",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[5760, 163, 621, 19, 70, "NotesSection",ExpressionUUID->"44ef110e-5fe1-408a-829d-3ea42c4e0ff2",
- CellGroupingRules->{"SectionGrouping", 50},
- CellID->1],
-Cell[6384, 184, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"681c9cf5-d385-4425-b47e-b6dac8cc04d6"],
-Cell[6418, 186, 245, 9, 70, "Notes",ExpressionUUID->"6e1ade33-bbb8-4603-860a-73d83930ec76",
- CellID->1067943069],
-Cell[6666, 197, 88, 1, 70, "Notes",ExpressionUUID->"3b4e10d5-8203-4eee-a70c-934c5a0771f2",
- CellID->2096673655],
-Cell[6757, 200, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"7b67cf69-8f83-4da4-a8c7-524af7d5df28"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[6825, 205, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"6806ddfa-b4de-41b5-a157-72d0a4f01a76",
+Cell[5693, 162, 259, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"61ceb53a-05c2-45f0-8d40-9a0a220466f0",
  CellTags->"PrimaryExamplesSection",
  CellID->1],
 Cell[CellGroupData[{
-Cell[7109, 219, 187, 6, 70, "ExampleSection",ExpressionUUID->"5bc825bc-7ac2-4a55-93f0-a239ac6f3f75",
+Cell[5977, 176, 187, 6, 70, "ExampleSection",ExpressionUUID->"f6c6220f-5329-48d8-90c2-061ed19e9bdf",
  CellID->1],
-Cell[7299, 227, 1455, 44, 70, "Input",ExpressionUUID->"140f3c96-bd7f-4f65-8229-04c0f559ea0e",
- CellID->1572180595],
-Cell[8757, 273, 97, 3, 70, "Input",ExpressionUUID->"034dd8ea-b04e-4e3d-be2a-01c802a82f69",
- CellID->2087148475],
-Cell[8857, 278, 160, 5, 70, "Input",ExpressionUUID->"40643046-2402-4134-940a-5d66dcdb9d72",
- CellID->659725796],
-Cell[9020, 285, 195, 5, 70, "Input",ExpressionUUID->"5db8fb47-1154-4749-9e51-44b0b32571b1",
- CellID->2122308118],
-Cell[9218, 292, 133, 4, 70, "Input",ExpressionUUID->"108ffe38-0918-4876-8a90-54a2345e52e6",
- CellID->845248711],
-Cell[9354, 298, 286, 8, 70, "Input",ExpressionUUID->"60eca89f-cca5-4017-969e-75f5647c72f1",
- CellID->1646603315],
-Cell[9643, 308, 108, 3, 70, "Input",ExpressionUUID->"2e4c950b-ae10-433b-af13-4b2a5ccc11c5",
- CellID->388249840]
+Cell[6167, 184, 198, 5, 70, "Input",ExpressionUUID->"ac629b82-a832-4bea-8544-82b32ee8877e",
+ CellID->1334940375],
+Cell[6368, 191, 106, 3, 70, "Input",ExpressionUUID->"824af947-feed-4827-b6e8-c801bddf0180",
+ CellID->543306839],
+Cell[6477, 196, 108, 3, 70, "Input",ExpressionUUID->"8e99eb09-8116-4ca5-8077-5d9108014997",
+ CellID->464741012],
+Cell[6588, 201, 106, 3, 70, "Input",ExpressionUUID->"cb490f1d-6d25-4a5b-b06e-0d765388f03e",
+ CellID->233475481]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9800, 317, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"da4f9e89-e51f-4650-bab1-3c904dd7befe"],
-Cell[9834, 319, 150, 7, 70, "SeeAlsoSection",ExpressionUUID->"fc5050cc-c5da-427a-a73a-7f8bedd1f8c9",
+Cell[6743, 210, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"20f3db64-e49a-4121-895e-79ebfe7755e2"],
+Cell[6777, 212, 150, 7, 70, "SeeAlsoSection",ExpressionUUID->"85edfdc9-3f69-4d02-ba83-7a328051dcca",
  CellID->1255426704],
-Cell[9987, 328, 1210, 38, 70, "SeeAlso",ExpressionUUID->"64b1e378-00b6-439e-b427-a874edc5597a",
+Cell[6930, 221, 873, 28, 70, "SeeAlso",ExpressionUUID->"ab260fea-54a5-4834-b830-c40faadf0ab0",
  CellID->929782353]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11234, 371, 152, 7, 70, "TutorialsSection",ExpressionUUID->"27d488e8-2d19-4ba5-8043-e23200371275",
+Cell[7840, 254, 152, 7, 70, "TutorialsSection",ExpressionUUID->"de36d835-06df-4616-9f55-790dd207ef6c",
  CellID->250839057],
-Cell[11389, 380, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"f1e35c7e-88f3-46eb-be4f-875651f376f4"],
-Cell[11423, 382, 180, 6, 70, "Tutorials",ExpressionUUID->"6c145273-6ddc-46d1-b7b2-3d582a5863fc",
- CellID->982807169],
-Cell[11606, 390, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"8739cf2a-1278-4e33-bd17-2b2b452e8af0"]
+Cell[7995, 263, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"2aa6d966-1db5-4ee8-b977-27b82a4fe94b"],
+Cell[8029, 265, 180, 6, 70, "Tutorials",ExpressionUUID->"1c79673d-885e-4183-8fc2-d5027fba10d0",
+ CellID->341631938],
+Cell[8212, 273, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"6786e545-9a50-4b88-8273-ddded4933cfc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11674, 395, 156, 7, 70, "MoreAboutSection",ExpressionUUID->"afb81003-c8ee-43ac-ac06-a5407faba5dc",
+Cell[8280, 278, 156, 7, 70, "MoreAboutSection",ExpressionUUID->"e835bf8b-04dd-478a-8ef4-69b1064cc122",
  CellID->38303248],
-Cell[11833, 404, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"51c9c904-7e0c-4038-8e91-e1952de23af6"],
-Cell[11867, 406, 165, 6, 70, "MoreAbout",ExpressionUUID->"c528455f-9d68-49cf-83d4-445b98edef07",
+Cell[8439, 287, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"ed7c8810-0209-4dc8-9762-25f64e46a792"],
+Cell[8473, 289, 165, 6, 70, "MoreAbout",ExpressionUUID->"8c71f95a-bef0-4200-bf43-771218c34a4f",
  CellID->1]
 }, Open  ]],
-Cell[12047, 415, 23, 0, 70, "FooterCell",ExpressionUUID->"d0f302d6-894e-40d9-97d2-12bdc219f839"]
+Cell[8653, 298, 23, 0, 70, "FooterCell",ExpressionUUID->"084214d6-8680-4565-85e1-be115f4986f4"]
 }
 ]
 *)
