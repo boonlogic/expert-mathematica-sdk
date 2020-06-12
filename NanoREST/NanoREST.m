@@ -211,12 +211,14 @@ GenerateRandomVariantFloat[SourcePattern_,Min_,Max_,PercentVariation_,Num_:1,Wei
 	If[Depth[Min]==1, ExpandedMinArray=ConstantArray[Min,PatternLength]];
 	If[Depth[Max]==1, ExpandedMaxArray=ConstantArray[Max,PatternLength]];
 	
-	If[WeightsIn==1,Weights=ConstantArray[1,PatternLength],
-	If[Length[WeightsIn]!=PatternLength,
-		Message[NanoError::length];
-		Return[]
-	],
-	Weights=WeightsIn];
+	If[WeightsIn===1,
+		Weights=ConstantArray[1,PatternLength],
+		If[Length[WeightsIn]!=PatternLength,
+			Message[NanoError::length];
+			Return[]
+		];
+		Weights=WeightsIn
+	];
 
 	For[i=1,i<=Num,i++,
 		VariantPattern=SourcePattern;
@@ -367,7 +369,8 @@ SaveNano[NanoHandle_,Filename_:""]:=Module[{res,file,req,RetVal,index=1,currentD
 	currentDirectory=Directory[];
 	If[Filename === "" || Filename === None,
 		file="Untitled-"<>ToString[index];
-		While[StringQ[FindFile[file]],
+		PrependTo[$Path,"."];
+		While[FindFile[file]=!=$Failed,
 			index++;
 			file=StringDrop[file,-1]<>ToString[index];
 		];
@@ -394,7 +397,7 @@ SaveNano[NanoHandle_,Filename_:""]:=Module[{res,file,req,RetVal,index=1,currentD
 	If[res===$Failed,
 		Return[],
 		Return[file];
-	];
+	]
 ]
 
 (* Post the saved version  *)

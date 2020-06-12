@@ -73,6 +73,12 @@ VerificationTest[
 ]
 
 VerificationTest[
+	StringContainsQ[SaveNano[nano],"Untitled-"],
+	True,
+	TestID->"SaveNano-untitled-2-success"
+]
+
+VerificationTest[
 	CloseNano[nano],
 	Null,
 	TestID->"CloseNano-success-1"
@@ -455,6 +461,13 @@ VerificationTest[
 ]
 
 VerificationTest[
+	GenerateRandomVariantFloat[float,0,10,0.1,10,RandomInteger[{1,10},10]],
+	Null,
+	{NanoError::length},
+	TestID->"Float-variant-weight-error"
+]
+
+VerificationTest[
 	Dimensions[int=GenerateRandomVariantInt[int,0,10,0.1,10,RandomInteger[{1,10},100]]],
 	{10,100},
 	TestID->"Int-variant-weight-cloud"
@@ -762,6 +775,13 @@ VerificationTest[
 ]
 
 VerificationTest[
+	RunStreamingData[nano,data],
+	Null,
+	{NanoError::return,FileError::argwrite},
+	TestID->"StreamingData-failure-no-config"
+]
+
+VerificationTest[
 	LoadData[nano,data,AppendData->All],
 	Null,
 	{InvalidOption::option},
@@ -804,6 +824,13 @@ VerificationTest[
 ]
 
 VerificationTest[
+	DecodePM[nano,RowSort->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"DecodePM-rowsort-error"
+]
+
+VerificationTest[
 	GetNanoStatus[nano,Results->"Bogus"],
 	Null,
 	{InvalidOption::option},
@@ -818,10 +845,24 @@ VerificationTest[
 ]
 
 VerificationTest[
+	GetNanoStatus[nano],
+	Null,
+	{NanoError::return},
+	TestID->"Status-no-results"
+]
+
+VerificationTest[
 	ConfigureNano[nano,"uint16",10,MinVals->0,MaxVals->10,PercentVariation->0.07,Weights->1,StreamingWindow->1,NanoAccuracy->0.99]
 	,
 	Null,
 	TestID->"ConfigureNano-uint16-cluster-fail"
+]
+
+VerificationTest[
+	GetNanoResults[nano],
+	Null,
+	{NanoError::return},
+	TestID->"Results-no-results"
 ]
 
 VerificationTest[
@@ -857,6 +898,13 @@ VerificationTest[
 	CloseNano[nano])&/@list,
 	{Null},
 	TestID->"Close-all-6"
+]
+
+VerificationTest[
+	LoadNano[nano,"ExampleData.bn"],
+	Null,
+	{NanoError::return},
+	TestID->"LoadNano-no-instance"
 ]
 
 EndTestSection[]
