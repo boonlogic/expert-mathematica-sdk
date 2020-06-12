@@ -1,4 +1,4 @@
-(* Wolfram Language Test file *)
+ (* Wolfram Language Test file *)
 
 BeginTestSection["Management-success"]
 
@@ -61,6 +61,18 @@ VerificationTest[
 ]
 
 VerificationTest[
+	SaveNano[nano,FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.bn"}]],
+	"ExampleData.bn",
+	TestID->"SaveNano-directory"
+]
+
+VerificationTest[
+	StringContainsQ[SaveNano[nano],"Untitled-"],
+	True,
+	TestID->"SaveNano-untitled-success"
+]
+
+VerificationTest[
 	CloseNano[nano],
 	Null,
 	TestID->"CloseNano-success-1"
@@ -81,7 +93,13 @@ VerificationTest[
 VerificationTest[
 	ContainsAll[Keys[OpenNano["test","default","Filename"->"ExampleData.bn","AuthenticationPath"->path]],{"api-key","api-tenant","proxy-server","url","instance"}],
 	True,
-	TestID->"OpenNano-success-3"
+	TestID->"LoadNano-success"
+]
+
+VerificationTest[
+	ContainsAll[Keys[OpenNano["test","default","Filename"->FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.bn"}],"AuthenticationPath"->path]],{"api-key","api-tenant","proxy-server","url","instance"}],
+	True,
+	TestID->"LoadNano-directory-success"
 ]
 
 VerificationTest[
@@ -141,14 +159,14 @@ VerificationTest[
 	TestID->"Close-all-2"
 ]
 
-VerificationVerificationTest[
+VerificationTest[
 	nano["instance"]="nonexistant";
 	ExistsQ[nano],
   	False,
   	TestID->"ExistsQ-failure"
 ]
 
-VerificationVerificationTest[
+VerificationTest[
 	CloseNano[nano],
  	Null,
  	{NanoError::return},
@@ -207,6 +225,13 @@ VerificationTest[
 	,
 	Null,
 	TestID->"ConfigureNano-float32-success"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"float32",10,Labels->ConstantArray["north",10],AutotuneRange->False]
+	,
+	Null,
+	TestID->"ConfigureNano-labels-success"
 ]
 
 VerificationTest[
@@ -296,6 +321,62 @@ VerificationTest[
 ]
 
 VerificationTest[
+	ConfigureNano[nano,"uint16",10,Weights->{1,2,3}]
+	,
+	Null,
+	{NanoError::length},
+	TestID->"ConfigureNano-weights-length-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,Labels->{"l1","l2","l3"}]
+	,
+	Null,
+	{NanoError::length},
+	TestID->"ConfigureNano-labels-length-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,AutotuneByFeature->All]
+	,
+	Null,
+	{InvalidOption::option},
+	TestID->"ConfigureNano-byfeature-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,AutotunePV->All]
+	,
+	Null,
+	{InvalidOption::option},
+	TestID->"ConfigureNano-autotunepv-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,AutotuneRange->All]
+	,
+	Null,
+	{InvalidOption::option},
+	TestID->"ConfigureNano-autotunerange-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,StreamAutotune->All]
+	,
+	Null,
+	{InvalidOption::option},
+	TestID->"ConfigureNano-streamautotune-error"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,StreamGraduation->All]
+	,
+	Null,
+	{InvalidOption::option},
+	TestID->"ConfigureNano-streamgrad-error"
+]
+
+VerificationTest[
 	list=#["instanceID"]&/@NanoList[nano];
 	(nano["instance"]=#;
 	CloseNano[nano])&/@list,
@@ -304,6 +385,123 @@ VerificationTest[
 ]
 
 EndTestSection[]
+
+
+
+
+BeginTestSection["Data-creation"]
+
+VerificationTest[
+	Dimensions[native=GenerateRandomPatternNative[100,10]],
+	{100},
+	TestID->"Native-template"
+]
+
+VerificationTest[
+	Dimensions[GenerateRandomPatternNative[{10,11,12,13,14,15,100,101,102,103}]],
+	{10},
+	TestID->"Native-template-by-feature"
+]
+
+VerificationTest[
+	GenerateRandomPatternNative[{{1,2,3},{2,3,4}}],
+	Null,
+	{InvalidParam::argerr},
+	TestID->"Native-invlid-max-array"
+]
+
+VerificationTest[
+	Dimensions[int=GenerateRandomPatternInt[100,0,10]],
+	{100},
+	TestID->"Int-template"
+]
+
+VerificationTest[
+	Dimensions[GenerateRandomPatternInt[{0,1,2,3,4,5,10,11,12,13},{10,11,12,13,14,15,100,101,102,103}]],
+	{10},
+	TestID->"Int-template-by-feature"
+]
+
+VerificationTest[
+	GenerateRandomPatternInt[{{1,2,3},{2,3,4}},{{11,12,13},{12,13,14}}],
+	Null,
+	{NanoError::length},
+	TestID->"Int-invlid-max-array"
+]
+
+VerificationTest[
+	Dimensions[float=GenerateRandomPatternFloat[100,0,10]],
+	{100},
+	TestID->"Float-template"
+]
+
+VerificationTest[
+	Dimensions[GenerateRandomPatternFloat[{0,1,2,3,4,5,10,11,12,13},{10,11,12,13,14,15,100,101,102,103}]],
+	{10},
+	TestID->"Float-template-by-feature"
+]
+
+VerificationTest[
+	GenerateRandomPatternFloat[{{1,2,3},{2,3,4}},{{11,12,13},{12,13,14}}],
+	Null,
+	{NanoError::length},
+	TestID->"Float-invlid-max-array"
+]
+
+VerificationTest[
+	Dimensions[native=GenerateRandomVariantNative[native,10,0.1,10]],
+	{10,100},
+	TestID->"Native-variant-cloud"
+]
+
+VerificationTest[
+	Dimensions[int=GenerateRandomVariantInt[int,0,10,0.1,10,RandomInteger[{1,10},100]]],
+	{10,100},
+	TestID->"Int-variant-weight-cloud"
+]
+
+VerificationTest[
+	Dimensions[float=GenerateRandomVariantFloat[float,0,10,0.1,10,1,Exact->False]],
+	{10,100},
+	TestID->"Float-variant-weight-cloud"
+]
+
+VerificationTest[
+	GenerateRandomVariantFloat[int,0,10,0.1,10,1,Exact->All],
+	Null,
+	{NanoError::option},
+	TestID->"Float-option-invlid"
+]
+
+VerificationTest[
+	Length[Select[ComputePercentVariation[native[[1]],#,0,10]&/@native,#>.1&]]<2,
+	True,
+	TestID->"PV-test"
+]
+	
+VerificationTest[
+	ComputePercentVariation[native[[1]],{1,2,3},0,10],
+	Null,
+	{NanoError::length},
+	TestID->"Pattern-length-mismatch"
+]
+
+VerificationTest[
+	ComputePercentVariation[native[[1]],native[[2]],0,10,{1,2,3}],
+	Null,
+	{NanoError::length},
+	TestID->"Weights-length-error"
+]
+
+VerificationTest[
+	ComputePercentVariation[native[[1]],native[[2]],{0,1,2},10,{1,2,3}],
+	Null,
+	{NanoError::length},
+	TestID->"Min-Max-length-error"
+]
+
+EndTestSection[]
+
 
 
 
@@ -495,6 +693,12 @@ VerificationTest[
 ]
 
 VerificationTest[
+	Length[DecodePM[nano,Results->{"CMYK","SourceVector","BinaryPM","Features"},RowSort->True]],
+	4,
+	TestID->"DecodePM-all-success"
+]
+
+VerificationTest[
 	ConfigureNano[nano,"uint16",10,ClusterMode->"streaming"],
 	Null,
 	TestID->"ConfigureNano-streaming-cluster"
@@ -551,10 +755,66 @@ VerificationTest[
 ]
 
 VerificationTest[
-	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
+	LoadData[nano,data=Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
 	Null,
 	{NanoError::return,FileError::argwrite},
 	TestID->"LoadData-failure-no-config"
+]
+
+VerificationTest[
+	LoadData[nano,data,AppendData->All],
+	Null,
+	{InvalidOption::option},
+	TestID->"LoadData-appenddata-error"
+]
+
+VerificationTest[
+	LoadData[nano,data,GZip->All],
+	Null,
+	{InvalidOption::option},
+	TestID->"LoadData-gzip-error"
+]
+
+VerificationTest[
+	RunStreamingData[nano,data,GZip->All],
+	Null,
+	{InvalidOption::option},
+	TestID->"Streaming-gzip-error"
+]
+
+VerificationTest[
+	RunStreamingData[nano,data,Results->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"Streaming-results-error"
+]
+
+VerificationTest[
+	RunNano[nano,Results->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"RunNano-results-error"
+]
+
+VerificationTest[
+	DecodePM[nano,Results->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"DecodePM-results-error"
+]
+
+VerificationTest[
+	GetNanoStatus[nano,Results->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"Status-results-error"
+]
+
+VerificationTest[
+	GetNanoResults[nano,Results->"Bogus"],
+	Null,
+	{InvalidOption::option},
+	TestID->"Results-results-error"
 ]
 
 VerificationTest[

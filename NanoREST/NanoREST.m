@@ -184,7 +184,12 @@ ComputePercentVariation[V1_,V2_,Min_,Max_,WeightsIn_:1]:=Module[{PatternLength,E
 	If[Depth[Min]==1, ExpandedMinVal=ConstantArray[Min,PatternLength]];
 	If[Depth[Max]==1, ExpandedMax=ConstantArray[Max,PatternLength]];
 	
-	If[WeightsIn==1,Weights=ConstantArray[1,PatternLength],
+	If[Length[ExpandedMinVal]!=Length[V2],
+		Message[NanoError::length];
+		Return[]
+	];
+	
+	If[WeightsIn===1,Weights=ConstantArray[1,PatternLength],
 	If[Length[WeightsIn]!=PatternLength, Message[NanoError::length];Return[]],
 	Weights=WeightsIn];
 	
@@ -457,18 +462,29 @@ Options[ConfigureNano]={MinVals->0,MaxVals->10,PercentVariation->0.05,StreamingW
 	AutotuneByFeature->True,AutotunePV->True,AutotuneRange->True,AutotuneExcludes->{},AutotuneMaxClusters->1000,
 	StreamAutotune->True,StreamGraduation->True,StreamMaxClusters->1000,StreamMaxSamples->10^6,StreamRateDenominator->10000,StreamRateNumerator->10,StreamBufferLength->10000};
 	
-ConfigureNano[NanoHandle_,NumericFormat_,FeatureCount_,OptionsPattern[]]:=Module[{req,RetVal,config,mins,maxes,weights,labels},
+ConfigureNano[NanoHandle_,NumericFormat_,FeatureCount_,OptionsPattern[]]:=Module[{req,RetVal,config,mins,maxes,weights={},labels},
 	
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 
 	If[Depth[OptionValue[MinVals]]==1,mins=ConstantArray[OptionValue[MinVals],FeatureCount],mins=OptionValue[MinVals]];
 	If[Depth[OptionValue[MaxVals]]==1,maxes=ConstantArray[OptionValue[MaxVals],FeatureCount],maxes=OptionValue[MaxVals]];
 	If[Length[maxes]!=Length[mins]||Length[mins]!=FeatureCount,Message[NanoError::length];Return[];];
-	If[OptionValue[Weights]==1,weights=ConstantArray[1,FeatureCount],
-		If[Length[OptionValue[Weights]]!=FeatureCount,Message[NanoError::length];Return[]],weights=OptionValue[Weights]
+	If[OptionValue[Weights]===1,
+		weights=ConstantArray[1,FeatureCount],
+		
+		If[Length[OptionValue[Weights]]!=FeatureCount,
+			Message[NanoError::length];Return[]
+		];
+		weights=OptionValue[Weights]
 	];
-	If[OptionValue[Labels]=="",labels=ConstantArray["",FeatureCount],
-		If[Length[OptionValue[Labels]]!=FeatureCount,Message[NanoError::length];Return[]],labels=OptionValue[Labels]
+	
+	If[OptionValue[Labels]==="",
+		labels=ConstantArray["",FeatureCount],
+		
+		If[Length[OptionValue[Labels]]!=FeatureCount,
+			Message[NanoError::length];Return[]
+		];
+		labels=OptionValue[Labels]
 	];
 	
 	If[MemberQ[{True,False},OptionValue[AutotuneByFeature]]==False,
