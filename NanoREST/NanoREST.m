@@ -1,4 +1,4 @@
-(* Nano v2 MMA interface *) 
+(* Nano v3.1 MMA interface *) 
 
 BeginPackage["NanoREST`"]
 Unprotect["NanoREST`*"]
@@ -46,7 +46,6 @@ GetBufferStatus::usage="GetBufferStatus[NanoHandle] returns information on the b
 GetNanoStatus::usage="GetNanoStatus[NanoHandle] returns statistics on the clusters"
 
 GetNanoResults::usage="GetNanoResults[NanoHandle] returns the clustering results"
-
 
 (* OTHER *)
 GenerateRandomPatternNative::usage="GenerateRandomPatternNative[PatternLength,MaxVal] generates a random pattern of integers with values from 0 to max with length PatternLength
@@ -244,9 +243,9 @@ GenerateRandomVariantInt[SourcePattern_,Min_,Max_,PercentVariation_,Num_:1,Weigh
 Options[OpenNano]={"Filename"->None,"AuthenticationPath"->FileNameJoin[{$HomeDirectory,".BoonLogic.license"}]};
 OpenNano[Label_,User_:"default",OptionsPattern[]]:=Module[{cred},
 	cred=Check[SetServerGlobals[User,OptionValue["AuthenticationPath"]],Return[]];
-	cred["instance"]=Check[CreateInstance[cred,Label],Return[],NanoError::return];
+	cred["instance"]=Check[CreateInstance[cred,Label],Return[cred],NanoError::return];
 	If[OptionValue["Filename"]=!="" && OptionValue["Filename"]=!=None,
-		Check[LoadNano[cred,OptionValue["Filename"]],Return[],NanoError::return];
+		Check[LoadNano[cred,OptionValue["Filename"]],Return[cred],NanoError::return];
 	];
 	Return[cred]
 ]
@@ -277,10 +276,6 @@ CreateInstance[NanoHandle_,Label_]:=Module[{req,RetVal},
 	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
 	RetVal= URLRead[req,{"Status","Body"}];
 	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
-		If[StringContainsQ[ImportString[RetVal[[2]],"RawJSON"]["message"],"already exists"],
-			Message[NanoWarning::message,ImportString[RetVal[[2]],"RawJSON"]["message"]];
-			Return[Label];
-		];
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
 		Return[];
 	];
@@ -362,7 +357,7 @@ SetLearningStatus[NanoHandle_,Status_]:=Module[{req,RetVal},
 ]
 
 (* Get saved version of the nano state *)
-SaveNano[NanoHandle_,Filename_:""]:=Module[{file,req,RetVal,index=1,currentDirectory},
+SaveNano[NanoHandle_,Filename_:""]:=Module[{res,file,req,RetVal,index=1,currentDirectory},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	currentDirectory=Directory[];
 	If[Filename === "" || Filename === None,
@@ -389,9 +384,12 @@ SaveNano[NanoHandle_,Filename_:""]:=Module[{file,req,RetVal,index=1,currentDirec
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
 		Return[];
 	];
-	Export[file, ImportString[RetVal[[2]],"Byte"],"Byte"];
+	res=Export[file, ImportString[RetVal[[2]],"Byte"],"Byte"];
 	SetDirectory[currentDirectory];
-	Return[file];
+	If[res===$Failed,
+		Return[],
+		Return[file];
+	];
 ]
 
 (* Post the saved version  *)
@@ -870,7 +868,6 @@ points={{1.06,1.07},{1.17,1.08},{1.05,1.48},{1.23,1.23},{1,0.97},{1.26,1.17},{1.
 c={{{2,2,2.2}},{{1,1,1.5},{2.1,3.2,1.5},{3.2,1.2,1.5}},{{0.35,2.5,1},{1,1,1},{2.1,3.2,1},{3.2,1.2,1},{3.7,3,1}},{{1.04,2.2,0.75},{0.8,0.9,0.75},{2.1,3.2,0.75},{3.23,1.1,0.75},{3.7,3,0.75},{2,0.8,0.75},{2.8,4.2,0.75},{4,1.9,0.75}},{{0.5,2.2,0.5},{1.4,2.2,0.5},{0.67,1.2,0.5},{1.1,.5,.5},{2,3,0.5},{1.5,3.7,.5},{3,1,0.5},{3.3,3,0.5},{1.6,1.1,0.5},{2.8,4.2,0.5},{3.7,1.55,0.5}},{{0.4,2.2,0.25},{1.25,1.95,0.25},{0.4,1.2,0.25},{.8,.4,.25},{1.9,2.45,0.25},{1.6,3.2,.25},{3,.7,0.25},{3.15,3.05,0.25},{1.3,1.1,0.25},{2.6,3.9,0.25},{3.8,1.5,0.25},{2,.9,.25},{2,3.8,.25},{1.45,2.65,.25},{1.9,2.9,.25},{2.3,2.65,.25},{2.3,3.15,.25},{2,3.35,.25},{0.85,1.3,.25},{1.15,1.5,.25},{.5,.8,.25},{.85,.9,.25},{1.15,.5,.25},{1.3,.8,.25},{3.5,1.8,.25},{3.3,.8,.25},{3.4,1.2,.25},{3,1.1,.25},{3.05,1.5,.25},{2.6,1.4,.25},{2.6,.8,.25},{2.6,1,.25}}};
 
 r={1.05,1.24,1.30,1.17,1.06,0.97,1.11,1.30,1.14,0.88,1.04,1.23,0.98,0.88,1.18,1.04,0.81,0.9,1.05,0.79,0.74,1.012,0.86,0.621,0.69,0.91,0.81,0.62,0.508,0.53,0.72,0.87,0.83,0.82,0.70,0.72,0.712,0.69,0.693,0.70,0.75,0.75,0.73,0.74,0.76,0.733,0.717,0.747,0.72,0.75,0.72,0.719,0.74,0.735,0.71,0.75,0.74,0.73,0.74,0.74,0.74,0.72,0.742,0.746,0.72,0.749,0.80,0.86,0.94,0.954,0.983,0.958,0.95,0.98,0.98,1.11,1.21,1.32,1.19,1.06,0.94,1.12,1.311,1.15,0.90,1.03,1.25,0.99,0.89,1.16,1.025,0.83,0.95,1.10,0.79,0.68,1.01,0.87,0.64,0.67};
-
 
 End[]
 Protect[GenerateRandomPatternNative]
