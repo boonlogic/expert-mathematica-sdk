@@ -71,6 +71,8 @@ GenerateRandomVariantFloat::usage="GenerateRandomVariantFloat[SourcePattern,MinV
 
 DecodePM::usage="DecodePM[NanoHandle] returns the pattern memory (base64) or any of the results specified"
 
+GetThreshold::usage="GetThreshold[NanoHandle, accuracy] returns a value from 0 to 1000 for the anomaly index threshold"
+
 (*Error Messages*)
 NanoError::length="Lengths of unequal value"
 NanoError::return="Failed with an error code of `1` and body: `2`"
@@ -627,7 +629,7 @@ Options[RunStreamingData]={Results->ID,GZip->False};
 RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
-	If[SubsetQ[{None,All,ID,SI,RI,FI,DI},Flatten[{OptionValue[Results]}]]==False,
+	If[SubsetQ[{"None","All","ID","SI","RI","FI","DI","MD"},ToString/@Flatten[{OptionValue[Results]}]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
@@ -679,7 +681,7 @@ RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultStrin
 Options[RunNano]={Results->None};
 RunNano[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString=""},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-	If[SubsetQ[{None,All,ID,SI,RI,FI,DI},Flatten[{OptionValue[Results]}]]==False,
+	If[SubsetQ[{"None","All","ID","SI","RI","FI","DI","MD"},ToString/@Flatten[{OptionValue[Results]}]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
@@ -746,7 +748,7 @@ SortStatusResults[ResultString_] := Module[{new = {}, vals = {PCA,"patternMemory
 Options[GetNanoStatus]={Results->All};
 GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-	If[SubsetQ[{All,PCA,"patternMemory",clusterGrowth,clusterSizes,anomalyIndexes,distanceIndexes,frequencyIndexes,totalInferences,averageInferenceTime,numClusters,"disArray"},Flatten[{OptionValue[Results]}]]==False,
+	If[SubsetQ[{"All","PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","distanceIndexes","frequencyIndexes","totalInferences","averageInferenceTime","numClusters","disArray"},ToString/@Flatten[{OptionValue[Results]}]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
@@ -781,7 +783,7 @@ SortResultsResults[ResultString_]:=Module[{new={},vals={ID,SI,RI,FI,DI}},
 Options[GetNanoResults]={Results->All};
 GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-	If[SubsetQ[{All,ID,SI,RI,FI,DI,MD},Flatten[{OptionValue[Results]}]]==False,
+	If[SubsetQ[{"All","ID","SI","RI","FI","DI","MD"},ToString/@Flatten[{OptionValue[Results]}]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
@@ -804,6 +806,18 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 		Return[];
 	];
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
+]
+
+GetThreshold[NanoHandle_,accuracy_:0.997]:=Module[{status,cc,ai,probs,acc,length,p,threshold},
+	status=GetNanoStatus[NanoHandle];
+	cc=Sort[status["clusterSizes"],Greater];
+	ai=status["anomalyIndexes"][[Reverse[Ordering[status["clusterSizes"]]]]];
+	probs=cc/status["totalInferences"]*1.;
+	acc=Accumulate[probs];
+	length=LengthWhile[acc,#<=.75&];
+	p=1/Total[Take[ai,length]*Take[probs,length]];
+	threshold=Ceiling[Log[1-accuracy]/Log[1-p]];
+	Return[Clip[threshold,{0,1000}]]
 ]
 
 Options[DecodePM]={Results->"BinaryPM",RowSort->False};
@@ -920,6 +934,7 @@ Protect[LoadData]
 Protect[RunStreamingData]
 Protect[GetNanoStatus]
 Protect[DecodePM]
+Protect[GetThreshold]
 Protect[GetNanoResults]
 Protect[GetBufferStatus]
 
