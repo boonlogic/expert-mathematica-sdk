@@ -808,7 +808,7 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 
 Options[DecodePM]={Results->"BinaryPM",RowSort->False};
 DecodePM[NanoHandle_,OptionsPattern[]]:=
-	Module[{ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
+	Module[{config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
 		If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features"},Flatten[{OptionValue[Results]}]]==False,
 			Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
@@ -819,11 +819,16 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			Return[]
 		];
 		
-		{PM,pca,samples}=Values[KeyTake[GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}],{"patternMemory","PCA","disArray"}]];
+		config=GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}];
+		If[config===Null,Return[]]; (* error *)
+		{PM,pca,samples}=Values[KeyTake[config,{"patternMemory","PCA","disArray"}]];
 		PMDecimal=ImportString[#,{"Base64","Binary"}]&/@PM;
 		PM=Partition[Flatten[Reverse[IntegerDigits[#,2,8]]&/@Flatten[PMDecimal]],Length[PMDecimal[[1]]]*8];
 		
-		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(GetConfig[NanoHandle]["features"])];
+		config=GetConfig[NanoHandle];
+		If[config===Null,Return[]]; (* error *)
+		strm=config["streamingWindowSize"];
+		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(config["features"])];
 		pca=Drop[pca,1];
 		
 		If[OptionValue[RowSort],
@@ -844,7 +849,7 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			Return[Association[returnList]]
 		];
 		
-		numberOfEachSample=BinCounts[samples,{0,Length[min]}];
+		numberOfEachSample=BinCounts[samples,{0,Length[min]*strm}];
 		ord=TakeList[Ordering[samples],numberOfEachSample];
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
