@@ -739,22 +739,24 @@ GetBufferStatus[NanoHandle_]:=Module[{req,RetVal},
 ]
 
 SortStatusResults[ResultString_] := Module[{new = {}, vals = {PCA,"patternMemory",clusterGrowth,clusterSizes,anomalyIndexes,frequencyIndexes,distanceIndexes,totalInferences,averageInferenceTime,numClusters,"disArray"}},
-	Do[new=Join[new,Position[ResultString,i]],{i,vals}];
+	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
 	new=DeleteDuplicates[ResultString[[Flatten[new]]]];
 	new=StringDelete[ToString[#],{"NanoREST`"}]&/@new;
 	Return[new]
 ]
 
 Options[GetNanoStatus]={Results->All};
-GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString},
+GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString,results},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-	If[SubsetQ[{"All","PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","distanceIndexes","frequencyIndexes","totalInferences","averageInferenceTime","numClusters","disArray"},ToString/@Flatten[{OptionValue[Results]}]]==False,
+	results=ToString/@Flatten[{OptionValue[Results]}];
+	results=StringDelete[#, {" ", "{", "}","NanoREST`","Private`"}]&/@results;
+	If[SubsetQ[{"All","PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","distanceIndexes","frequencyIndexes","totalInferences","averageInferenceTime","numClusters","disArray"},results]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
 	If[MemberQ[Flatten[{OptionValue[Results]}],All],
 		ResultString=ToString[{PCA,clusterGrowth,clusterSizes,anomalyIndexes,frequencyIndexes,distanceIndexes,totalInferences,numClusters}], (* list out all result options *)
-		ResultString=ToString[SortStatusResults[Flatten[{OptionValue[Results]}]]]; (* not None or All so must be a subset of result options *)
+		ResultString=ToString[SortStatusResults[results]]; (* not None or All so must be a subset of result options *)
 	];
 
 	
@@ -776,7 +778,7 @@ GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString
 ]
 
 SortResultsResults[ResultString_]:=Module[{new={},vals={ID,SI,RI,FI,DI}},
-	Do[new=Join[new,Position[ResultString,i]],{i,vals}];
+	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
 	Return[ToString[DeleteDuplicates[ResultString[[Flatten[new]]]]]]
 ]
 
@@ -822,9 +824,11 @@ GetThreshold[NanoHandle_,accuracy_:0.997]:=Module[{status,cc,ai,probs,acc,length
 
 Options[DecodePM]={Results->"BinaryPM",RowSort->False};
 DecodePM[NanoHandle_,OptionsPattern[]]:=
-	Module[{config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
+	Module[{results,config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
 		If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features"},Flatten[{OptionValue[Results]}]]==False,
+		results=Flatten[{OptionValue[Results]}];
+		results=StringDelete[#, {" ", "{", "}","NanoREST`","Private`"}]&/@results;
+		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features",All},results]==False,
 			Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 			Return[]
 		];
@@ -833,14 +837,16 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			Return[]
 		];
 		
+		If[MemberQ[results,All],results={"CMYK","SourceVector","BinaryPM","Features"}];
+		
 		config=GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}];
-		If[config===Null,Return[]]; (* error *)
+		If[config===Null,Message[NanoWarning::message,"No results to be returned"];Return[]]; (* error *)
 		{PM,pca,samples}=Values[KeyTake[config,{"patternMemory","PCA","disArray"}]];
 		PMDecimal=ImportString[#,{"Base64","Binary"}]&/@PM;
 		PM=Partition[Flatten[Reverse[IntegerDigits[#,2,8]]&/@Flatten[PMDecimal]],Length[PMDecimal[[1]]]*8];
 		
 		config=GetConfig[NanoHandle];
-		If[config===Null,Return[]]; (* error *)
+		If[config===Null,Message[NanoWarning::message,"No results to be returned"];Return[]]; (* error *)
 		strm=config["streamingWindowSize"];
 		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(config["features"])];
 		pca=Drop[pca,1];
@@ -854,12 +860,12 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			sortOrder=Flatten[{x,xClust,z,yClust,y}];
 		];
 		     
-		If[MemberQ[Flatten[{OptionValue[Results]}],"BinaryPM"],
+		If[MemberQ[results,"BinaryPM"],
 			returnList={"BinaryPM"->PM[[If[OptionValue[RowSort],sortOrder,All]]]};
 		];
 		
 		(* if only returning binary pm, return before calculating the rest *)
-		If[Flatten[{OptionValue[Results]}]==={"BinaryPM"},
+		If[results==={"BinaryPM"},
 			Return[Association[returnList]]
 		];
 		
@@ -868,18 +874,18 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
 		
-		If[MemberQ[Flatten[{OptionValue[Results]}],"SourceVector"],
+		If[MemberQ[results,"SourceVector"],
 			sourceVec=image;(*(#*(max-min)+min)&/@image;*)
 			returnList=Join[returnList,{"SourceVector"->sourceVec}];
 		];
-		If[MemberQ[Flatten[{OptionValue[Results]}],"CMYK"],
+		If[MemberQ[results,"CMYK"],
 			cmyk=Table[Join[pca[[#]],{image[[#,i]]}],{i,1,Length[image[[1]]]}]&/@Range[Length[image]];
 			ratio=Clip[Round[2\[Pi]/(.1*Length[pca])],{1,\[Infinity]}];
 			pad=Clip[Round[#[[2]]/ratio,#[[1]]]/#[[1]],{1,\[Infinity]}]&@(Dimensions@cmyk);
 			cmyk=Flatten[ConstantArray[#,pad]&/@cmyk,1];
 			returnList=Join[returnList,{"CMYK"->cmyk[[If[OptionValue[RowSort],sortOrder*pad,All]]]}];
 		];
-		If[MemberQ[Flatten[{OptionValue[Results]}],"Features"],
+		If[MemberQ[results,"Features"],
 			featSig=Transpose[
 				Table[
 					temp=Table[HammingDistance[sampleSortedPM[[feature,cluster]],sampleSortedPM[[feature,i]]],{cluster,1,Length[sampleSortedPM[[1]]]},{i,cluster+1,Length[sampleSortedPM[[1]]]}];
