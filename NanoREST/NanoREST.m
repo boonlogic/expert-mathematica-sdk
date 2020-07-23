@@ -738,7 +738,7 @@ GetBufferStatus[NanoHandle_]:=Module[{req,RetVal},
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
-SortStatusResults[ResultString_] := Module[{new = {}, vals = {PCA,"patternMemory",clusterGrowth,clusterSizes,anomalyIndexes,frequencyIndexes,distanceIndexes,totalInferences,averageInferenceTime,numClusters,"disArray"}},
+SortStatusResults[ResultString_] := Module[{new = {}, vals = {"PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","frequencyIndexes","distanceIndexes","totalInferences","averageInferenceTime","numClusters","disArray"}},
 	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
 	new=DeleteDuplicates[ResultString[[Flatten[new]]]];
 	new=StringDelete[ToString[#],{"NanoREST`"}]&/@new;
@@ -759,7 +759,6 @@ GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString
 		ResultString=ToString[SortStatusResults[results]]; (* not None or All so must be a subset of result options *)
 	];
 
-	
 	url=NanoHandle["url"]<>"nanoStatus/"<>NanoHandle["instance"]
 	<>"?results="<>StringDelete[ResultString, {" ", "{", "}","NanoREST`","Private`"}]
 	<>"&api-tenant="<>NanoHandle["api-tenant"];
@@ -777,7 +776,7 @@ GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString
 	Return[ResultString];
 ]
 
-SortResultsResults[ResultString_]:=Module[{new={},vals={ID,SI,RI,FI,DI}},
+SortResultsResults[ResultString_]:=Module[{new={},vals={"ID","SI","RI","FI","DI"}},
 	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
 	Return[ToString[DeleteDuplicates[ResultString[[Flatten[new]]]]]]
 ]
