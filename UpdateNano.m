@@ -15,7 +15,7 @@ ExtractArchive[curr,app];
 PrintTemporary["Running Tests...."];
 (*tests=FileNames[All,FileNameJoin[{app,"NanoREST", "UnitTests"}]];
 Print[TestReport/@tests]*)
-Print[TestReport@FileNameJoin[{app,"NanoREST","UnitTests-all.wlt"}]]
+(*Print[TestReport@FileNameJoin[{app,"NanoREST","UnitTests-all.wlt"}]]*)
 ]
 
 

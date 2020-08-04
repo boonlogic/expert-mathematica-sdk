@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    295062,       6595]
-NotebookOptionsPosition[    282745,       6406]
-NotebookOutlinePosition[    283138,       6422]
-CellTagsIndexPosition[    283095,       6419]
+NotebookDataLength[    298167,       6713]
+NotebookOptionsPosition[    285659,       6522]
+NotebookOutlinePosition[    286052,       6538]
+CellTagsIndexPosition[    286009,       6535]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,15 +21,17 @@ Notebook[{
 Cell[BoxData[
  RowBox[{"<<", "NanoREST`"}]], "Input",
  CellChangeTimes->{{3.800806684372528*^9, 3.800806686442133*^9}},
- CellLabel->"In[41]:=",ExpressionUUID->"ed7978dd-344f-4d66-9e5b-a753b575be4a"],
+ CellLabel->"In[3]:=",ExpressionUUID->"ed7978dd-344f-4d66-9e5b-a753b575be4a"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"nano", "=", 
   RowBox[{"OpenNano", "[", "\"\<test\>\"", "]"}]}]], "Input",
- CellChangeTimes->{{3.8008067364926434`*^9, 3.800806740763152*^9}},
- CellLabel->"In[42]:=",ExpressionUUID->"cafa01a2-62d4-4d69-b6ce-9d46c7b9cee2"],
+ CellChangeTimes->{{3.8008067364926434`*^9, 3.800806740763152*^9}, {
+  3.8055645713848343`*^9, 
+  3.8055646180650473`*^9}},ExpressionUUID->"cafa01a2-62d4-4d69-b6ce-\
+9d46c7b9cee2"],
 
 Cell[BoxData[
  RowBox[{"\[LeftAssociation]", 
@@ -42,8 +44,8 @@ Cell[BoxData[
    RowBox[{"\<\"instance\"\>", "\[Rule]", "\<\"test\"\>"}]}], 
   "\[RightAssociation]"}]], "Output",
  CellChangeTimes->{3.800813561919236*^9, 3.800814439095118*^9, 
-  3.800814507129653*^9},
- CellLabel->"Out[42]=",ExpressionUUID->"c8534d55-d00e-4202-a689-58653d2c3f2e"]
+  3.800814507129653*^9, 3.80556459725909*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"e2683c06-bfaa-418f-8e3a-36e812955105"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -347,8 +349,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -359,15 +362,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -400,8 +404,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -412,15 +417,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -547,8 +553,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -559,15 +566,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -600,8 +608,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -612,15 +621,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -751,8 +761,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -763,15 +774,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -804,8 +816,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -816,15 +829,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -980,8 +994,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -992,15 +1007,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1033,8 +1049,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1045,15 +1062,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1179,8 +1197,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1191,15 +1210,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1232,8 +1252,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1244,15 +1265,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1380,8 +1402,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1392,15 +1415,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1433,8 +1457,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1445,15 +1470,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1572,8 +1598,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1584,15 +1611,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1625,8 +1653,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1637,15 +1666,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1773,8 +1803,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1785,15 +1816,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1826,8 +1858,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1838,15 +1871,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -1975,8 +2009,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -1987,15 +2022,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2028,8 +2064,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2040,15 +2077,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2219,8 +2257,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2231,15 +2270,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2272,8 +2312,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2284,15 +2325,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2475,8 +2517,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2487,15 +2530,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2529,8 +2573,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2541,15 +2586,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2686,8 +2732,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2698,15 +2745,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2739,8 +2787,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2751,15 +2800,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2899,8 +2949,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2911,15 +2962,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -2953,8 +3005,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -2965,15 +3018,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3143,8 +3197,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3155,15 +3210,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3196,8 +3252,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3208,15 +3265,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3387,8 +3445,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3399,15 +3458,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3441,8 +3501,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3453,15 +3514,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3589,8 +3651,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3601,15 +3664,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3643,8 +3707,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3655,15 +3720,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3825,8 +3891,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3837,15 +3904,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -3879,8 +3947,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -3891,15 +3960,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4062,8 +4132,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4074,15 +4145,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4115,8 +4187,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4127,15 +4200,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4273,8 +4347,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4285,15 +4360,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4326,8 +4402,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4338,15 +4415,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4524,8 +4602,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4536,15 +4615,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4577,8 +4657,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4589,15 +4670,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4726,8 +4808,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4738,15 +4821,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4779,8 +4863,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4791,15 +4876,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4925,8 +5011,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4937,15 +5024,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -4979,8 +5067,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -4991,15 +5080,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -5127,8 +5217,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -5139,15 +5230,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -5181,8 +5273,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -5193,15 +5286,16 @@ Cell[BoxData[
                    "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
                   ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -5327,8 +5421,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -5339,15 +5434,16 @@ Cell[BoxData[
                    "MUnitExpressions", "MessageFailureIcon"]], Alignment -> 
                   Center, ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -5381,8 +5477,9 @@ Cell[BoxData[
               Evaluator -> Automatic, Method -> "Preemptive"], 
              Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}]], 
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
             GraphicsBox[{
               InsetBox[
                BoxData[
@@ -5393,15 +5490,16 @@ Cell[BoxData[
                    "MUnitExpressions", "MessageFailureIcon"]], Alignment -> 
                   Center, ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                 TraditionalForm]]]}, PlotRange -> {{0, 1}, {0, 1}}, 
-             Background -> GrayLevel[0.93], Axes -> False, AspectRatio -> 1, 
-             ImageSize -> 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
              Dynamic[{
-               Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}], Frame -> True, 
-             FrameTicks -> None, FrameStyle -> Directive[
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
                Thickness[Tiny], 
                GrayLevel[0.55]]], 
             GridBox[{{
@@ -6402,7 +6500,25 @@ Cell[BoxData[
   "]"}]], "Input",
  CellChangeTimes->{{3.800814831283059*^9, 
   3.800815025799158*^9}},ExpressionUUID->"84763ba4-1488-4229-bc34-\
-7032f4c06880"]
+7032f4c06880"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.805564613264104*^9, 
+  3.805564613659073*^9}},ExpressionUUID->"51392b28-128a-4410-bdd0-\
+3b7261754cd9"],
+
+Cell[BoxData[
+ RowBox[{"nano", "=", 
+  RowBox[{"OpenNano", "[", 
+   RowBox[{"\"\<test\>\"", ",", "\"\<default\>\"", ",", 
+    RowBox[{
+    "\"\<Filename\>\"", "\[Rule]", 
+     "\"\</Users/elise/Desktop/m_Nano.tar\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8008067364926434`*^9, 3.800806740763152*^9}, {
+  3.8055645713848343`*^9, 3.8055645940742607`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"3f85c49d-bb0c-4c3a-bce7-3ebbb9d99401"]
 },
 WindowSize->{1033, 755},
 WindowMargins->{{Automatic, 3}, {Automatic, 0}},
@@ -6421,182 +6537,184 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 198, 3, 30, "Input",ExpressionUUID->"ed7978dd-344f-4d66-9e5b-a753b575be4a"],
+Cell[558, 20, 197, 3, 30, "Input",ExpressionUUID->"ed7978dd-344f-4d66-9e5b-a753b575be4a"],
 Cell[CellGroupData[{
-Cell[781, 27, 245, 4, 30, "Input",ExpressionUUID->"cafa01a2-62d4-4d69-b6ce-9d46c7b9cee2"],
-Cell[1029, 33, 625, 12, 37, "Output",ExpressionUUID->"c8534d55-d00e-4202-a689-58653d2c3f2e"]
+Cell[780, 27, 279, 6, 30, "Input",ExpressionUUID->"cafa01a2-62d4-4d69-b6ce-9d46c7b9cee2"],
+Cell[1062, 35, 645, 12, 37, "Output",ExpressionUUID->"e2683c06-bfaa-418f-8e3a-36e812955105"]
 }, Open  ]],
-Cell[1669, 48, 693, 13, 30, "Input",ExpressionUUID->"3ffbbba0-695d-44da-b06e-c6a70be02024"],
-Cell[2365, 63, 677, 15, 30, "Input",ExpressionUUID->"7463ad9c-8282-46fc-addd-8f60390e71af"],
-Cell[3045, 80, 504, 10, 30, "Input",ExpressionUUID->"a02a32e8-c120-4bce-8470-f9c251d2024b"],
-Cell[3552, 92, 215, 3, 30, "Input",ExpressionUUID->"6f66d984-b36f-4f92-b7f7-01fd57f50b52"],
-Cell[3770, 97, 433, 8, 30, "Input",ExpressionUUID->"b0157b87-2b4c-47c7-a023-4ad63006741e"],
+Cell[1722, 50, 693, 13, 30, "Input",ExpressionUUID->"3ffbbba0-695d-44da-b06e-c6a70be02024"],
+Cell[2418, 65, 677, 15, 30, "Input",ExpressionUUID->"7463ad9c-8282-46fc-addd-8f60390e71af"],
+Cell[3098, 82, 504, 10, 30, "Input",ExpressionUUID->"a02a32e8-c120-4bce-8470-f9c251d2024b"],
+Cell[3605, 94, 215, 3, 30, "Input",ExpressionUUID->"6f66d984-b36f-4f92-b7f7-01fd57f50b52"],
+Cell[3823, 99, 433, 8, 30, "Input",ExpressionUUID->"b0157b87-2b4c-47c7-a023-4ad63006741e"],
 Cell[CellGroupData[{
-Cell[4228, 109, 209, 3, 30, "Input",ExpressionUUID->"39124802-cc30-4c32-83cb-d89d6555abc9"],
-Cell[4440, 114, 3725, 82, 173, "Output",ExpressionUUID->"bf751575-d1e1-48f5-b667-373025f5c233"]
+Cell[4281, 111, 209, 3, 30, "Input",ExpressionUUID->"39124802-cc30-4c32-83cb-d89d6555abc9"],
+Cell[4493, 116, 3725, 82, 173, "Output",ExpressionUUID->"bf751575-d1e1-48f5-b667-373025f5c233"]
 }, Open  ]],
-Cell[8180, 199, 215, 3, 30, "Input",ExpressionUUID->"b9870ab6-caa4-4936-a382-59c12932b892"],
-Cell[8398, 204, 496, 9, 52, "Input",ExpressionUUID->"b24e9c46-b929-43cc-a986-f8214f85da56"],
-Cell[8897, 215, 314, 5, 30, "Input",ExpressionUUID->"9890f8ee-27a7-4080-b183-78637263b413"],
+Cell[8233, 201, 215, 3, 30, "Input",ExpressionUUID->"b9870ab6-caa4-4936-a382-59c12932b892"],
+Cell[8451, 206, 496, 9, 52, "Input",ExpressionUUID->"b24e9c46-b929-43cc-a986-f8214f85da56"],
+Cell[8950, 217, 314, 5, 30, "Input",ExpressionUUID->"9890f8ee-27a7-4080-b183-78637263b413"],
 Cell[CellGroupData[{
-Cell[9236, 224, 210, 3, 30, "Input",ExpressionUUID->"d67a2dd8-c842-4317-802f-b44917b69cd2"],
-Cell[9449, 229, 3726, 82, 173, "Output",ExpressionUUID->"c76665cd-3c56-489a-8d10-d5c09f3fb694"]
+Cell[9289, 226, 210, 3, 30, "Input",ExpressionUUID->"d67a2dd8-c842-4317-802f-b44917b69cd2"],
+Cell[9502, 231, 3726, 82, 173, "Output",ExpressionUUID->"c76665cd-3c56-489a-8d10-d5c09f3fb694"]
 }, Open  ]],
-Cell[13190, 314, 278, 5, 136, "Input",ExpressionUUID->"36f31729-ce72-4c7a-bf0a-c0c2c894fbcb"],
+Cell[13243, 316, 278, 5, 136, "Input",ExpressionUUID->"36f31729-ce72-4c7a-bf0a-c0c2c894fbcb"],
 Cell[CellGroupData[{
-Cell[13493, 323, 334, 6, 30, "Input",ExpressionUUID->"bc496f81-1962-4417-a350-c853d38cb6b6"],
-Cell[13830, 331, 8320, 177, 62, "Output",ExpressionUUID->"c6ab3871-ad11-4f5a-ac17-b1108a4ea151"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[22187, 513, 667, 16, 73, "Input",ExpressionUUID->"a44b2542-9048-462d-94c5-df03826d1c87"],
-Cell[22857, 531, 8767, 186, 62, "Output",ExpressionUUID->"334d9fd2-2274-4a2f-8a2e-13ed55954c0e"]
+Cell[13546, 325, 334, 6, 30, "Input",ExpressionUUID->"bc496f81-1962-4417-a350-c853d38cb6b6"],
+Cell[13883, 333, 8410, 181, 62, "Output",ExpressionUUID->"c6ab3871-ad11-4f5a-ac17-b1108a4ea151"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[31661, 722, 485, 11, 52, "Input",ExpressionUUID->"3ed38ef5-f0d4-4795-a103-d397e1792c3d"],
-Cell[32149, 735, 10026, 213, 62, "Output",ExpressionUUID->"00af46bc-96af-45a3-9dee-d79a6f41cbab"]
+Cell[22330, 519, 667, 16, 52, "Input",ExpressionUUID->"a44b2542-9048-462d-94c5-df03826d1c87"],
+Cell[23000, 537, 8857, 190, 62, "Output",ExpressionUUID->"334d9fd2-2274-4a2f-8a2e-13ed55954c0e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42212, 953, 421, 9, 52, "Input",ExpressionUUID->"d3290503-ef76-423e-8865-60a285e34736"],
-Cell[42636, 964, 8497, 179, 62, "Output",ExpressionUUID->"58a66405-ac7b-4a3b-85ed-26488072d700"]
+Cell[31894, 732, 485, 11, 30, "Input",ExpressionUUID->"3ed38ef5-f0d4-4795-a103-d397e1792c3d"],
+Cell[32382, 745, 10116, 217, 62, "Output",ExpressionUUID->"00af46bc-96af-45a3-9dee-d79a6f41cbab"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[51170, 1148, 527, 13, 52, "Input",ExpressionUUID->"083b56f4-b217-4c2d-9986-448a09960197"],
-Cell[51700, 1163, 8750, 187, 62, "Output",ExpressionUUID->"38e79de0-7e83-4a17-bfd6-61b087c37063"]
+Cell[42535, 967, 421, 9, 30, "Input",ExpressionUUID->"d3290503-ef76-423e-8865-60a285e34736"],
+Cell[42959, 978, 8587, 183, 62, "Output",ExpressionUUID->"58a66405-ac7b-4a3b-85ed-26488072d700"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[60487, 1355, 347, 7, 30, "Input",ExpressionUUID->"c565dcf1-f453-4497-9294-bd453dc2a8be"],
-Cell[60837, 1364, 8362, 178, 62, "Output",ExpressionUUID->"968ee398-a24f-4331-adb2-c748c7b81d5f"]
+Cell[51583, 1166, 527, 13, 30, "Input",ExpressionUUID->"083b56f4-b217-4c2d-9986-448a09960197"],
+Cell[52113, 1181, 8840, 191, 62, "Output",ExpressionUUID->"38e79de0-7e83-4a17-bfd6-61b087c37063"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[69236, 1547, 352, 7, 30, "Input",ExpressionUUID->"082a8d6c-f8c0-494c-8ede-01e18897ee11"],
-Cell[69591, 1556, 8370, 178, 62, "Output",ExpressionUUID->"6094366f-c542-474c-9456-708e4d229a32"]
+Cell[60990, 1377, 347, 7, 30, "Input",ExpressionUUID->"c565dcf1-f453-4497-9294-bd453dc2a8be"],
+Cell[61340, 1386, 8452, 182, 62, "Output",ExpressionUUID->"968ee398-a24f-4331-adb2-c748c7b81d5f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[77998, 1739, 668, 16, 73, "Input",ExpressionUUID->"f88b2048-b157-44a2-8fca-3752d5a5dbec"],
-Cell[78669, 1757, 8775, 186, 62, "Output",ExpressionUUID->"a1d0617c-8e21-4ef3-bbcd-07fa71a6d59e"]
+Cell[69829, 1573, 352, 7, 30, "Input",ExpressionUUID->"082a8d6c-f8c0-494c-8ede-01e18897ee11"],
+Cell[70184, 1582, 8460, 182, 62, "Output",ExpressionUUID->"6094366f-c542-474c-9456-708e4d229a32"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[87481, 1948, 420, 9, 30, "Input",ExpressionUUID->"731b4388-cdd8-4e1f-9455-c72dc3b89675"],
-Cell[87904, 1959, 10147, 217, 62, "Output",ExpressionUUID->"8447a4ab-17ea-42ba-a535-20f0080658bf"]
+Cell[78681, 1769, 668, 16, 52, "Input",ExpressionUUID->"f88b2048-b157-44a2-8fca-3752d5a5dbec"],
+Cell[79352, 1787, 8865, 190, 62, "Output",ExpressionUUID->"a1d0617c-8e21-4ef3-bbcd-07fa71a6d59e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[98088, 2181, 824, 20, 115, "Input",ExpressionUUID->"d5ce3406-837f-4ba8-b3b0-02f9ebe1a355"],
-Cell[98915, 2203, 10869, 235, 62, "Output",ExpressionUUID->"0b19d905-b972-4474-8a4e-48f81845ae3e"]
+Cell[88254, 1982, 420, 9, 30, "Input",ExpressionUUID->"731b4388-cdd8-4e1f-9455-c72dc3b89675"],
+Cell[88677, 1993, 10237, 221, 62, "Output",ExpressionUUID->"8447a4ab-17ea-42ba-a535-20f0080658bf"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[109821, 2443, 733, 14, 73, "Input",ExpressionUUID->"fc62e014-acd5-49be-a8a4-bea84abf5fa9"],
-Cell[110557, 2459, 8844, 187, 62, "Output",ExpressionUUID->"2d549114-5752-401c-b3a9-35ea00acaf8c"]
+Cell[98951, 2219, 824, 20, 73, "Input",ExpressionUUID->"d5ce3406-837f-4ba8-b3b0-02f9ebe1a355"],
+Cell[99778, 2241, 10959, 239, 62, "Output",ExpressionUUID->"0b19d905-b972-4474-8a4e-48f81845ae3e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[119438, 2651, 758, 17, 73, "Input",ExpressionUUID->"e3922d20-6953-4e27-837d-92acc7d8a577"],
-Cell[120199, 2670, 8919, 188, 62, "Output",ExpressionUUID->"ccf1c9c3-a167-4c8a-a8c2-b22019fdcf8b"]
+Cell[110774, 2485, 733, 14, 52, "Input",ExpressionUUID->"fc62e014-acd5-49be-a8a4-bea84abf5fa9"],
+Cell[111510, 2501, 8934, 191, 62, "Output",ExpressionUUID->"2d549114-5752-401c-b3a9-35ea00acaf8c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[129155, 2863, 878, 18, 94, "Input",ExpressionUUID->"4341670b-1760-4a42-89eb-04e459d05baf"],
-Cell[130036, 2883, 10361, 221, 62, "Output",ExpressionUUID->"27ebaa2f-5d12-4959-8f2f-3b388f44b3ef"]
+Cell[120481, 2697, 758, 17, 73, "Input",ExpressionUUID->"e3922d20-6953-4e27-837d-92acc7d8a577"],
+Cell[121242, 2716, 9009, 192, 62, "Output",ExpressionUUID->"ccf1c9c3-a167-4c8a-a8c2-b22019fdcf8b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[140434, 3109, 803, 16, 73, "Input",ExpressionUUID->"66443f73-17b5-46c7-ad96-aa015e3914af"],
-Cell[141240, 3127, 10644, 225, 62, "Output",ExpressionUUID->"cf4cd423-a321-4fa7-b4fd-3dde8ad3b4dd"]
+Cell[130288, 2913, 878, 18, 73, "Input",ExpressionUUID->"4341670b-1760-4a42-89eb-04e459d05baf"],
+Cell[131169, 2933, 10451, 225, 62, "Output",ExpressionUUID->"27ebaa2f-5d12-4959-8f2f-3b388f44b3ef"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[151921, 3357, 489, 12, 52, "Input",ExpressionUUID->"18122153-12ab-4685-a3e9-ab005befd0c0"],
-Cell[152413, 3371, 8633, 184, 62, "Output",ExpressionUUID->"175fcf07-76ad-4991-98c6-38b36c6c4f22"]
+Cell[141657, 3163, 803, 16, 52, "Input",ExpressionUUID->"66443f73-17b5-46c7-ad96-aa015e3914af"],
+Cell[142463, 3181, 10734, 229, 62, "Output",ExpressionUUID->"cf4cd423-a321-4fa7-b4fd-3dde8ad3b4dd"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[161083, 3560, 476, 11, 52, "Input",ExpressionUUID->"e73919f6-385c-434d-bfb9-9121f5923ea7"],
-Cell[161562, 3573, 10325, 220, 62, "Output",ExpressionUUID->"cd5ca680-142a-43a0-80c9-a6d4245dc1e3"]
+Cell[153234, 3415, 489, 12, 30, "Input",ExpressionUUID->"18122153-12ab-4685-a3e9-ab005befd0c0"],
+Cell[153726, 3429, 8723, 188, 62, "Output",ExpressionUUID->"175fcf07-76ad-4991-98c6-38b36c6c4f22"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[171924, 3798, 443, 9, 52, "Input",ExpressionUUID->"71eb594d-bd87-4518-999e-a329748ef248"],
-Cell[172370, 3809, 10015, 214, 62, "Output",ExpressionUUID->"c788f321-8c04-4ead-904b-e437ce90c805"]
+Cell[162486, 3622, 476, 11, 30, "Input",ExpressionUUID->"e73919f6-385c-434d-bfb9-9121f5923ea7"],
+Cell[162965, 3635, 10415, 224, 62, "Output",ExpressionUUID->"cd5ca680-142a-43a0-80c9-a6d4245dc1e3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[182422, 4028, 673, 16, 94, "Input",ExpressionUUID->"33ccd992-dca9-4a48-9efb-c2d02b3a7dfd"],
-Cell[183098, 4046, 8613, 183, 62, "Output",ExpressionUUID->"bf23ead6-df08-408c-9604-1b1d55c4833e"]
+Cell[173417, 3864, 443, 9, 30, "Input",ExpressionUUID->"71eb594d-bd87-4518-999e-a329748ef248"],
+Cell[173863, 3875, 10105, 218, 62, "Output",ExpressionUUID->"c788f321-8c04-4ead-904b-e437ce90c805"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[191748, 4234, 819, 21, 73, "Input",ExpressionUUID->"e2284454-262d-4ca7-9196-c13477c167d4"],
-Cell[192570, 4257, 10773, 234, 62, "Output",ExpressionUUID->"da30bf22-3367-4284-be78-4392f366d72a"]
+Cell[184005, 4098, 673, 16, 73, "Input",ExpressionUUID->"33ccd992-dca9-4a48-9efb-c2d02b3a7dfd"],
+Cell[184681, 4116, 8703, 187, 62, "Output",ExpressionUUID->"bf23ead6-df08-408c-9604-1b1d55c4833e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[203380, 4496, 426, 10, 30, "Input",ExpressionUUID->"a000acfa-1f13-4aeb-bf73-dd75c515cdb6"],
-Cell[203809, 4508, 8498, 180, 62, "Output",ExpressionUUID->"2c376803-8245-4723-85e6-8d3d02816a18"]
+Cell[193421, 4308, 819, 21, 73, "Input",ExpressionUUID->"e2284454-262d-4ca7-9196-c13477c167d4"],
+Cell[194243, 4331, 10863, 238, 62, "Output",ExpressionUUID->"da30bf22-3367-4284-be78-4392f366d72a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[212344, 4693, 674, 15, 52, "Input",ExpressionUUID->"fae7d520-bf75-46a3-a563-4aca74847758"],
-Cell[213021, 4710, 8702, 183, 62, "Output",ExpressionUUID->"335c7e51-ce58-47dc-8899-ce2cc41dfc6a"]
+Cell[205143, 4574, 426, 10, 30, "Input",ExpressionUUID->"a000acfa-1f13-4aeb-bf73-dd75c515cdb6"],
+Cell[205572, 4586, 8588, 184, 62, "Output",ExpressionUUID->"2c376803-8245-4723-85e6-8d3d02816a18"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[221760, 4898, 380, 9, 30, "Input",ExpressionUUID->"111d8755-f2d6-4300-8846-fd7999037419"],
-Cell[222143, 4909, 8481, 182, 62, "Output",ExpressionUUID->"c47261ae-994d-471f-baa8-02eb854a0751"]
+Cell[214197, 4775, 674, 15, 52, "Input",ExpressionUUID->"fae7d520-bf75-46a3-a563-4aca74847758"],
+Cell[214874, 4792, 8792, 187, 62, "Output",ExpressionUUID->"335c7e51-ce58-47dc-8899-ce2cc41dfc6a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[230661, 5096, 601, 13, 52, "Input",ExpressionUUID->"eed45160-7716-4cab-ad30-8ef7edf9bdbb"],
-Cell[231265, 5111, 8757, 186, 62, "Output",ExpressionUUID->"6aff3a0e-4b0c-4017-9446-ec97f768501c"]
+Cell[223703, 4984, 380, 9, 30, "Input",ExpressionUUID->"111d8755-f2d6-4300-8846-fd7999037419"],
+Cell[224086, 4995, 8571, 186, 62, "Output",ExpressionUUID->"c47261ae-994d-471f-baa8-02eb854a0751"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[240059, 5302, 369, 7, 30, "Input",ExpressionUUID->"cb26973f-6b62-4b1a-9056-417c78b65547"],
-Cell[240431, 5311, 9843, 210, 62, "Output",ExpressionUUID->"5237a537-c340-4cd3-beac-12ad6648b3e8"]
+Cell[232694, 5186, 601, 13, 52, "Input",ExpressionUUID->"eed45160-7716-4cab-ad30-8ef7edf9bdbb"],
+Cell[233298, 5201, 8847, 190, 62, "Output",ExpressionUUID->"6aff3a0e-4b0c-4017-9446-ec97f768501c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[250311, 5526, 249, 5, 30, "Input",ExpressionUUID->"01d92b25-05de-4e0e-9091-de47b85ed0dd"],
-Cell[250563, 5533, 608, 12, 37, "Output",ExpressionUUID->"26d21c62-a450-4f40-adb3-729ae3c386f7"]
-}, Open  ]],
-Cell[251186, 5548, 299, 7, 30, "Input",ExpressionUUID->"39d0bb74-aa52-44dd-80ca-e61485323c05"],
-Cell[CellGroupData[{
-Cell[251510, 5559, 215, 4, 30, "Input",ExpressionUUID->"eee9f705-a4ba-4b25-b235-1a3537bac0bc"],
-Cell[251728, 5565, 3727, 83, 173, "Output",ExpressionUUID->"8289a182-db57-4060-80d5-7fe87a086970"]
-}, Open  ]],
-Cell[255470, 5651, 547, 14, 30, "Input",ExpressionUUID->"23b2c1d0-eaba-483e-b96f-c95a809fbb34"],
-Cell[256020, 5667, 484, 10, 30, "Input",ExpressionUUID->"28ac80dd-e473-4221-af2d-e913f9e65142"],
-Cell[256507, 5679, 736, 15, 52, "Input",ExpressionUUID->"291a84bf-27b2-4128-a421-176a069d2d60"],
-Cell[257246, 5696, 312, 7, 52, "Input",ExpressionUUID->"ba4daeb8-05f9-493c-a964-58d34b6a9e3f"],
-Cell[CellGroupData[{
-Cell[257583, 5707, 221, 4, 30, "Input",ExpressionUUID->"f13694c4-cecd-47c3-b2a0-7ca9032110de"],
-Cell[257807, 5713, 515, 11, 37, "Output",ExpressionUUID->"05b27e74-b3d3-4cf5-b8ed-f20273eb65ef"]
+Cell[242182, 5396, 369, 7, 30, "Input",ExpressionUUID->"cb26973f-6b62-4b1a-9056-417c78b65547"],
+Cell[242554, 5405, 9933, 214, 62, "Output",ExpressionUUID->"5237a537-c340-4cd3-beac-12ad6648b3e8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[258359, 5729, 214, 4, 30, "Input",ExpressionUUID->"43240f3b-06d4-4131-b412-8629cf7c31b5"],
-Cell[258576, 5735, 3791, 84, 173, "Output",ExpressionUUID->"b004c000-c8fc-4cf3-97c1-35948c6d6416"]
+Cell[252524, 5624, 249, 5, 30, "Input",ExpressionUUID->"01d92b25-05de-4e0e-9091-de47b85ed0dd"],
+Cell[252776, 5631, 608, 12, 37, "Output",ExpressionUUID->"26d21c62-a450-4f40-adb3-729ae3c386f7"]
 }, Open  ]],
-Cell[262382, 5822, 660, 16, 52, "Input",ExpressionUUID->"32882ca1-22c2-4637-94d9-98089bed3d45"],
-Cell[263045, 5840, 353, 8, 30, "Input",ExpressionUUID->"2144c70f-cf0c-486b-8bf2-e3845c22359c"],
-Cell[263401, 5850, 762, 18, 52, "Input",ExpressionUUID->"324432a3-da79-4425-876f-a46c41ce7efd"],
-Cell[264166, 5870, 374, 10, 30, "Input",ExpressionUUID->"fea5a6bb-8f7c-40ec-b8b6-e438e69fb34f"],
-Cell[264543, 5882, 585, 14, 52, "Input",ExpressionUUID->"fb1260ca-548e-4057-a671-fc605ca1a823"],
-Cell[265131, 5898, 347, 8, 30, "Input",ExpressionUUID->"0bc495c8-31a0-43df-bb63-a3daa48bde39"],
-Cell[265481, 5908, 329, 8, 30, "Input",ExpressionUUID->"f6523d9f-25d7-4c8c-b5c8-b5305a99d8e5"],
-Cell[265813, 5918, 717, 18, 73, "Input",ExpressionUUID->"c1ffb7ae-184e-4741-b854-7299f2a9be5e"],
-Cell[266533, 5938, 416, 10, 30, "Input",ExpressionUUID->"e727e0fd-cbf8-4d3a-b9e7-4a746b7552af"],
-Cell[266952, 5950, 1066, 26, 73, "Input",ExpressionUUID->"88f260c7-828b-486c-a2de-80ddefcf9a3f"],
-Cell[268021, 5978, 405, 10, 30, "Input",ExpressionUUID->"bf9eff3a-7ab2-4ca5-8c7c-a1dc560cb2aa"],
-Cell[268429, 5990, 330, 8, 30, "Input",ExpressionUUID->"4e3685c3-f26e-41ed-8dc2-529ca13db66f"],
-Cell[268762, 6000, 645, 18, 52, "Input",ExpressionUUID->"9d211fcf-a979-45d4-afc3-e459f2d2b425"],
-Cell[269410, 6020, 433, 11, 30, "Input",ExpressionUUID->"2505cc51-760c-4f21-95e2-4d7684f1ca07"],
-Cell[269846, 6033, 376, 9, 30, "Input",ExpressionUUID->"6280397d-9a40-4ee2-ad7a-673d29c321cb"],
-Cell[270225, 6044, 651, 18, 52, "Input",ExpressionUUID->"d36e3604-2e7d-452c-9407-4270879c8d19"],
-Cell[270879, 6064, 443, 11, 30, "Input",ExpressionUUID->"ad27148f-4569-4f86-878c-944863f9effd"],
-Cell[271325, 6077, 745, 18, 94, "Input",ExpressionUUID->"8159c553-3df2-40dc-a3ec-4c5411dc4422"],
-Cell[272073, 6097, 589, 15, 52, "Input",ExpressionUUID->"a579f05a-3356-4442-afc1-7dbe649f8e01"],
-Cell[272665, 6114, 765, 20, 94, "Input",ExpressionUUID->"14ad01b2-9403-4f5d-b2b3-89e00f37b4f8"],
-Cell[273433, 6136, 659, 18, 52, "Input",ExpressionUUID->"e308a50a-3e1f-4af6-8176-dc0d3191f93b"],
-Cell[274095, 6156, 476, 13, 30, "Input",ExpressionUUID->"f3677c3d-3bf6-4c3a-916c-0b8f42c82264"],
-Cell[274574, 6171, 401, 10, 52, "Input",ExpressionUUID->"a9286496-63ce-4d7b-917a-4fceda259b7a"],
-Cell[274978, 6183, 335, 8, 30, "Input",ExpressionUUID->"f7f0b7a6-b125-49c2-8459-690f3d615c69"],
-Cell[275316, 6193, 622, 16, 73, "Input",ExpressionUUID->"91c281d2-414d-4c79-a34c-04cb86a1a02b"],
-Cell[275941, 6211, 406, 10, 30, "Input",ExpressionUUID->"7f7ae0cd-4564-495f-bee8-3d791cb76d18"],
-Cell[276350, 6223, 335, 8, 30, "Input",ExpressionUUID->"b0f8c3ce-ef0c-46ea-b8c4-80b2a8b81565"],
-Cell[276688, 6233, 753, 19, 94, "Input",ExpressionUUID->"3fbc7b4a-9620-47ba-9a9c-736058150f99"],
-Cell[277444, 6254, 643, 16, 73, "Input",ExpressionUUID->"c5ae8073-dae0-498d-a55d-6f477ab814bc"],
-Cell[278090, 6272, 337, 8, 30, "Input",ExpressionUUID->"0c68a66d-7742-4532-adb3-7ceb00136fc5"],
-Cell[278430, 6282, 475, 12, 52, "Input",ExpressionUUID->"ba1be96b-d2a0-4730-ba0d-94325c9bca1d"],
-Cell[278908, 6296, 406, 10, 30, "Input",ExpressionUUID->"912d9e16-2663-4a19-8dde-8825f48dec12"],
-Cell[279317, 6308, 394, 11, 30, "Input",ExpressionUUID->"f6c7940f-fdc5-4b6a-86bf-6cba57c203c2"],
-Cell[279714, 6321, 472, 11, 52, "Input",ExpressionUUID->"6f12e781-ba1a-40fa-bcb7-155e982b712e"],
-Cell[280189, 6334, 1205, 32, 199, "Input",ExpressionUUID->"3c714107-a744-4bcb-8817-a851c3dd86fd"],
-Cell[281397, 6368, 1006, 26, 115, "Input",ExpressionUUID->"dd36b0e7-7e6a-40c9-b7b6-8bc84acae1e1"],
-Cell[282406, 6396, 335, 8, 30, "Input",ExpressionUUID->"84763ba4-1488-4229-bc34-7032f4c06880"]
+Cell[253399, 5646, 299, 7, 30, "Input",ExpressionUUID->"39d0bb74-aa52-44dd-80ca-e61485323c05"],
+Cell[CellGroupData[{
+Cell[253723, 5657, 215, 4, 30, "Input",ExpressionUUID->"eee9f705-a4ba-4b25-b235-1a3537bac0bc"],
+Cell[253941, 5663, 3727, 83, 173, "Output",ExpressionUUID->"8289a182-db57-4060-80d5-7fe87a086970"]
+}, Open  ]],
+Cell[257683, 5749, 547, 14, 30, "Input",ExpressionUUID->"23b2c1d0-eaba-483e-b96f-c95a809fbb34"],
+Cell[258233, 5765, 484, 10, 30, "Input",ExpressionUUID->"28ac80dd-e473-4221-af2d-e913f9e65142"],
+Cell[258720, 5777, 736, 15, 52, "Input",ExpressionUUID->"291a84bf-27b2-4128-a421-176a069d2d60"],
+Cell[259459, 5794, 312, 7, 52, "Input",ExpressionUUID->"ba4daeb8-05f9-493c-a964-58d34b6a9e3f"],
+Cell[CellGroupData[{
+Cell[259796, 5805, 221, 4, 30, "Input",ExpressionUUID->"f13694c4-cecd-47c3-b2a0-7ca9032110de"],
+Cell[260020, 5811, 515, 11, 37, "Output",ExpressionUUID->"05b27e74-b3d3-4cf5-b8ed-f20273eb65ef"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[260572, 5827, 214, 4, 30, "Input",ExpressionUUID->"43240f3b-06d4-4131-b412-8629cf7c31b5"],
+Cell[260789, 5833, 3791, 84, 173, "Output",ExpressionUUID->"b004c000-c8fc-4cf3-97c1-35948c6d6416"]
+}, Open  ]],
+Cell[264595, 5920, 660, 16, 52, "Input",ExpressionUUID->"32882ca1-22c2-4637-94d9-98089bed3d45"],
+Cell[265258, 5938, 353, 8, 30, "Input",ExpressionUUID->"2144c70f-cf0c-486b-8bf2-e3845c22359c"],
+Cell[265614, 5948, 762, 18, 52, "Input",ExpressionUUID->"324432a3-da79-4425-876f-a46c41ce7efd"],
+Cell[266379, 5968, 374, 10, 30, "Input",ExpressionUUID->"fea5a6bb-8f7c-40ec-b8b6-e438e69fb34f"],
+Cell[266756, 5980, 585, 14, 52, "Input",ExpressionUUID->"fb1260ca-548e-4057-a671-fc605ca1a823"],
+Cell[267344, 5996, 347, 8, 30, "Input",ExpressionUUID->"0bc495c8-31a0-43df-bb63-a3daa48bde39"],
+Cell[267694, 6006, 329, 8, 30, "Input",ExpressionUUID->"f6523d9f-25d7-4c8c-b5c8-b5305a99d8e5"],
+Cell[268026, 6016, 717, 18, 73, "Input",ExpressionUUID->"c1ffb7ae-184e-4741-b854-7299f2a9be5e"],
+Cell[268746, 6036, 416, 10, 30, "Input",ExpressionUUID->"e727e0fd-cbf8-4d3a-b9e7-4a746b7552af"],
+Cell[269165, 6048, 1066, 26, 73, "Input",ExpressionUUID->"88f260c7-828b-486c-a2de-80ddefcf9a3f"],
+Cell[270234, 6076, 405, 10, 30, "Input",ExpressionUUID->"bf9eff3a-7ab2-4ca5-8c7c-a1dc560cb2aa"],
+Cell[270642, 6088, 330, 8, 30, "Input",ExpressionUUID->"4e3685c3-f26e-41ed-8dc2-529ca13db66f"],
+Cell[270975, 6098, 645, 18, 52, "Input",ExpressionUUID->"9d211fcf-a979-45d4-afc3-e459f2d2b425"],
+Cell[271623, 6118, 433, 11, 30, "Input",ExpressionUUID->"2505cc51-760c-4f21-95e2-4d7684f1ca07"],
+Cell[272059, 6131, 376, 9, 30, "Input",ExpressionUUID->"6280397d-9a40-4ee2-ad7a-673d29c321cb"],
+Cell[272438, 6142, 651, 18, 52, "Input",ExpressionUUID->"d36e3604-2e7d-452c-9407-4270879c8d19"],
+Cell[273092, 6162, 443, 11, 30, "Input",ExpressionUUID->"ad27148f-4569-4f86-878c-944863f9effd"],
+Cell[273538, 6175, 745, 18, 73, "Input",ExpressionUUID->"8159c553-3df2-40dc-a3ec-4c5411dc4422"],
+Cell[274286, 6195, 589, 15, 52, "Input",ExpressionUUID->"a579f05a-3356-4442-afc1-7dbe649f8e01"],
+Cell[274878, 6212, 765, 20, 52, "Input",ExpressionUUID->"14ad01b2-9403-4f5d-b2b3-89e00f37b4f8"],
+Cell[275646, 6234, 659, 18, 52, "Input",ExpressionUUID->"e308a50a-3e1f-4af6-8176-dc0d3191f93b"],
+Cell[276308, 6254, 476, 13, 30, "Input",ExpressionUUID->"f3677c3d-3bf6-4c3a-916c-0b8f42c82264"],
+Cell[276787, 6269, 401, 10, 30, "Input",ExpressionUUID->"a9286496-63ce-4d7b-917a-4fceda259b7a"],
+Cell[277191, 6281, 335, 8, 30, "Input",ExpressionUUID->"f7f0b7a6-b125-49c2-8459-690f3d615c69"],
+Cell[277529, 6291, 622, 16, 52, "Input",ExpressionUUID->"91c281d2-414d-4c79-a34c-04cb86a1a02b"],
+Cell[278154, 6309, 406, 10, 30, "Input",ExpressionUUID->"7f7ae0cd-4564-495f-bee8-3d791cb76d18"],
+Cell[278563, 6321, 335, 8, 30, "Input",ExpressionUUID->"b0f8c3ce-ef0c-46ea-b8c4-80b2a8b81565"],
+Cell[278901, 6331, 753, 19, 52, "Input",ExpressionUUID->"3fbc7b4a-9620-47ba-9a9c-736058150f99"],
+Cell[279657, 6352, 643, 16, 73, "Input",ExpressionUUID->"c5ae8073-dae0-498d-a55d-6f477ab814bc"],
+Cell[280303, 6370, 337, 8, 30, "Input",ExpressionUUID->"0c68a66d-7742-4532-adb3-7ceb00136fc5"],
+Cell[280643, 6380, 475, 12, 52, "Input",ExpressionUUID->"ba1be96b-d2a0-4730-ba0d-94325c9bca1d"],
+Cell[281121, 6394, 406, 10, 30, "Input",ExpressionUUID->"912d9e16-2663-4a19-8dde-8825f48dec12"],
+Cell[281530, 6406, 394, 11, 30, "Input",ExpressionUUID->"f6c7940f-fdc5-4b6a-86bf-6cba57c203c2"],
+Cell[281927, 6419, 472, 11, 52, "Input",ExpressionUUID->"6f12e781-ba1a-40fa-bcb7-155e982b712e"],
+Cell[282402, 6432, 1205, 32, 157, "Input",ExpressionUUID->"3c714107-a744-4bcb-8817-a851c3dd86fd"],
+Cell[283610, 6466, 1006, 26, 94, "Input",ExpressionUUID->"dd36b0e7-7e6a-40c9-b7b6-8bc84acae1e1"],
+Cell[284619, 6494, 335, 8, 30, "Input",ExpressionUUID->"84763ba4-1488-4229-bc34-7032f4c06880"],
+Cell[284957, 6504, 255, 5, 115, "Input",ExpressionUUID->"51392b28-128a-4410-bdd0-3b7261754cd9"],
+Cell[285215, 6511, 440, 9, 30, "Input",ExpressionUUID->"3f85c49d-bb0c-4c3a-bce7-3ebbb9d99401"]
 }
 ]
 *)

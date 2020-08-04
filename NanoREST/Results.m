@@ -161,6 +161,17 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 		strm=config["streamingWindowSize"];
 		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(config["features"])];
 		pca=Drop[pca,1];
+		min=Flatten[ConstantArray[min,strm]];
+		max=Flatten[ConstantArray[max,strm]];
+		     
+		If[MemberQ[results,"BinaryPM"],
+			returnList={"BinaryPM"->PM};
+		];
+		
+		(* if only returning binary pm, return before calculating the rest *)
+		If[results==={"BinaryPM"},
+			Return[Association[returnList]]
+		];
 		
 		If[OptionValue[RowSort],
 			{x,y,z}=Flatten[Quiet[Table[First[Position[pca,_?(#[[i]]==Max[Transpose[pca][[i]]]&),1]],{i,1,3}]]];
@@ -170,25 +181,25 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			xClust=xClust[[Ordering[pca[[xClust,3]]]]];
 			sortOrder=Flatten[{x,xClust,z,yClust,y}];
 		];
-		     
-		If[MemberQ[results,"BinaryPM"],
-			returnList={"BinaryPM"->PM[[If[OptionValue[RowSort],sortOrder,All]]]};
-		];
 		
-		(* if only returning binary pm, return before calculating the rest *)
-		If[results==={"BinaryPM"},
-			Return[Association[returnList]]
-		];
-		
-		numberOfEachSample=BinCounts[samples,{0,Length[min]*strm}];
+		numberOfEachSample=BinCounts[samples,{0,Length[min]}];
 		ord=TakeList[Ordering[samples],numberOfEachSample];
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
+		
+		Print[Dimensions[numberOfEachSample]];
+		Print[Dimensions[ord]];
+		Print[Dimensions[sampleSortedPM]];
+		Print[Dimensions[image]];
+		Print[strm];
+		Print[min];
+		Print[max];
 		
 		If[MemberQ[results,"SourceVector"],
 			sourceVec=(*image;*)(#*(max-min)+min)&/@image;
 			returnList=Join[returnList,{"SourceVector"->sourceVec}];
 		];
+		
 		If[MemberQ[results,"CMYK"],
 			cmyk=Table[Join[pca[[#]],{image[[#,i]]}],{i,1,Length[image[[1]]]}]&/@Range[Length[image]];
 			ratio=Clip[Round[2\[Pi]/(.1*Length[pca])],{1,\[Infinity]}];
