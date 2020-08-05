@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* Nano v2 MMA interface *) 
 
 BeginPackage["NanoREST`"]
@@ -727,11 +729,13 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
-Options[DecodePM]={Results->"BinaryPM",RowSort->False};
+Options[DecodePM]={Results->"BinaryPM",RowSort->False,Scaled->True};
 DecodePM[NanoHandle_,OptionsPattern[]]:=
-	Module[{ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
+	Module[{results,config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
 		If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
-		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features"},Flatten[{OptionValue[Results]}]]==False,
+		results=Flatten[{OptionValue[Results]}];
+		results=StringDelete[#, {" ", "{", "}","NanoREST`","Private`"}]&/@results;
+		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features",All},results]==False,
 			Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 			Return[]
 		];
@@ -740,12 +744,30 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			Return[]
 		];
 		
-		{PM,pca,samples}=Values[KeyTake[GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}],{"patternMemory","PCA","disArray"}]];
+		If[MemberQ[results,All],results={"CMYK","SourceVector","BinaryPM","Features"}];
+		
+		config=GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}];
+		If[config===Null,Message[NanoWarning::message,"No results to be returned"];Return[]]; (* error *)
+		{PM,pca,samples}=Values[KeyTake[config,{"patternMemory","PCA","disArray"}]];
 		PMDecimal=ImportString[#,{"Base64","Binary"}]&/@PM;
 		PM=Partition[Flatten[Reverse[IntegerDigits[#,2,8]]&/@Flatten[PMDecimal]],Length[PMDecimal[[1]]]*8];
 		
-		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(GetConfig[NanoHandle]["features"])];
+		config=GetConfig[NanoHandle];
+		If[config===Null,Message[NanoWarning::message,"No results to be returned"];Return[]]; (* error *)
+		strm=config["streamingWindowSize"];
+		{min,max}=Transpose[Values[KeyTake[#,{"minVal","maxVal"}]]&/@(config["features"])];
 		pca=Drop[pca,1];
+		min=Flatten[ConstantArray[min,strm]];
+		max=Flatten[ConstantArray[max,strm]];
+		     
+		If[MemberQ[results,"BinaryPM"],
+			returnList={"BinaryPM"->PM};
+		];
+		
+		(* if only returning binary pm, return before calculating the rest *)
+		If[results==={"BinaryPM"},
+			Return[Association[returnList]]
+		];
 		
 		If[OptionValue[RowSort],
 			{x,y,z}=Flatten[Quiet[Table[First[Position[pca,_?(#[[i]]==Max[Transpose[pca][[i]]]&),1]],{i,1,3}]]];
@@ -755,33 +777,36 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			xClust=xClust[[Ordering[pca[[xClust,3]]]]];
 			sortOrder=Flatten[{x,xClust,z,yClust,y}];
 		];
-		     
-		If[MemberQ[Flatten[{OptionValue[Results]}],"BinaryPM"],
-			returnList={"BinaryPM"->PM[[If[OptionValue[RowSort],sortOrder,All]]]};
-		];
-		
-		(* if only returning binary pm, return before calculating the rest *)
-		If[Flatten[{OptionValue[Results]}]==={"BinaryPM"},
-			Return[Association[returnList]]
-		];
 		
 		numberOfEachSample=BinCounts[samples,{0,Length[min]}];
 		ord=TakeList[Ordering[samples],numberOfEachSample];
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
 		
-		If[MemberQ[Flatten[{OptionValue[Results]}],"SourceVector"],
-			sourceVec=image;(*(#*(max-min)+min)&/@image;*)
+		Print[Dimensions[numberOfEachSample]];
+		Print[Dimensions[ord]];
+		Print[Dimensions[sampleSortedPM]];
+		Print[Dimensions[image]];
+		Print[strm];
+		Print[min];
+		Print[max];
+		
+		If[MemberQ[results,"SourceVector"],
+			If[OptionValue[Scaled],
+				sourceVec=(#*(max-min)+min)&/@image;,
+				sourceVec=image;
+			];
 			returnList=Join[returnList,{"SourceVector"->sourceVec}];
 		];
-		If[MemberQ[Flatten[{OptionValue[Results]}],"CMYK"],
+		
+		If[MemberQ[results,"CMYK"],
 			cmyk=Table[Join[pca[[#]],{image[[#,i]]}],{i,1,Length[image[[1]]]}]&/@Range[Length[image]];
 			ratio=Clip[Round[2\[Pi]/(.1*Length[pca])],{1,\[Infinity]}];
 			pad=Clip[Round[#[[2]]/ratio,#[[1]]]/#[[1]],{1,\[Infinity]}]&@(Dimensions@cmyk);
 			cmyk=Flatten[ConstantArray[#,pad]&/@cmyk,1];
 			returnList=Join[returnList,{"CMYK"->cmyk[[If[OptionValue[RowSort],sortOrder*pad,All]]]}];
 		];
-		If[MemberQ[Flatten[{OptionValue[Results]}],"Features"],
+		If[MemberQ[results,"Features"],
 			featSig=Transpose[
 				Table[
 					temp=Table[HammingDistance[sampleSortedPM[[feature,cluster]],sampleSortedPM[[feature,i]]],{cluster,1,Length[sampleSortedPM[[1]]]},{i,cluster+1,Length[sampleSortedPM[[1]]]}];
