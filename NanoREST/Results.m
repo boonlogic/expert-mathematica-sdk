@@ -133,7 +133,7 @@ GetThreshold[NanoHandle_,accuracy_:0.997]:=Module[{status,cc,ai,probs,acc,length
 	Return[Clip[threshold,{0,1000}]]
 ]
 
-Options[DecodePM]={Results->"BinaryPM",RowSort->False};
+Options[DecodePM]={Results->"BinaryPM",RowSort->False,Scaled->True};
 DecodePM[NanoHandle_,OptionsPattern[]]:=
 	Module[{results,config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
 		If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
@@ -196,7 +196,10 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 		Print[max];
 		
 		If[MemberQ[results,"SourceVector"],
-			sourceVec=(*image;*)(#*(max-min)+min)&/@image;
+			If[OptionValue[Scaled],
+				sourceVec=(#*(max-min)+min)&/@image;,
+				sourceVec=image;
+			];
 			returnList=Join[returnList,{"SourceVector"->sourceVec}];
 		];
 		
