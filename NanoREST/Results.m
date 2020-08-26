@@ -127,8 +127,8 @@ GetThreshold[NanoHandle_,accuracy_:0.999]:=Module[{status,scale,p,threshold},
 	p = Table[{pFit,Total[(
 		Table[scale * pFit * (1-pFit)^(x-1),{x, status["anomalyIndexes"]}] -
       	status["clusterSizes"]/status["totalInferences"]*1.)^2]},
-      	{p, 0.001, 0.02, 0.0001}]
-	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]]
+      	{pFit, 0.001, 0.02, 0.0001}];
+	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]];
 	threshold=Ceiling[Log[1-accuracy]/Log[1-p]];
 	Return[Clip[threshold,{0,1000}]]
 ]
