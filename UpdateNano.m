@@ -3,19 +3,31 @@
 BeginPackage["UpdateNano`"]
 
 
+LoadPackage::usage="LoadPackage[packageName] moves the custom package to a default location for mathematica to find"
+RunTests::usage="RunTests[packageName] runs the UnitTests.wlt file in the package (if applicable)"
+
+
 Begin["`Private`"]
 
 
 (* Call this to update the nano rest API *)
-Module[{curr,app},
-curr=CreateArchive[FileNameJoin[{Directory[],"NanoREST"}],OverwriteTarget->True];
+LoadPackage[packageName_]:=Module[{curr,app},
+curr=CreateArchive[FileNameJoin[{Directory[],packageName}],OverwriteTarget->True];
 app=FileNameJoin[{$UserBaseDirectory,"Applications"}];
-If[MemberQ[FileNames["*",app],FileNameJoin[{app,"NanoREST"}]],DeleteDirectory[FileNameJoin[{app,"NanoREST"}],DeleteContents->True]];
+If[MemberQ[FileNames["*",app],FileNameJoin[{app,packageName}]],DeleteDirectory[FileNameJoin[{app,packageName}],DeleteContents->True]];
 ExtractArchive[curr,app];
 DeleteFile[curr];
+Print["Files updated"];
+]
+
+
+RunTests[packageName_]:=Module[{app=FileNameJoin[{$UserBaseDirectory,"Applications"}];},
 PrintTemporary["Running Tests...."];
-Print[TestReport@FileNameJoin[{app,"NanoREST", "UnitTests.wlt"}]]
-(*Print["Files updated"];*)
+If[FindFile[FileNameJoin[{app,packageName, "UnitTests.wlt"}]],
+Print[TestReport@FileNameJoin[{app,packageName, "UnitTests.wlt"}]]
+,
+Print["No tests found"];
+]
 ]
 
 
