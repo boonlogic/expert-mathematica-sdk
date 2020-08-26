@@ -8,6 +8,7 @@ ClearAll["NanoREST`Protected`*"]
 (*Error Messages*)
 NanoError::length="Lengths of unequal value"
 NanoError::return="Failed with an error code of `1` and body: `2`"
+NanoError::general="`1`"
 InvalidParam::argerr="The first parameter must either be a list of magnitudes or a pattern length"
 FileError::argerr="File not found"
 FileError::argwrite="File write error"

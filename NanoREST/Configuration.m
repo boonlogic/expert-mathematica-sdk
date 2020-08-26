@@ -146,12 +146,13 @@ ConfigureNano[NanoHandle_,NumericFormat_,FeatureCount_,OptionsPattern[]]:=Module
 
 ConfigureNano[NanoHandle_,config_]:=Module[{req,RetVal},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	If[!AssociationQ[config],Message[NanoError::general,"Config is not a valid format. Must be an association"];Return[]];
 	
 	req = HTTPRequest[NanoHandle["url"]<>"clusterConfig/"<>NanoHandle["instance"]<>"?api-tenant="<>NanoHandle["api-tenant"], 
 	<|
 	"Method" ->"POST",
 	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]},
-	"Body"->config|>];
+	"Body"->ExportString[config,"RawJSON"]|>];
 	RetVal= URLRead[req,{"Status","Body"}];
 	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
