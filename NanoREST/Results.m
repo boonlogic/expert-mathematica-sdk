@@ -121,14 +121,14 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
-GetThreshold[NanoHandle_,accuracy_:0.997]:=Module[{status,cc,ai,probs,acc,length,p,threshold},
+GetThreshold[NanoHandle_,accuracy_:0.999]:=Module[{status,scale,p,threshold},
 	status=GetNanoStatus[NanoHandle];
-	cc=Sort[status["clusterSizes"],Greater];
-	ai=status["anomalyIndexes"][[Reverse[Ordering[status["clusterSizes"]]]]];
-	probs=cc/status["totalInferences"]*1.;
-	acc=Accumulate[probs];
-	length=LengthWhile[acc,#<=.75&];
-	p=1/Total[Take[ai,length]*Take[probs,length]];
+	scale=Total[Table[Max[status["clusterSizes"]]^(1-x)/status["totalInferences"],{x,0.001,1,.001}]];
+	p = Table[{pFit,Total[(
+		Table[scale * pFit * (1-pFit)^(x-1),{x, status["anomalyIndexes"]}] -
+      	status["clusterSizes"]/status["totalInferences"]*1.)^2]},
+      	{p, 0.001, 0.02, 0.0001}]
+	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]]
 	threshold=Ceiling[Log[1-accuracy]/Log[1-p]];
 	Return[Clip[threshold,{0,1000}]]
 ]
