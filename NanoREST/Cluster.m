@@ -17,7 +17,7 @@ Begin["`Private`"] (* Begin Private Context *)
 (******** CLUSTER ********)
 (* Uploads the data to be clustered and returns any results specified *)
 Options[LoadData]={AppendData->False,GZip->False};
-LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{bytes,req,url,RetVal,NumericFormat,tempFile},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[MemberQ[{True,False},OptionValue[AppendData]]==False,
@@ -31,16 +31,11 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,Nu
 	];
 	
 	NumericFormat=GetConfig[NanoHandle]["numericFormat"];
-	SetDirectory[$TemporaryDirectory];
-	Quiet[Close[tempFile]];
-	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
-	If[result===$Failed,
-		ResetDirectory[];
-		Message[FileError::argwrite];
-		Return[]
-	];
-	t=FindFile[tempFile];
+	tempFile=CreateFile[];
+	bytes=ExportByteArray[Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	BinaryWrite[tempFile,bytes];
+	Close[tempFile];
+	
 	url=NanoHandle["url"]<>"data/"<>NanoHandle["instance"]
 	<>"?runNano=false"
 	<>"&fileType=raw"
@@ -52,10 +47,10 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,Nu
 	<|
 	"Method" ->"POST",
 	"Headers"->{"Content-Type"->"multipart/form-data","x-token"->NanoHandle["api-key"],"type"->"text/csv"},
-	"Body"->{"data"->File[t]}
+	"Body"->{"data"->File[tempFile]}
 	|>];
 	RetVal= URLRead[req,{"Status","Body"}];
-	ResetDirectory[];
+	DeleteFile[tempFile];
 	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
 	];
@@ -63,7 +58,7 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,req,url,RetVal,t,Nu
 
 (* Uploads the data to be clustered for streaming applications *)
 Options[RunStreamingData]={Results->ID,GZip->False};
-RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultString,req,url,RetVal,t,NumericFormat,tempFile="DataToPost.bin"},
+RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{bytes,ResultString,req,url,RetVal,NumericFormat,tempFile},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	
 	If[SubsetQ[{"None","All","ID","SI","RI","FI","DI","MD"},ToString/@Flatten[{OptionValue[Results]}]]==False,
@@ -84,16 +79,11 @@ RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultStrin
 	];
 	
 	NumericFormat=GetConfig[NanoHandle]["numericFormat"];
-	SetDirectory[$TemporaryDirectory];
-	Quiet[Close[tempFile]];
-	If[ToString[FindFile[tempFile]]!="$Failed",DeleteFile[tempFile]];
-	result=Quiet[Export[tempFile,Flatten[Data],Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]]];
-	If[result===$Failed,
-		ResetDirectory[];
-		Message[FileError::argwrite];
-		Return[]
-	];
-	t=FindFile[tempFile];
+	tempFile=CreateFile[];
+	bytes=ExportByteArray[Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
+	BinaryWrite[tempFile,bytes];
+	Close[tempFile];
+	
 	url=NanoHandle["url"]<>"nanoRunStreaming/"<>NanoHandle["instance"]
 	<>"?fileType=raw"
 	<>"&gzip="<>ToLowerCase[ToString[OptionValue[GZip]]]
@@ -104,10 +94,10 @@ RunStreamingData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{result,ResultStrin
 	<|
 	"Method" ->"POST",
 	"Headers"->{"Content-Type"->"multipart/form-data","x-token"->NanoHandle["api-key"],"type"->"text/csv"},
-	"Body"->{"data"->File[t]}
+	"Body"->{"data"->File[tempFile]}
 	|>];
 	RetVal= URLRead[req,{"Status","Body"}];
-	ResetDirectory[];
+	DeleteFile[tempFile];
 	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
 		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
 	];

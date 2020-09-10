@@ -133,13 +133,13 @@ GetThreshold[NanoHandle_,accuracy_:0.999]:=Module[{status,scale,p,threshold},
 	Return[Clip[threshold,{0,1000}]]
 ]
 
-Options[DecodePM]={Results->"BinaryPM",RowSort->False,Scaled->True};
+Options[DecodePM]={Results->"BinaryPM",RowSort->False,Scaled->False};
 DecodePM[NanoHandle_,OptionsPattern[]]:=
 	Module[{results,config,strm,ratio,pad,pca,PM,ord,PMDecimal,numberOfEachSample,sampleSortedPM,image,temp,sourceVec,cmyk,x,y,z,xClust,yClust,min,max,sortOrder,returnList={},samples,featSig},
 		If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 		results=Flatten[{OptionValue[Results]}];
-		results=StringDelete[#, {" ", "{", "}","NanoREST`","Private`"}]&/@results;
-		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features",All},results]==False,
+		results=StringDelete[ToString[#], {" ", "{", "}","NanoREST`","Private`"}]&/@results;
+		If[SubsetQ[{"CMYK","SourceVector","BinaryPM","Features","All"},results]==False,
 			Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 			Return[]
 		];
@@ -148,7 +148,7 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 			Return[]
 		];
 		
-		If[MemberQ[results,All],results={"CMYK","SourceVector","BinaryPM","Features"}];
+		If[MemberQ[results,"All"],results={"CMYK","SourceVector","BinaryPM","Features"}];
 		
 		config=GetNanoStatus[NanoHandle,Results->{"patternMemory",PCA,"disArray"}];
 		If[config===Null,Message[NanoWarning::message,"No results to be returned"];Return[]]; (* error *)
@@ -187,13 +187,13 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
 		
-		Print[Dimensions[numberOfEachSample]];
+(*		Print[Dimensions[numberOfEachSample]];
 		Print[Dimensions[ord]];
 		Print[Dimensions[sampleSortedPM]];
 		Print[Dimensions[image]];
 		Print[strm];
 		Print[min];
-		Print[max];
+		Print[max];*)
 		
 		If[MemberQ[results,"SourceVector"],
 			If[OptionValue[Scaled],
