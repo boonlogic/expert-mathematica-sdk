@@ -124,11 +124,12 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 GetThreshold[NanoHandle_,accuracy_:0.999]:=Module[{status,scale,p,threshold},
 	status=GetNanoStatus[NanoHandle];
 	scale=Total[Table[Max[status["clusterSizes"]]^(1-x)/status["totalInferences"],{x,0.001,1,.001}]];
-	p = Table[{pFit,Total[(
+	p = Last[Sort[status["clusterSizes"]]]^(1-1/1000.) / status["totalInferences"] / scale;
+(*	p = Table[{pFit,Total[(
 		Table[scale * pFit * (1-pFit)^(x-1),{x, status["anomalyIndexes"]}] -
       	status["clusterSizes"]/status["totalInferences"]*1.)^2]},
       	{pFit, 0.001, 0.02, 0.0001}];
-	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]];
+	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]];*)
 	threshold=Ceiling[Log[1-accuracy]/Log[1-p]];
 	Return[Clip[threshold,{0,1000}]]
 ]
