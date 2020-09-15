@@ -1,24 +1,21 @@
+<<<<<<< HEAD
 (* ::Package:: *)
 
 (* Nano v2 MMA interface *) 
+=======
+(* Nano v3.1 MMA interface *) 
+>>>>>>> version-3-1
 
 BeginPackage["NanoREST`"]
 Unprotect["NanoREST`*"]
 ClearAll["NanoREST`*"]
 ClearAll["NanoREST`Protected`*"]
 
-(* GENERAL *)
-GetVersion::usage="GetVersion[] returns the nano version running"
 
-(* INSTANCES *)
-OpenNano::usage="OpenNano[Label] starts a nano using the default user's credentials and returns the NanoHandle
-\nOpenNano[Label,User] starts a nano with the given label using the user's credentials and returns the NanoHandle
-\nOpenNano[Label,User,Filename] starts a nano and loads the saved nano and returns the NanoHandle"
 
-LoadNano::usage=""
 
-CloseNano::usage="CloseNano[NanoHandle] stops the nano associated with the NanoHandle and closes the connection"
 
+<<<<<<< HEAD
 NanoList::usage="NanoList[NanoHandle] returns a list names for the allocated nanos"
 
 ExistsQ::usage="ExistsQ[NanoHandle] tests to see whether the given nanohandle still poitns to an active nano"
@@ -122,109 +119,16 @@ Exact::usage="whether to make the variant vector exactly the given percent varia
 points::usage="documentation variable"
 r::usage="documentation variable"
 c::usage="documentation variable"
+=======
+>>>>>>> version-3-1
 
 Begin["`Private`"]
 
 (*messageHandler = If[Last[#], Abort[]] &;
 Internal`AddHandler["Message", messageHandler];*)
 
-(* Syntax 1: GenerateRandomPatternNative[5,13] generate a random pattern of length 5 of max 13 *)
-(* Syntax 2: GenerateRandomPatternNative[{17,5,30,5}] generate a random pattern of length 4 the max values given *)
-GenerateRandomPatternNative[Param1_,Max_:0]:=Module[{},
-	If[Depth[Param1]==1,(* this is syntax 1 *)
-	Return[RandomInteger[{0,Max},Param1]]];
-		
-	If[Depth[Param1]!=2,Message[InvalidParam::argerr];
-		Return[]
-	];
-	Return[RandomInteger[{0,#}]&/@Param1]
-]
 
-(* If Param1 and Param2 are lists, then those lists are used as corresponding min and max for generating the pattern*)
-(* Otherwise, Param1 is the pattern length, Param2 is the min, and Param3 is the max *)
-GenerateRandomPatternInt[Param1_,Param2_,Param3_:0]:=Module[{},
-	If[Depth[Param1]==1,(* this is syntax 1 *)
-		Return[RandomInteger[{Param2,Param3},Param1]]
-	];
-	If[Depth[Param1]!=2||Depth[Param1]!=2||Length[Param1]!=Length[Param2],
-		Message[NanoError::length];
-		Return[]
-	];
-	Return[RandomInteger[#]&/@Transpose[{Param1,Param2}]]
-]
-
-GenerateRandomPatternFloat[Param1_,Param2_,Param3_:0]:=Module[{},
-	If[Depth[Param1]==1,(* this is syntax 1 *)
-		Return[RandomReal[{Param2,Param3},Param1]]
-	];
-	If[Depth[Param1]!=2||Depth[Param1]!=2||Length[Param1]!=Length[Param2],
-		Message[NanoError::length];
-		Return[]
-	];
-	Return[RandomReal[#]&/@Transpose[{Param1,Param2}]]
-]
-
-(* Min and Max are either numbers or lists the same length as V1 and V2 (for variable ranges) *)
-ListClip[L_,Min_, Max_]:=Table[Clip[L[[i]],{Min[[i]],Max[[i]]}],{i,1,Length[L]}]
-ComputePercentVariation[V1_,V2_,Min_,Max_,WeightsIn_:1]:=Module[{PatternLength,ExpandedMinVal=Min, ExpandedMax=Max,ColPercentDifferences,ColRelativeWeights,Weights},
-	If[Length[V1]!=Length[V2],
-		Message[NanoError::length];
-		Return[]
-	];
-	PatternLength=Length[V1];
-
-	If[Depth[Min]==1, ExpandedMinVal=ConstantArray[Min,PatternLength]];
-	If[Depth[Max]==1, ExpandedMax=ConstantArray[Max,PatternLength]];
-	
-	If[WeightsIn==1,Weights=ConstantArray[1,PatternLength],
-	If[Length[WeightsIn]!=PatternLength, Message[NanoError::length];Return[]],
-	Weights=WeightsIn];
-	
-	ColPercentDifferences=Abs[ListClip[V1,ExpandedMinVal,ExpandedMax]-ListClip[V2,ExpandedMinVal,ExpandedMax]]/(ExpandedMax-ExpandedMinVal+1);
-	ColRelativeWeights=Weights/Total[Weights];
-	Return[Total[N[ColPercentDifferences*ColRelativeWeights]]];
-]
-
-Options[GenerateRandomVariantFloat]={Exact->True};
-(* Create a variant of SourcePattern less than or equal to the PercentVariation *)
-GenerateRandomVariantFloat[SourcePattern_,Min_,Max_,PercentVariation_,Num_:1,WeightsIn_:1,opts:OptionsPattern[]]:=Module[{allVariants={},i,pv,VariationDirection,PatternLength,IndexToChange,VariantPattern,AccumulatedVariation,ExpandedMinArray = Min, ExpandedMaxArray = Max,IncrementPerFeature,Variation,VariationPerIncrement,Weights},
-	If[MemberQ[{True,False},OptionValue[Exact]]==False,
-		Message[NanoError::option,
-		ToString[OptionValue[Exact]],ToString[Exact]];
-		Return[]
-	];
-	
-	PatternLength=Length[SourcePattern];
-	If[Depth[Min]==1, ExpandedMinArray=ConstantArray[Min,PatternLength]];
-	If[Depth[Max]==1, ExpandedMaxArray=ConstantArray[Max,PatternLength]];
-	
-	If[WeightsIn==1,Weights=ConstantArray[1,PatternLength],
-	If[Length[WeightsIn]!=PatternLength,
-		Message[NanoError::length];
-		Return[]
-	],
-	Weights=WeightsIn];
-
-	For[i=1,i<=Num,i++,
-		VariantPattern=SourcePattern;
-		VariationDirection=RandomChoice[{-1,1},PatternLength];
-		AccumulatedVariation=0;
-		pv=If[OptionValue[Exact]==True,PercentVariation,RandomReal[{0.0001,PercentVariation}]];(*Depending if you want the cloud affect or exactly the percent variation*)
-		IncrementPerFeature=(ExpandedMaxArray-ExpandedMinArray+1)/1000.0; (*Increment by 100ths of a percent in each feature *)
-		VariationPerIncrement=(Weights/Total[Weights])/1000.0;
-		While[AccumulatedVariation<pv,
-			IndexToChange=RandomInteger[{1,PatternLength}];
-			Variation=VariationDirection[[IndexToChange]]*IncrementPerFeature[[IndexToChange]];
-			If[ExpandedMinArray[[IndexToChange]]<= VariantPattern[[IndexToChange]]+Variation<=ExpandedMaxArray[[IndexToChange]],
-				VariantPattern[[IndexToChange]]+=Variation;
-				AccumulatedVariation+=VariationPerIncrement[[IndexToChange]];
-			]
-		];
-		AppendTo[allVariants,VariantPattern];
-	];
-	Return[allVariants];
-]
-
+<<<<<<< HEAD
 Options[GenerateRandomVariantNative]={Exact->True};
 Options[GenerateRandomVariantInt]={Exact->True};
 GenerateRandomVariantNative[SourcePattern_,Max_,PercentVariation_,Num_:1,Weights_:1,OptionsPattern[]]:=Round[GenerateRandomVariantFloat[SourcePattern,0,Max,PercentVariation,Num,Weights,Exact->OptionValue[Exact]]];
@@ -831,19 +735,14 @@ points={{1.06,1.07},{1.17,1.08},{1.05,1.48},{1.23,1.23},{1,0.97},{1.26,1.17},{1.
 		{3.1,1.2},{2.94,0.91},{2.98,0.98},{2.73,1.08},{2.82,0.82},{2.53,0.98},{2.92,0.81},{2.68,1.3},{3.01,0.97},{2.89,1.32},{2.95,1.27},{2.91,0.91},{2.88,1.35},{3.29,0.92},{3.04,1.01},{2.9,0.98},{3.11,1.4},{3,1},{3,1.01},{3.07,1.1},{3,1},{2.77,0.89},{3.21,0.82},{3.04,1.02},{2.75,1.28},{2.95,0.53},{3.08,1.17},{3.44,0.87},{2.93,0.54},{3.27,1.1},{2.64,0.89},{2.84,0.96},{3.44,1.2},{3,0.7},{3.34,0.94},{3.19,0.99},{3.03,0.93},{2.92,1.07},{3,1.12},{3.04,1.12},{3.03,0.93},{3,0.97},{2.98,0.97},{2.89,1.03},{2.99,0.97},{3.05,0.76},{3.13,1.01},{3.22,0.91},{3.3,0.63},{2.8,1.09},{3.25,1.08},{2.78,1.43},{3.23,0.64},{3.01,1.07},{3.32,1.11},{2.68,0.84},{2.88,0.95},{3,1.17},{2.83,1.43},{3.35,1.21},{3,0.96},{3.05,1.02},{3.12,1.46},{2.83,0.88},{3.31,0.89},{3.08,1.03},{3.18,1.33},{2.97,1.28},{2.9,0.92},{3.41,0.75},{3.1,1.07},{2.52,0.93},{3.05,0.73},{2.99,1.31},{2.77,0.96},{2.79,1.05},{2.94,1.03},{3.23,0.64},{2.9,1.07},{2.99,1.01},{3.23,1.15},{2.97,1.36},{2.96,1.06},{2.96,0.99},{2.92,0.63},{2.9,0.86},{2.65,1.18},{2.62,1.3},{2.52,1.11},{2.99,1.02},{2.87,1.02},{2.77,0.97},{2.65,1.11},{3.14,0.87},{3.21,1.25},{2.99,1.34},{3.24,1.02},{3.03,0.99},{2.99,0.99},{2.97,1.07},{3.34,0.94},{2.96,1.04},{2.91,1.02},{3.34,1.28},{2.99,1.09},{2.84,0.7},{2.76,1.04},{2.99,1},{3,0.99},{2.68,0.96},{3.04,0.99},{2.64,1.07},{3.09,0.89},{3.13,0.83},{3.02,0.68},{2.87,1.29},{2.95,0.89},{2.98,0.94},{3.13,0.97},{2.9,1.05},{3.04,1.33},{3.05,1.24},{3.33,0.8},{2.75,1.21},{2.9,0.97},{3.08,0.87},{3.06,1.08},{2.95,0.55},{2.68,1.09},{3.03,1.09},{3,1},{2.91,1.15},{2.92,0.59},{3.03,1.47},{3.12,0.7},{3.03,1.17},{3.22,1.27},{3.01,1.37},{2.89,0.89},{2.94,1.05},{2.82,0.83},{3.25,0.95},{3,0.98},{3.12,0.87},{3.19,1.17},{3.45,0.84},{3.17,0.99},{3.05,1.01},{3.19,1.13},{3.15,1.28},{3.24,1.25},{2.9,0.97},{3.11,1.07},{3,1},{2.66,0.87},{2.67,1.19},{2.98,1.09},{3.04,1.06},{3,1.25},{2.96,1.04},{2.66,1.3},{2.85,1.12},{3.3,1.2},{3.19,1.08},{2.5,1.03},{2.65,0.88},{2.92,1.41},{3.28,0.67},{2.9,1.21},{3.04,1.16},{3.25,0.73},{2.79,0.76},{2.91,1.02},{2.61,0.73},{3.46,1.04},{1.47,3.2},{1.93,0.74},{0.42,2.04},{1.21,2.65},{0.77,0.85},{0.72,0.25},{0.37,1.02},{1.01,1.9},{3.98,1.64},{1.33,1.02},{3.15,2.84},{0.3,2.07},{2.55,3.89},{1.45,3.27},{1.59,3.42},{1.97,3.87},{1.75,2.29},{3.93,1.3},{1.56,3.43},{0.32,0.97},{3.45,1.96},{3.39,1.15},{1.23,2.18},{1.46,1.82},{0.31,2.06},{2.77,3.88},{3,3.24},{2.57,0.92},{0.19,1.27},{3.59,1.09}};
 
 c={{{2,2,2.2}},{{1,1,1.5},{2.1,3.2,1.5},{3.2,1.2,1.5}},{{0.35,2.5,1},{1,1,1},{2.1,3.2,1},{3.2,1.2,1},{3.7,3,1}},{{1.04,2.2,0.75},{0.8,0.9,0.75},{2.1,3.2,0.75},{3.23,1.1,0.75},{3.7,3,0.75},{2,0.8,0.75},{2.8,4.2,0.75},{4,1.9,0.75}},{{0.5,2.2,0.5},{1.4,2.2,0.5},{0.67,1.2,0.5},{1.1,.5,.5},{2,3,0.5},{1.5,3.7,.5},{3,1,0.5},{3.3,3,0.5},{1.6,1.1,0.5},{2.8,4.2,0.5},{3.7,1.55,0.5}},{{0.4,2.2,0.25},{1.25,1.95,0.25},{0.4,1.2,0.25},{.8,.4,.25},{1.9,2.45,0.25},{1.6,3.2,.25},{3,.7,0.25},{3.15,3.05,0.25},{1.3,1.1,0.25},{2.6,3.9,0.25},{3.8,1.5,0.25},{2,.9,.25},{2,3.8,.25},{1.45,2.65,.25},{1.9,2.9,.25},{2.3,2.65,.25},{2.3,3.15,.25},{2,3.35,.25},{0.85,1.3,.25},{1.15,1.5,.25},{.5,.8,.25},{.85,.9,.25},{1.15,.5,.25},{1.3,.8,.25},{3.5,1.8,.25},{3.3,.8,.25},{3.4,1.2,.25},{3,1.1,.25},{3.05,1.5,.25},{2.6,1.4,.25},{2.6,.8,.25},{2.6,1,.25}}};
-
-r={1.05,1.24,1.30,1.17,1.06,0.97,1.11,1.30,1.14,0.88,1.04,1.23,0.98,0.88,1.18,1.04,0.81,0.9,1.05,0.79,0.74,1.012,0.86,0.621,0.69,0.91,0.81,0.62,0.508,0.53,0.72,0.87,0.83,0.82,0.70,0.72,0.712,0.69,0.693,0.70,0.75,0.75,0.73,0.74,0.76,0.733,0.717,0.747,0.72,0.75,0.72,0.719,0.74,0.735,0.71,0.75,0.74,0.73,0.74,0.74,0.74,0.72,0.742,0.746,0.72,0.749,0.80,0.86,0.94,0.954,0.983,0.958,0.95,0.98,0.98,1.11,1.21,1.32,1.19,1.06,0.94,1.12,1.311,1.15,0.90,1.03,1.25,0.99,0.89,1.16,1.025,0.83,0.95,1.10,0.79,0.68,1.01,0.87,0.64,0.67};
-
-
+=======
 End[]
-Protect[GenerateRandomPatternNative]
-Protect[GenerateRandomPatternInt]
-Protect[GenerateRandomPatternFloat]
-Protect[ComputePercentVariation]
-Protect[GenerateRandomVariantInt]
-Protect[GenerateRandomVariantNative]
-Protect[GenerateRandomVariantFloat]
+>>>>>>> version-3-1
 
+
+
+
+<<<<<<< HEAD
 Protect[GetVersion]
 Protect[OpenNano]
 Protect[CloseNano]
@@ -852,17 +751,9 @@ Protect[ExistsQ]
 Protect[LearningQ]
 Protect[SetLearningStatus]
 Protect[SaveNano]
+=======
+>>>>>>> version-3-1
 
-Protect[GetConfig]
-Protect[ConfigureNano]
-Protect[AutotuneConfig]
 
-Protect[RunNano]
-Protect[LoadData]
-Protect[RunStreamingData]
-Protect[GetNanoStatus]
-Protect[DecodePM]
-Protect[GetNanoResults]
-Protect[GetBufferStatus]
 
 EndPackage[]

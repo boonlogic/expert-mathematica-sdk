@@ -10,10 +10,17 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
+<<<<<<< HEAD
 NotebookDataLength[     22938,        648]
 NotebookOptionsPosition[     16215,        513]
 NotebookOutlinePosition[     19274,        581]
 CellTagsIndexPosition[     19189,        576]
+=======
+NotebookDataLength[     28216,        771]
+NotebookOptionsPosition[     22266,        646]
+NotebookOutlinePosition[     24674,        706]
+CellTagsIndexPosition[     24589,        701]
+>>>>>>> version-3-1
 WindowTitle->ConfigureNano
 WindowFrame->Normal*)
 
@@ -118,7 +125,11 @@ ConfigureNano.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
+<<<<<<< HEAD
               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$15816], 
+=======
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$15932], 
+>>>>>>> version-3-1
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "NanoREST/ref/ConfigureNano", ".html"]], None}]}]},
@@ -158,33 +169,13 @@ Cell[BoxData[GridBox[{
           FontSlant->"Italic"], 
          StyleBox[",",
           FontSlant->"Italic"], 
-         StyleBox["\[IndentingNewLine]",
-          FontSlant->"Italic"], 
-         StyleBox["     ",
-          FontSlant->"Italic"], 
          StyleBox["FeatureCount",
-          FontSlant->"Italic"], 
-         StyleBox[",",
-          FontSlant->"Italic"], 
-         StyleBox[" ",
-          FontSlant->"Italic"], 
-         StyleBox["Min",
-          FontSlant->"Italic"], ",", " ", 
-         StyleBox["Max",
-          FontSlant->"Italic"], ",", " ", 
-         StyleBox["PercentVariation",
           FontSlant->"Italic"]}], "]"}]}]], "InlineFormula"],
      " \[LineSeparator]starts the nano configuration for the nano instance, ",
      
      StyleBox["NanoHandle",
       FontSlant->"Italic"],
-     ", with the given parameters where ",
-     StyleBox["Min",
-      FontSlant->"Italic"],
-     " and ",
-     StyleBox["Max",
-      FontSlant->"Italic"],
-     " are the bounds for the data\n      ",
+     ", with the given parameters\n      ",
      Cell[BoxData[
       RowBox[{
        TemplateBox[{
@@ -194,79 +185,12 @@ Cell[BoxData[GridBox[{
         BaseStyle->{"InlineFormula"}], "[", 
        RowBox[{
         StyleBox["NanoHandle",
-         FontSlant->"Italic"], ",", 
-        StyleBox["NumericFormat",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["FeatureCount",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Min",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Max",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["PercentVariation",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["StreamingWindow",
-         FontSlant->"Italic"]}], "]"}]], "InlineFormula"],
+         FontSlant->"Italic"], ",", "ConfigJson"}], "]"}]], "InlineFormula"],
      " \[LineSeparator]starts the nano configuration for the nano instance, ",
      
      StyleBox["NanoHandle",
       FontSlant->"Italic"],
-     ", with the given parameters where ",
-     StyleBox["Min",
-      FontSlant->"Italic"],
-     " and ",
-     StyleBox["Max",
-      FontSlant->"Italic"],
-     " are the bounds for the data and ",
-     StyleBox["StreamingWindow",
-      FontSlant->"Italic"],
-     " is the number of patterns to concatenate into one.\n      ",
-     Cell[BoxData[
-      RowBox[{
-       TemplateBox[{
-         Cell[
-          TextData["ConfigureNano"]], "paclet:NanoREST/ref/ConfigureNano"},
-        "RefLink",
-        BaseStyle->{"InlineFormula"}], "[", 
-       RowBox[{
-        StyleBox["NanoHandle",
-         FontSlant->"Italic"], ",", 
-        StyleBox["NumericFormat",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["FeatureCount",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Min",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Max",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["PercentVariation",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["SteamingWindow",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Weight",
-         FontSlant->"Italic"], ",", " ", 
-        StyleBox["Accuracy",
-         FontSlant->"Italic"]}], "]"}]], "InlineFormula"],
-     " \[LineSeparator]starts the nano configuration for the nano instance, ",
-     
-     StyleBox["NanoHandle",
-      FontSlant->"Italic"],
-     ", with the given parameters where ",
-     StyleBox["Min",
-      FontSlant->"Italic"],
-     " and ",
-     StyleBox["Max",
-      FontSlant->"Italic"],
-     " are the bounds for the data, ",
-     StyleBox["StreamingWindow",
-      FontSlant->"Italic"],
-     " is the number of patterns to concatenate into one, ",
-     StyleBox["Weight",
-      FontSlant->"Italic"],
-     " is how to weight each feature, and ",
-     StyleBox["Accuracy ",
-      FontSlant->"Italic"],
-     "is how precise to make the clusters."
+     ", with the given json block used as the configuration settings"
     }]]}
   }]], "Usage",
  GridBoxOptions->{
@@ -295,7 +219,11 @@ Cell[TextData[Cell[BoxData[
   Method->"Preemptive"]]]], "NotesSection",
  WholeCellGroupOpener->True,
  CellGroupingRules->{"SectionGrouping", 50},
+<<<<<<< HEAD
  CellID->1063855092],
+=======
+ CellID->584312299],
+>>>>>>> version-3-1
 
 Cell["", "SectionHeaderSpacer"],
 
@@ -315,37 +243,135 @@ Cell[BoxData[GridBox[{
  GridBoxDividers->{"Rows" -> {{True, True, True, True}}}},
  CellID->1448683862],
 
-Cell["Defaults:", "Notes",
- CellID->1850537187],
+Cell["Options:", "Notes",
+ CellID->839066176],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["Min",
-     FontSlant->"Italic"], Cell["1", "TableText"]},
+    ButtonBox["MinVals",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/MinVals"], "1", Cell[
+    "Minimum bound for the data", "TableText"]},
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["Max",
-     FontSlant->"Italic"], Cell["10", "TableText"]},
+    ButtonBox["MaxVals",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/MaxVals"], "10", Cell[
+    "Maximum bound for the data", "TableText"]},
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["PercentVariation",
-     FontSlant->"Italic"], Cell["0.05", "TableText"]},
+    ButtonBox["PercentVariation",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/PercentVariation"], "0.05", Cell[
+    "Granularity allowed between clusters", "TableText"]},
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["StreamingWindow",
-     FontSlant->"Italic"], Cell["1", "TableText"]},
+    ButtonBox["StreamingWindow",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamingWindow"], "1", Cell[
+    "Parametric length", "TableText"]},
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["Weight",
-     FontSlant->"Italic"], Cell["1", "TableText"]},
+    ButtonBox["Weights",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/Weights"], "1", Cell[
+    "Importance scale for each feature", "TableText"]},
    {Cell["      ", "TableRowIcon"], 
-    StyleBox["Accuracy",
-     FontSlant->"Italic"], Cell["0.99", "TableText"]}
-  }]], "2ColumnTableMod",
+    ButtonBox["Labels",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/Labels"], "\"\<\>\"", Cell[
+    "Feature name", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["NanoAccuracy",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/NanoAccuracy"], "0.99", Cell[
+    "Statistical accuracy for clustering", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AutotuneByFeature",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/AutotuneByFeature"], 
+    ButtonBox["True",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Autotune range separately for each feature", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AutotunePV",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/AutotunePV"], 
+    ButtonBox["True",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Calculate optimal PV or the data", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AutotuneRange",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/AutotuneRange"], 
+    ButtonBox["True",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Caclulate optimal bounding range for the data", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AutotuneExcludes",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/AutotuneExcludes"], 
+    RowBox[{"{", "}"}], Cell[
+    "One-based feature indices to exclude from autotuning", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AutotuneMaxClusters",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/AutotuneMaxClusters"], "1000", Cell[
+    "Max number of clusters that can be created", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamAutotune",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamAutotune"], 
+    ButtonBox["True",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Autotune when streaming", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamGraduation",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamGraduation"], 
+    ButtonBox["True",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/True"], Cell[
+    "Check learning graduation requirements", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamMaxClusters",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamMaxClusters"], "1000", Cell[
+    "Max number of clusters before turn off learning", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamMaxSamples",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamMaxSamples"], "1000000", Cell[
+    "Max number of samples before turn off learning", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamRateDenominator",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamRateDenominator"], "10000", Cell[
+    "Smoot window of inferences in cluster growth", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamRateNumerator",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamRateNumerator"], "10", Cell["\<\
+Number of new clusters within the smoothed cluster growth window to turn off \
+learning\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["StreamBufferLength",
+     BaseStyle->"Link",
+     ButtonData->"paclet:NanoREST/ref/StreamBufferLength"], "10000", Cell[
+    "Number of samples in streaming buffer", "TableText"]}
+  }]], "3ColumnTableMod",
  GridBoxOptions->{
  GridBoxBackground->{
-  "Columns" -> {{None}}, "Rows" -> {None, None, None, None, None, {None}}},
- GridBoxDividers->{"Rows" -> {{True, True, True, True, True, True, True}}}},
- CellID->1685997621],
-
-Cell["Returns a string to be converted to a JSON", "Notes",
- CellID->1729302161],
+  "Columns" -> {{None}}, 
+   "Rows" -> {
+    None, None, None, None, None, None, None, None, None, None, None, None, 
+     None, None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{
+     True, True, True, True, True, True, True, True, True, True, True, True, 
+      True, True, True, True, True, True, True, True}}}},
+ CellID->503531643],
 
 Cell["", "SectionFooterSpacer"]
 }, Closed]],
@@ -362,7 +388,11 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
+<<<<<<< HEAD
  CellID->263686322],
+=======
+ CellID->94091562],
+>>>>>>> version-3-1
 
 Cell[CellGroupData[{
 
@@ -372,7 +402,11 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
+<<<<<<< HEAD
  CellID->1517250093],
+=======
+ CellID->848918342],
+>>>>>>> version-3-1
 
 Cell[BoxData[
  RowBox[{"<<", "NanoREST`"}]], "Input",
@@ -386,41 +420,163 @@ Cell[BoxData[
  CellLabel->"In[2]:=",
  CellID->249631958],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"ConfigureNano", "[", 
-  RowBox[{"nano", ",", "float32", ",", "20", ",", " ", 
-   RowBox[{"-", "10"}], ",", " ", "15", ",", " ", "0.037"}], "]"}]], "Input",
+  RowBox[{"nano", ",", "\"\<float32\>\"", ",", "20"}], "]"}]], "Input",
  CellLabel->"In[3]:=",
  CellID->631300394],
 
-Cell[BoxData["\<\"{\\\"accuracy\\\":0.99,\\\"features\\\":[{\\\"maxVal\\\":15,\
-\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\
-\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"\
-maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"\
-minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"\
-weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"\
-maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"\
-minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"\
-weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"\
-maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"\
-minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"\
-weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"\
-maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"\
-minVal\\\":-10,\\\"weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"\
-weight\\\":1},{\\\"maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1},{\\\"\
-maxVal\\\":15,\\\"minVal\\\":-10,\\\"weight\\\":1}],\\\"numericFormat\\\":\\\"\
-float\\\",\\\"percentVariation\\\":0.037,\\\"streamingWindowSize\\\":1}\\n\"\>\
-"], "Output",
- CellLabel->"Out[3]=",
- CellID->1409039902]
-}, Open  ]],
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"GetConfig", "[", "nano", "]"}]], "Input",
  CellLabel->"In[4]:=",
  CellID->605977877],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"clusterMode\"\>", "\[Rule]", "\<\"batch\"\>"}], ",", 
+   RowBox[{"\<\"numericFormat\"\>", "\[Rule]", "\<\"float32\"\>"}], ",", 
+   RowBox[{"\<\"features\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}],
+       ",", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"minVal\"\>", "\[Rule]", "1"}], ",", 
+        RowBox[{"\<\"maxVal\"\>", "\[Rule]", "10"}], ",", 
+        RowBox[{"\<\"weight\"\>", "\[Rule]", "1"}]}], 
+       "\[RightAssociation]"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"percentVariation\"\>", "\[Rule]", "0.05`"}], ",", 
+   RowBox[{"\<\"accuracy\"\>", "\[Rule]", "0.99`"}], ",", 
+   RowBox[{"\<\"streamingWindowSize\"\>", "\[Rule]", "1"}], ",", 
+   RowBox[{"\<\"autoTuning\"\>", "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"autoTuneByFeature\"\>", "\[Rule]", "True"}], ",", 
+      RowBox[{"\<\"autoTunePV\"\>", "\[Rule]", "True"}], ",", 
+      RowBox[{"\<\"autoTuneRange\"\>", "\[Rule]", "True"}], ",", 
+      RowBox[{"\<\"maxClusters\"\>", "\[Rule]", "1000"}], ",", 
+      RowBox[{"\<\"exclusions\"\>", "\[Rule]", 
+       RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->1508112962]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"CloseNano", "[", "nano", "]"}]], "Input",
@@ -506,7 +662,11 @@ Cell[BoxData[
     TextData["NanoREST Package"]], "paclet:NanoREST/guide/NanoREST"},
   "RefLink",
   BaseStyle->"MoreAbout"]], "MoreAbout",
+<<<<<<< HEAD
  CellID->1201488573]
+=======
+ CellID->2036706973]
+>>>>>>> version-3-1
 }, Open  ]],
 
 Cell[" ", "FooterCell"]
@@ -526,29 +686,25 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
+<<<<<<< HEAD
    "built" -> "{2020, 6, 10, 11, 46, 15.364652}", 
+=======
+   "built" -> "{2020, 9, 14, 15, 52, 40.206310}", 
+>>>>>>> version-3-1
     "history" -> {"0.0", "", "", ""}, "context" -> "NanoREST`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
     "Nano R E S T Symbol", "language" -> "en", "paclet" -> "NanoREST", 
     "status" -> "None", "summary" -> 
-    "ConfigureNano[NanoHandle, NumericFormat, FeatureCount, Min, Max, \
-PercentVariation] starts the nano configuration for the nano instance, \
-NanoHandle, with the given parameters where Min and Max are the bounds for \
-the data ConfigureNano[NanoHandle, NumericFormat, FeatureCount, Min, Max, \\ \
-PercentVariation, StreamingWindow] starts the nano configuration for the nano \
-instance, NanoHandle, with the given parameters where Min and Max are the \
-bounds for the data and StreamingWindow is the number of patterns to \
-concatenate into one. ConfigureNano[NanoHandle, NumericFormat, FeatureCount, \
-Min, Max, \\ PercentVariation, SteamingWindow, Weight, Accuracy] starts the \
-nano configuration for the nano instance, NanoHandle, with the given \
-parameters where Min and Max are the bounds for the data, StreamingWindow is \
-the number of patterns to concatenate into one, Weight is how to weight each \
-feature, and Accuracy is how precise to make the clusters.", "synonyms" -> {},
-     "tabletags" -> {}, "title" -> "ConfigureNano", "titlemodifier" -> "", 
-    "windowtitle" -> "ConfigureNano", "type" -> "Symbol", "uri" -> 
-    "NanoREST/ref/ConfigureNano", "WorkflowDockedCell" -> ""}, 
-  "SearchTextTranslated" -> "", "NewStyles" -> False},
+    "ConfigureNano[NanoHandle, NumericFormat, FeatureCount] starts the nano \
+configuration for the nano instance, NanoHandle, with the given parameters \
+ConfigureNano[NanoHandle, ConfigJson] starts the nano configuration for the \
+nano instance, NanoHandle, with the given json block used as the \
+configuration settings", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "ConfigureNano", "titlemodifier" -> "", "windowtitle" -> "ConfigureNano", 
+    "type" -> "Symbol", "uri" -> "NanoREST/ref/ConfigureNano", 
+    "WorkflowDockedCell" -> ""}, "SearchTextTranslated" -> "", "NewStyles" -> 
+  False},
 CellContext->"Global`",
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
 StyleDefinitions->Notebook[{
@@ -568,18 +724,29 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
+<<<<<<< HEAD
   Cell[11905, 354, 267, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"05de77c9-3a05-4f29-8ea5-765c0bd1ac6b",
    CellTags->"PrimaryExamplesSection",
    CellID->263686322]}
+=======
+  Cell[13128, 365, 266, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"02f8caf2-e6f8-4876-a9d0-be4656582a69",
+   CellTags->"PrimaryExamplesSection",
+   CellID->94091562]}
+>>>>>>> version-3-1
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
+<<<<<<< HEAD
  {"PrimaryExamplesSection", 18990, 569}
+=======
+ {"PrimaryExamplesSection", 24391, 694}
+>>>>>>> version-3-1
  }
 *)
 (*NotebookFileOutline
 Notebook[{
+<<<<<<< HEAD
 Cell[585, 21, 4341, 109, 70, "AnchorBarGrid",ExpressionUUID->"6b409e8b-bffe-46b0-9011-6c6a9c6500ce",
  CellID->1],
 Cell[CellGroupData[{
@@ -650,6 +817,76 @@ Cell[15991, 502, 182, 6, 70, "MoreAbout",ExpressionUUID->"5175e38e-4bba-419f-a9e
  CellID->1201488573]
 }, Open  ]],
 Cell[16188, 511, 23, 0, 70, "FooterCell",ExpressionUUID->"bb78f7d6-4380-495c-86f8-fba21c8428b1"]
+=======
+Cell[585, 21, 4341, 109, 70, "AnchorBarGrid",ExpressionUUID->"9a301f10-db42-4033-a9b5-43d326db22fd",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[4951, 134, 170, 6, 70, "ObjectNameGrid",ExpressionUUID->"bc6adb48-317e-48fe-8b14-d7077df044e2"],
+Cell[5124, 142, 1470, 44, 70, "Usage",ExpressionUUID->"fa48f24c-c044-4e90-be54-b3cdfafb073b",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6631, 191, 629, 19, 70, "NotesSection",ExpressionUUID->"a651f3f3-1bf9-48c2-81cc-4e5245aea047",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->584312299],
+Cell[7263, 212, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"cea131ff-0c69-46a9-9b7c-4c8a168e36be"],
+Cell[7297, 214, 81, 1, 70, "Notes",ExpressionUUID->"8ddeca25-b67a-4320-a13d-00633d6c98e1",
+ CellID->1067943069],
+Cell[7381, 217, 536, 11, 70, "2ColumnTableMod",ExpressionUUID->"92b73dfa-f77f-4b02-921b-fbc37108dce1",
+ CellID->1448683862],
+Cell[7920, 230, 45, 1, 70, "Notes",ExpressionUUID->"8fd2d0db-95ab-4561-8c97-bc35903c8483",
+ CellID->839066176],
+Cell[7968, 233, 5089, 125, 70, "3ColumnTableMod",ExpressionUUID->"99871813-3c8f-497d-9597-4de856a9ddf8",
+ CellID->503531643],
+Cell[13060, 360, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"20b1e7c0-25b2-48a8-bc0a-6f8a4cd8ed70"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13128, 365, 266, 10, 70, "PrimaryExamplesSection",ExpressionUUID->"02f8caf2-e6f8-4876-a9d0-be4656582a69",
+ CellTags->"PrimaryExamplesSection",
+ CellID->94091562],
+Cell[CellGroupData[{
+Cell[13419, 379, 195, 6, 70, "ExampleSection",ExpressionUUID->"aa3eec5d-7f91-4932-b942-cb6baad8867f",
+ CellID->848918342],
+Cell[13617, 387, 96, 3, 70, "Input",ExpressionUUID->"4ad7d322-a4ec-4c2b-bd87-32d11d652220",
+ CellID->983371451],
+Cell[13716, 392, 160, 5, 70, "Input",ExpressionUUID->"1bbe84b8-e29b-4ee3-add4-76f02727e8b3",
+ CellID->249631958],
+Cell[13879, 399, 160, 4, 70, "Input",ExpressionUUID->"a8d1aa0e-4fd3-4994-8ebc-639a05be11b9",
+ CellID->631300394],
+Cell[CellGroupData[{
+Cell[14064, 407, 108, 3, 70, "Input",ExpressionUUID->"27c9f1d4-b6b4-40c6-b2c1-668ae01872ff",
+ CellID->605977877],
+Cell[14175, 412, 6267, 142, 70, "Output",ExpressionUUID->"8e6289ec-d7b4-45f6-a190-93c5c36c0861",
+ CellID->1508112962]
+}, Open  ]],
+Cell[20457, 557, 109, 3, 70, "Input",ExpressionUUID->"6ad5669f-bb41-44e2-baae-1fe67576e2cb",
+ CellID->1960455595]
+}, Open  ]],
+Cell[20581, 563, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"5c634107-1342-4a37-82f6-319115fe6e28"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20649, 568, 150, 7, 70, "SeeAlsoSection",ExpressionUUID->"013d5022-2e0d-44aa-9035-cc0390fe1ea6",
+ CellID->1255426704],
+Cell[20802, 577, 570, 18, 70, "SeeAlso",ExpressionUUID->"00b0a640-e8f4-41cb-897d-a453b3625002",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21409, 600, 152, 7, 70, "TutorialsSection",ExpressionUUID->"d6fba0e2-d868-4a2f-93ed-b76f27c58c5c",
+ CellID->250839057],
+Cell[21564, 609, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"71267bc2-4ace-44d1-9867-7c4c7c253a41"],
+Cell[21598, 611, 180, 6, 70, "Tutorials",ExpressionUUID->"2e8ff5ca-67d5-4fb9-bfb0-bb92b0055a21",
+ CellID->341631938],
+Cell[21781, 619, 31, 0, 70, "SectionFooterSpacer",ExpressionUUID->"cd5a754d-5e56-4f6b-9d9f-24a3ac328455"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21849, 624, 156, 7, 70, "MoreAboutSection",ExpressionUUID->"1c04b893-e175-410f-ac4a-2c86dd0f2b26",
+ CellID->38303248],
+Cell[22008, 633, 31, 0, 70, "SectionHeaderSpacer",ExpressionUUID->"bb31c2d1-f6ba-47d9-b865-7eec1d718202"],
+Cell[22042, 635, 182, 6, 70, "MoreAbout",ExpressionUUID->"1ebc995e-b5a9-4e62-b4af-77c204e7f339",
+ CellID->2036706973]
+}, Open  ]],
+Cell[22239, 644, 23, 0, 70, "FooterCell",ExpressionUUID->"f6a99810-7657-4dbc-bfec-2270b8ea29a4"]
+>>>>>>> version-3-1
 }
 ]
 *)
