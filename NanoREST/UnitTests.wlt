@@ -63,39 +63,29 @@ VerificationTest[
 VerificationTest[
 	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
 	Null,
+<<<<<<< HEAD
 	{NanoError::return,FileError::argerr},
+=======
+	{NanoError::return,FileError::argwrite},
+>>>>>>> version-3-1
 	TestID->"LoadData-failure-no-config"
 ]
 
 VerificationTest[
-	ConfigureNano[nano,"uint16",10,0,10,0.07,1,1,0.99]
+	ConfigureNano[nano,"uint16",10,MinVals->0,MaxVals->10,PercentVariation->0.07,Weights->1,StreamingWindow->1,NanoAccuracy->0.99]
 	,
 	Null,
 	TestID->"ConfigureNano-uint16-success"
 ]
 
 VerificationTest[
-	config=GetConfig[nano],
-	<|"numericFormat" -> "uint16", "features" -> {<|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>, <|"minVal" -> 0, "maxVal" -> 10, "weight" -> 1|>}, "percentVariation" -> 0.07, "accuracy" -> 0.99, "streamingWindowSize" -> 1|>,
+	ContainsAll[Keys[config=GetConfig[nano]],{"clusterMode", "numericFormat", "features", "percentVariation", "accuracy", "streamingWindowSize", "autoTuning"}],
+	True,
 	TestID->"GetConfig-success-1"
 ]
 
 VerificationTest[
-	ConfigureNano[nano,"float32",10,ConstantArray[0,10],10,0.07,1,1,0.99]
-	,
-	Null,
-	TestID->"ConfigureNano-float32-success"
-]
-
-VerificationTest[
-	ConfigureNano[nano,"int16",10,0,10,0.07,1,{1,2,3,4,5,6,7,8,9,10},0.99]
-	,
-	Null,
-	TestID->"ConfigureNano-int16-success"
-]
-
-VerificationTest[
-	ConfigureNano[nano,"uint16",10,0,ConstantArray[10,9],0.07,1,1,0.99]
+	ConfigureNano[nano,"uint16",10,MinVals->0,MaxVals->ConstantArray[10,9],PercentVariation->0.07,Weights->1,StreamingWindow->1,NanoAccuracy->0.99]
 	,
 	Null,
 	{NanoError::length},
@@ -103,7 +93,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	ConfigureNano[nano,"uint16",10,1,10,0.07,1,1,0.99]
+	ConfigureNano[nano,"uint16",10,MinVals->1,MaxVals->10,PercentVariation->0.07,Weights->1,StreamingWindow->1,NanoAccuracy->0.99]
 	,
 	Null,
 	{NanoError::return},
@@ -139,7 +129,11 @@ VerificationTest[
 VerificationTest[
 	LoadData[nano,Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","NoData.csv"}],"CSV"]],
 	Null,
+<<<<<<< HEAD
 	{Import::nffil,FileError::argerr},
+=======
+	{Import::nffil,FileError::argwrite},
+>>>>>>> version-3-1
 	TestID->"LoadData-file-doesnt-exist"
 ]
 
@@ -150,27 +144,62 @@ VerificationTest[
 ]
 
 VerificationTest[
-	AutotuneConfig[nano,AutotunePV->False],
+	ConfigureNano[nano,"int16",10,Weights->{1,2,3,4,5,6,7,8,9,10},AutotunePV->False]
+	,
+	Null,
+	TestID->"ConfigureNano-int16-success"
+]
+
+VerificationTest[
+	AutotuneConfig[nano],
 	Null,
 	TestID->"AutotuneConfig-just-range-success"
 ]
 
 VerificationTest[
-	AutotuneConfig[nano,AutotuneRange->False],
+	ConfigureNano[nano,"float32",10,MinVals->ConstantArray[0,10],AutotuneRange->False]
+	,
+	Null,
+	TestID->"ConfigureNano-float32-success"
+]
+
+VerificationTest[
+	AutotuneConfig[nano],
 	Null,
 	TestID->"AutotuneConfig-just-pv-success"
 ]
 
 VerificationTest[
-	AutotuneConfig[nano,AutotunePV->False,ByFeature->True],
+	ConfigureNano[nano,"float32",10,MaxVals->ConstantArray[10,10],PercentVariation->0.07,AutotuneByFeature->False]
+	,
 	Null,
-	TestID->"AutotuneConfig-byfeature-success"
+	TestID->"ConfigureNano-autotune-overall-success"
 ]
 
 VerificationTest[
-	AutotuneConfig[nano,AutotunePV->False,ByFeature->True,Excludes->{1,10}],
+	AutotuneConfig[nano],
+	Null,
+	TestID->"AutotuneConfig-overall-success"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"float32",10,MaxVals->ConstantArray[10,10],PercentVariation->0.07,AutotunePV->False,AutotuneExcludes->{0,9}]
+	,
+	Null,
+	TestID->"ConfigureNano-autotune-excludes-success"
+]
+
+VerificationTest[
+	AutotuneConfig[nano],
 	Null,
 	TestID->"AutotuneConfig-byfeature-exclusions-success"
+]
+
+VerificationTest[
+	ConfigureNano[nano,"uint16",10,MaxVals->ConstantArray[10,10],PercentVariation->0.07]
+	,
+	Null,
+	TestID->"ConfigureNano-autotune-success"
 ]
 
 VerificationTest[
@@ -218,50 +247,80 @@ VerificationTest[
 ]
 
 VerificationTest[
-	RunNano[nano,Results->{ID,RI}],
-	<|"ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}|>,
+	ContainsAll[Keys[RunNano[nano,Results->{ID,RI}]],{"ID","RI"}],
+	True,
 	TestID->"RunNano-results-success"
 ]
 
 VerificationTest[
+<<<<<<< HEAD
+=======
+	numClusts=GetNanoStatus[nano]["numClusters"],
+	7,
+	TestID->"Get-pre-learning-off-clusters"
+]
+
+VerificationTest[
+>>>>>>> version-3-1
 	SetLearningStatus[nano,False],
 	Null,
 	TestID->"SetLearningStatus-off"
 ]
 
 VerificationTest[
+<<<<<<< HEAD
 	RunNano[nano,Results->{ID,RI}],
 	<|"ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2}, "RI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 0, 157, 157, 157, 157, 157, 157}|>,
+=======
+	ContainsAll[Keys[RunNano[nano,Results->{ID,RI}]],{"ID","RI"}],
+	True,
+>>>>>>> version-3-1
 	TestID->"RunNano-results-no-learning"
 ]
 
 VerificationTest[
+<<<<<<< HEAD
 	Sort[Keys[GetNanoStatus[nano]]],
 	{"anomalyIndexes","clusterGrowth","clusterSizes","distanceIndexes","frequencyIndexes","numClusters","PCA","totalInferences"},
+=======
+	numClusts==GetNanoStatus[nano]["numClusters"],
+	True,
+	TestID->"test-learning-no-new-clusters"
+]
+
+VerificationTest[
+	ContainsAll[Keys[GetNanoStatus[nano]],{"anomalyIndexes","clusterGrowth","clusterSizes","distanceIndexes","frequencyIndexes","numClusters","PCA","totalInferences"}],
+	True,
+>>>>>>> version-3-1
 	TestID->"GetNanoStatus-success"
 ]
 
 VerificationTest[
-	Sort[Keys[GetNanoResults[nano]]],
-	{"DI","FI","ID","RI","SI"},
+	ContainsAll[Keys[GetNanoResults[nano]],{"DI","FI","ID","RI","SI"}],
+	True,
 	TestID->"GetNanoResults-success"
 ]
 
 VerificationTest[
+<<<<<<< HEAD
 	Sort[Keys[GetNanoStatus[nano,Results->{averageInferenceTime,numClusters,PCA}]]],
 	{"averageInferenceTime","numClusters","PCA"},
+=======
+	ContainsAll[Keys[GetNanoStatus[nano,Results->{averageInferenceTime,numClusters,PCA}]],{"averageInferenceTime","numClusters","PCA"}],
+	True,
+>>>>>>> version-3-1
 	TestID->"GetNanoStatus-results-success"
 ]
 
 VerificationTest[
-	GetNanoResults[nano,Results->{SI,ID}],
-	<|"ID" -> {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2},"SI" -> {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58, 117, 77, 154, 152, 147, 137, 117, 78, 0, 0, 0, 0, 0, 0, 1, 3, 7, 14, 29, 58}|>,
+	ContainsAll[Keys[GetNanoResults[nano,Results->{SI,ID}]], {"ID", "SI"}],
+	True,
 	TestID->"GetNanoResults-results-success"
 ]
 
 VerificationTest[
 	Dimensions[DecodePM[nano][[1]]],
-	{2,8320},
+	{6,8744},
 	TestID->"DecodePM-success"
 ]
 
@@ -302,6 +361,7 @@ VerificationTest[
 	TestID->"OpenNano-success-3"
 ]
 
+<<<<<<< HEAD
 (*VerificationTest[
 	Sort[GetNanoStatus[nano]],
 	<|"numClusters" -> 3, "totalInferences" -> 80, "clusterGrowth" -> {0, 1, 13}, "clusterSizes" -> {0, 52, 28}, "distanceIndexes" -> {0, 503, 486}, "frequencyIndexes" -> {0, 1203, 1014}, "anomalyIndexes" -> {1000, 0, 157}, "PCA" -> {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}}|>,
@@ -314,6 +374,14 @@ VerificationTest[
 	TestID->"GetConfig-success-2"
 ]
 
+=======
+VerificationTest[
+	ContainsAll[Keys[GetConfig[nano]],{"accuracy", "features", "numericFormat", "percentVariation", "streamingWindowSize"}],
+	True,
+	TestID->"GetConfig-success-2"
+]
+
+>>>>>>> version-3-1
 VerificationTest[
 	CloseNano[nano],
 	Null,
@@ -341,7 +409,11 @@ VerificationTest[
 ]
 
 VerificationTest[
+<<<<<<< HEAD
 	ConfigureNano[nano,"uint16",1,0,10,0.05,10],
+=======
+	ConfigureNano[nano,"uint16",10,ClusterMode->"streaming"],
+>>>>>>> version-3-1
 	Null,
 	TestID->"ConfigureNano-streaming-success"
 ]
@@ -354,6 +426,7 @@ VerificationTest[
 
 VerificationTest[
 	RunStreamingData[nano, Import[FileNameJoin[{$UserBaseDirectory,"Applications","NanoREST","ExampleData.csv"}],"CSV"]],
+<<<<<<< HEAD
 	<|"ID" -> {2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2,
     3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 
@@ -365,6 +438,9 @@ VerificationTest[
    4, 12, 6, 14, 15, 17, 16, 18, 11, 19, 4, 12, 13, 14, 8, 17, 16, 1, 
    11, 19, 4, 12, 13, 14, 15, 17, 16, 18, 2, 19, 4, 5, 6, 7, 8, 9, 10,
     1}|>,
+=======
+	<|"ID" -> {1, 2, 2, 2, 4, 3, 1, 3, 4, 1, 1, 1, 5, 6, 5, 5, 5, 6, 5, 1}|>,
+>>>>>>> version-3-1
     TestID->"RunStreamingData-cluster-success"
 ]
 
