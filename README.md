@@ -15,16 +15,17 @@ Mathematica documentation is located within Mathematica itself. See below for in
 ```
 SetDirectory["repo/location"]
 ```
-4. Run the `UpdateNano` package
+4. Load the `UpdateNano` package and update the package files
 ```
 <<UpdateNano`
+LoadPackage["NanoREST"]
 ```
 5. Load the package
 ```
 <<NanoREST`
 ```
 
->__NOTE: `UpdateNano` only needs to be run the first time or whenever a new version of the package is available.   __
+>__NOTE: `UpdateNano` and LoadPackage only needs to be run the first time or whenever a new version of the package is available.   __
 
 -------
 ### Access Documentation
