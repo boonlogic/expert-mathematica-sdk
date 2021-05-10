@@ -8,11 +8,9 @@ GetNanoStatus::usage="GetNanoStatus[NanoHandle] returns statistics on the cluste
 
 GetNanoResults::usage="GetNanoResults[NanoHandle] returns the clustering results"
 
+GetRootCause::usage="GetRootCause[NanoHandle] returns a list of root cause analysis for the specified IDs/Patterns"
 
 DecodePM::usage="DecodePM[NanoHandle] returns the pattern memory (base64) or any of the results specified"
-
-GetThreshold::usage="GetThreshold[NanoHandle, accuracy] returns a value from 0 to 1000 for the anomaly index threshold"
-
 
 Results::usage="specifies which clustering results options to return"
 	ID::usage="cluster index of the inferences"
@@ -30,6 +28,10 @@ Results::usage="specifies which clustering results options to return"
 	totalInferences::usage="number of inferences clustered"
 	averageInferenceTime::usage="time to cluster per inference"
 	numClusters::usage="number of clusters created (including the zero cluster)"
+	anomalyThreshold::usage="threshold for determining if RI/SI are anomalous"
+	
+IDs::usage="list of IDs entered for root cause analysis"
+Patterns::usage="list of patterns entered for root cause analysis"
 	
 RowSort::usage="pattern memory sorting based on distance"
 
@@ -50,7 +52,7 @@ GetBufferStatus[NanoHandle_]:=Module[{req,RetVal},
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
-SortStatusResults[ResultString_] := Module[{new = {}, vals = {"PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","frequencyIndexes","distanceIndexes","totalInferences","averageInferenceTime","numClusters","disArray"}},
+SortStatusResults[ResultString_] := Module[{new = {}, vals = {"PCA","patternMemory","clusterGrowth","clusterSizes","anomalyThreshold","anomalyIndexes","frequencyIndexes","distanceIndexes","totalInferences","averageInferenceTime","numClusters","disArray"}},
 	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
 	new=DeleteDuplicates[ResultString[[Flatten[new]]]];
 	new=StringDelete[ToString[#],{"NanoREST`"}]&/@new;
@@ -62,12 +64,12 @@ GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
 	results=ToString/@Flatten[{OptionValue[Results]}];
 	results=StringDelete[#, {" ", "{", "}","NanoREST`","Private`"}]&/@results;
-	If[SubsetQ[{"All","PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","distanceIndexes","frequencyIndexes","totalInferences","averageInferenceTime","numClusters","disArray"},results]==False,
+	If[SubsetQ[{"All","PCA","patternMemory","clusterGrowth","clusterSizes","anomalyIndexes","anomalyThreshold","distanceIndexes","frequencyIndexes","totalInferences","averageInferenceTime","numClusters","disArray"},results]==False,
 		Message[InvalidOption::option,ToString[OptionValue[Results]],ToString[Results]];
 		Return[]
 	];
 	If[MemberQ[Flatten[{OptionValue[Results]}],All],
-		ResultString=ToString[{PCA,clusterGrowth,clusterSizes,anomalyIndexes,frequencyIndexes,distanceIndexes,totalInferences,numClusters}], (* list out all result options *)
+		ResultString=ToString[{PCA,clusterGrowth,clusterSizes,anomalyIndexes,anomalyThreshold,frequencyIndexes,distanceIndexes,totalInferences,numClusters}], (* list out all result options *)
 		ResultString=ToString[SortStatusResults[results]]; (* not None or All so must be a subset of result options *)
 	];
 
@@ -89,8 +91,8 @@ GetNanoStatus[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultString
 ]
 
 SortResultsResults[ResultString_]:=Module[{new={},vals={"ID","SI","RI","FI","DI"}},
-	Do[new=Join[new,Position[ResultString,ToString[i]]],{i,vals}];
-	Return[ToString[DeleteDuplicates[ResultString[[Flatten[new]]]]]]
+	Do[new=Join[new,Position[ResultString,i]],{i,vals}];
+	Return[StringRiffle[DeleteDuplicates[ResultString[[Flatten[new]]]],","]]
 ]
 
 Options[GetNanoResults]={Results->All};
@@ -101,9 +103,10 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 		Return[]
 	];
 	If[MemberQ[Flatten[{OptionValue[Results]}],All],
-		ResultString=ToString[{ID,SI,RI,FI,DI}], (* list out all result options *)
-		ResultString=ToString[SortResultsResults[Flatten[{OptionValue[Results]}]]]; (* not All so must be a subset of result options *)
+		ResultString=StringRiffle[{ID,SI,RI,FI,DI},","], (* list out all result options *)
+		ResultString=ToString[SortResultsResults[ToString/@Flatten[{OptionValue[Results]}]]]; (* not All so must be a subset of result options *)
 	];
+	Print[ResultsString];
 	
 	url=NanoHandle["url"]<>"nanoResults/"<>NanoHandle["instance"]
 	<>"?results="<>StringDelete[ResultString, {" ", "{", "}","NanoREST`","Private`"}]
@@ -121,17 +124,31 @@ GetNanoResults[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal,ResultStrin
 	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
-GetThreshold[NanoHandle_,accuracy_:0.999]:=Module[{status,scale,p,threshold},
-	status=GetNanoStatus[NanoHandle];
-	scale=Total[Table[Max[status["clusterSizes"]]^(1-x)/status["totalInferences"],{x,0.001,1,.001}]];
-	p = Last[Sort[status["clusterSizes"]]]^(1-1/1000.) / status["totalInferences"] / scale;
-(*	p = Table[{pFit,Total[(
-		Table[scale * pFit * (1-pFit)^(x-1),{x, status["anomalyIndexes"]}] -
-      	status["clusterSizes"]/status["totalInferences"]*1.)^2]},
-      	{pFit, 0.001, 0.02, 0.0001}];
-	p = First[First[Sort[p, #1[[2]] < #2[[2]] &]]];*)
-	threshold=Ceiling[Log[1-accuracy]/Log[1-p]];
-	Return[Clip[threshold,{0,1000}]]
+Options[GetRootCause]={IDs->None,Patterns->None};
+GetRootCause[NanoHandle_,OptionsPattern[]]:=Module[{req,url,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	
+	url=NanoHandle["url"]<>"rootCauseAnalysis/"<>NanoHandle["instance"]
+	<>"?api-tenant="<>NanoHandle["api-tenant"];
+	If[OptionValue[Patterns]=!=None,
+		If[Length[Dimensions[OptionValue[Patterns]]]!=2,Message[NanoWarning::message,"Patterns specified must be a 2 dimensional array"]];
+		url = url <> "&pattern=[[" <> StringRiffle[StringRiffle[#,","]&/@OptionValue[Patterns]] <> "]]";
+	];
+	If[OptionValue[IDs]=!=None,
+		If[Length[Dimensions[OptionValue[IDs]]]!=1,Message[NanoWarning::message,"IDs specified must be a 1 dimensional array"]];
+		url = url <> "&clusterID=[" <> StringRiffle[OptionValue[IDs],","] <> "]";
+	];
+	
+	req = HTTPRequest[url, 
+	<|
+	"Method" ->"GET",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal= URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	Return[ImportString[RetVal[[2]],"RawJSON"]];
 ]
 
 Options[DecodePM]={Results->"BinaryPM",RowSort->False,Scaled->False};
@@ -188,14 +205,6 @@ DecodePM[NanoHandle_,OptionsPattern[]]:=
 		sampleSortedPM=PM[[All,#]]&/@ord;
 		image=Transpose[Table[If[numberOfEachSample[[i]]!=0,Count[#,0]&/@sampleSortedPM[[i]]/numberOfEachSample[[i]]*1.,ConstantArray[0,Length[sampleSortedPM[[i]]]]],{i,1,Length[numberOfEachSample]}]];
 		
-(*		Print[Dimensions[numberOfEachSample]];
-		Print[Dimensions[ord]];
-		Print[Dimensions[sampleSortedPM]];
-		Print[Dimensions[image]];
-		Print[strm];
-		Print[min];
-		Print[max];*)
-		
 		If[MemberQ[results,"SourceVector"],
 			If[OptionValue[Scaled],
 				sourceVec=(#*(max-min)+min)&/@image;,
@@ -230,8 +239,8 @@ End[] (* End Private Context *)
 
 Protect[GetNanoStatus]
 Protect[DecodePM]
-Protect[GetThreshold]
 Protect[GetNanoResults]
 Protect[GetBufferStatus]
+Protect[GetRootCause]
 
 EndPackage[]

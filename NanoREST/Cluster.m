@@ -19,6 +19,7 @@ Begin["`Private`"] (* Begin Private Context *)
 Options[LoadData]={AppendData->False,GZip->False};
 LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{bytes,req,url,RetVal,NumericFormat,tempFile},
 	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	If[Data===$Failed,Message[NanoWarning::message,"Invalid data"];Return[]];
 	
 	If[MemberQ[{True,False},OptionValue[AppendData]]==False,
 		Message[InvalidOption::option,ToString[OptionValue[AppendData]],ToString[AppendData]];
@@ -30,7 +31,9 @@ LoadData[NanoHandle_,Data_,OptionsPattern[]]:=Module[{bytes,req,url,RetVal,Numer
 		Return[]
 	];
 	
-	NumericFormat=GetConfig[NanoHandle]["numericFormat"];
+	NumericFormat=GetConfig[NanoHandle];
+	If[NumericFormat=!=Null,NumericFormat=NumericFormat["numericFormat"],
+		Return[]];
 	tempFile=CreateFile[];
 	bytes=ExportByteArray[Data,Which[NumericFormat=="float32","Real32",NumericFormat=="uint16","UnsignedInteger16",NumericFormat=="int16","Integer32",True,NumericFormat]];
 	BinaryWrite[tempFile,bytes];
