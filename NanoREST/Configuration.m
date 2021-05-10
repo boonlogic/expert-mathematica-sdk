@@ -18,6 +18,8 @@ LearningQ::usage="Learning[NanoHandle] checks whether learning is on"
 
 SetLearningStatus::usage="SetLearningStatus[NanoHandle,Status] set the learning to true if status is true and false if status is false"
 
+SetRootCauseEnabled::usage="SetRootCauseEnabled[NanoHandle,Status] sets the root cause ghost clusters to be on or off"
+
 (*Options*)
 MinVals::usage=""
 MaxVals::usage=""
@@ -240,6 +242,24 @@ SetLearningStatus[NanoHandle_,Status_]:=Module[{req,RetVal},
 	Return[];
 ]
 
+SetRootCauseEnabled[NanoHandle_,Status_]:=Module[{req,RetVal},
+	If[NanoHandle===Null,Message[NanoError::handle,HoldForm[NanoHandle]];Return[]];
+	If[ToString[Status]!=True && ToString[Status]!=False, Message[MissingParameter::argerr,Status];Return[]];
+	req = HTTPRequest[NanoHandle["url"]
+		<>"rootCause/"<>NanoHandle["instance"]
+		<>"?enable="<>ToLowerCase[ToString[Status]]
+		<>"&api-tenant="<>NanoHandle["api-tenant"],
+	<|
+	"Method"->"POST",
+	"Headers"->{"Content-Type"->"application/json","x-token"->NanoHandle["api-key"]}|>];
+	RetVal=URLRead[req,{"Status","Body"}];
+	If[RetVal[[1]]!=200 && RetVal[[1]]!=201,
+		Message[NanoError::return,ToString[RetVal[[1]]],RetVal[[2]]];
+		Return[];
+	];
+	Return[];
+]
+
 End[] (* End Private Context *)
 
 Protect[GetConfig]
@@ -249,5 +269,6 @@ Protect[GetAutotuneArray]
 
 Protect[LearningQ]
 Protect[SetLearningStatus]
+Protect[SetRootCauseEnabled]
 
 EndPackage[]

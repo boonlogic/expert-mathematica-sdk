@@ -103,7 +103,7 @@ ComputePercentVariation[V1_,V2_,Min_,Max_,WeightsIn_:1]:=Module[{PatternLength,E
 	];
 	
 	If[WeightsIn===1,Weights=ConstantArray[1,PatternLength],
-	If[Length[WeightsIn]!=PatternLength, Message[NanoError::length];Return[]],
+	If[Length[WeightsIn]!=PatternLength, Message[NanoError::length];Return[]];
 	Weights=WeightsIn];
 	
 	ColPercentDifferences=Abs[ListClip[V1,ExpandedMinVal,ExpandedMax]-ListClip[V2,ExpandedMinVal,ExpandedMax]]/(ExpandedMax-ExpandedMinVal+1);
